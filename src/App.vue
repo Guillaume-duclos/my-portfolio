@@ -1,7 +1,12 @@
 <template>
   <div class="app">
     <Header />
-    <router-view />
+
+    <router-view v-slot="{ Component }">
+      <transition name="scale" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -11,8 +16,15 @@ import Header from './components/Header.vue';
 
 <style scoped lang="sass">
 .app
+  position: relative
   display: flex
   flex-direction: column
   height: 100%
-  border: 0px solid red
+
+  .scale-enter-active, .scale-leave-active
+    transition: all .35s ease
+
+  .scale-enter-from, .scale-leave-to
+    opacity: 0
+    transform: scale(.95)
 </style>

@@ -2,8 +2,8 @@
   <li>
     <header @click="open">
       <div>
-        <h4>{{ data.name }}</h4>
-        <h5>{{ data.scope }}</h5>
+        <h4>{{ props.data.name }}</h4>
+        <h5>{{ props.data.scope }}</h5>
       </div>
 
       <img v-if="visible" src="../assets/icons/close.svg" alt="Fermer" />
@@ -17,7 +17,7 @@
       @before-leave="start"
       @after-leave="end">
       <div class="content" v-show="visible">
-        <p class="description">{{ data.description }}</p>
+        <p class="description">{{ props.data.description }}</p>
       </div>
     </transition>
   </li>
@@ -37,12 +37,10 @@ const open = () => {
 };
 
 const start = (element) => {
-  console.log('start');
   element.style.height = `${element.scrollHeight}px`;
 };
 
 const end = (element) => {
-  console.log('end');
   element.style.height = '';
 };
 </script>
@@ -79,10 +77,10 @@ li
 
   .item-enter-active, .item-leave-active
     will-change: height, opacity
-    transition: height 1s ease, opacity 1s ease
+    transition: height .4s cubic-bezier(.76, .07, .53, .89), opacity .6s ease .4s
     overflow: hidden
 
-  .item-enter, .item-leave-to
+  .item-enter-from, .item-leave-to
     height: 0 !important
     opacity: 0
 </style>
