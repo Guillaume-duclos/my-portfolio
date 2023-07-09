@@ -26,5 +26,5 @@ import Header from './components/Header.vue';
 
   .scale-enter-from, .scale-leave-to
     opacity: 0
-    transform: scale(.95)
+    // transform: scale(.95)
 </style>

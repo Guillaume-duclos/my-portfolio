@@ -4,21 +4,22 @@
       <div>
         <h2>{{ titlePage }}</h2>
         <p>
-          {{ activeListIndex }}<span>/{{ companyCount }}</span>
+          <span>{{ activeListIndex }}</span>
+          <span>/{{ companyCount }}</span>
         </p>
       </div>
     </aside>
 
-    <main class="content" ref="content">
-      <ul
-        v-for="(company, index) in ProfessionalProjects"
-        :key="`company-${index}`"
-        :ref="`list-${index}`">
-        <Item
-          v-for="(projet, index) in company.projects"
-          :key="`project-${index}`"
-          :data="projet" />
-      </ul>
+    <main class="content">
+      <div class="content-lists-container" ref="content">
+        <ul v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
+          <Item
+            v-for="(projet, index) in company.projects"
+            :key="`project-${index}`"
+            :data="projet"
+            @open="refreshScrollTrigger" />
+        </ul>
+      </div>
 
       <Navigation
         :previousPage="{ label: 'Home', name: 'Home' }"
@@ -36,49 +37,21 @@ import ProfessionalProjects from '../data/professional-projects.json';
 import Navigation from '../components/Navigation.vue';
 
 const content = ref();
-const list = ref();
 const activeList = ref(0);
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
 
-  console.log(content.value.children);
-  console.log(content.value.children.length);
-
-  // Object.keys(list.value).forEach((el) => {
-  //   console.log(list.value[el][0]);
-  // });
-
   for (let i = 0; i < content.value.children.length; i++) {
-    console.log(content.value.children[i]);
-
-    gsap.to(content.value.children[i], {
-      scrollTrigger: {
-        trigger: content.value.children[i],
-        start: 'top center',
-        end: '20% center',
-        scrub: true,
-        markers: true,
-      },
-      onStart: () => updateActiveList(i),
+    ScrollTrigger.create({
+      trigger: content.value.children[i],
+      start: 'top center',
+      end: 'bottom center',
+      scrub: true,
+      markers: true,
+      onUpdate: () => updateActiveList(i),
     });
   }
-
-  //   content.value.children.forEach((element) => {
-  //     console.log(element);
-  //
-  //     gsap.to(element, {
-  //       scrollTrigger: {
-  //         trigger: element,
-  //         start: 'top center',
-  //         end: '20% center',
-  //         scrub: true,
-  //       },
-  //       duration: 0.8,
-  //       opacity: 1,
-  //     });
-  //   });
-  // }
 });
 
 // Retourne le numéro de la liste courente
@@ -96,8 +69,14 @@ const titlePage = computed(() => {
   return ProfessionalProjects[activeList.value].company;
 });
 
+// Set l'index de la liste active
 const updateActiveList = (index) => {
   activeList.value = index;
+};
+
+// Refresh le scrollTrigger lors de l'ouverture de la fermeture d'un item
+const refreshScrollTrigger = () => {
+  ScrollTrigger.refresh();
 };
 </script>
 
@@ -106,7 +85,7 @@ const updateActiveList = (index) => {
   flex: 1
   display: flex
   justify-content: space-between
-  height: calc(100vh - 80px - 24px * 2)
+  height: calc(100vh - 80px - 48px)
   padding: calc(80px + 24px) 24px 24px 24px
   border: 0px solid red
 
@@ -137,30 +116,37 @@ const updateActiveList = (index) => {
         white-space: pre-wrap
         word-wrap: break-word
 
-      span
-        line-height: 30px
-        font-size: 30px
+      p
+
+        span:first-of-type
+          letter-spacing: -4px
+          font-variant-numeric: tabular-nums
+
+        span:last-of-type
+          line-height: 30px
+          font-size: 30px
 
   .content
     flex: 1
-    height: 100%
     max-width: 500px
     border: 0px solid black
 
-    ul
-      margin: 0
-      padding: 0
-      width: 100%
-      max-width: 500px
-      overflow: auto
-      border: 0px solid red
+    .content-lists-container
+      border: 1px solid black
 
-      &:not(:last-of-type)
-        margin-bottom: 130px
+      ul
+        margin: 0
+        padding: 0
+        width: 100%
+        max-width: 500px
+        border: 1px solid red
 
-      li
-        list-style-type: none
+        &:not(:last-of-type)
+          margin-bottom: 130px
 
-    &::-webkit-scrollbar
-      display: none
+        li
+          list-style-type: none
+
+      &::-webkit-scrollbar
+        display: none
 </style>

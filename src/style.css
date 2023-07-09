@@ -17,13 +17,13 @@
 body {
   margin: 0;
   padding: 0;
-  min-height: calc(100vh - 24px * 2);
+  /*min-height: calc(100vh - 24px * 2);*/
 }
 
 #app {
   margin: 0 auto;
   padding: 0;
-  height: calc(100vh - 24px * 2);
+  /*height: calc(100vh - 24px * 2);*/
 }
 
 @media (prefers-color-scheme: light) {

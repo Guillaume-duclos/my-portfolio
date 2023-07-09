@@ -10,12 +10,7 @@
       <img v-else src="../assets/icons/open.svg" alt="Ouvrir" />
     </header>
 
-    <transition
-      name="item"
-      @enter="start"
-      @after-enter="end"
-      @before-leave="start"
-      @after-leave="end">
+    <transition name="item" v-on:enter="enter" v-on:leave="leave">
       <div class="content" v-show="visible">
         <p class="description">{{ props.data.description }}</p>
       </div>
@@ -25,6 +20,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { gsap } from 'gsap';
+
+const emit = defineEmits(['open']);
 
 const props = defineProps({
   data: Object,
@@ -32,16 +30,45 @@ const props = defineProps({
 
 const visible = ref(false);
 
+const enter = (element: any, done: any) => {
+  // On créer la timeline
+  let timeline = gsap.timeline({ onComplete: done });
+
+  // On set l'opacité du contenu à 0
+  timeline.set(element, {
+    opacity: 0,
+    height: 0,
+  });
+
+  // Ouverture de l'item
+  timeline.to(element, {
+    duration: 0.4,
+    height: element.scrollHeight,
+    ease: 'power3.inOut',
+    onComplete: () => emit('open'),
+  });
+
+  // Opacité du contenu
+  timeline.to(element, {
+    duration: 0.4,
+    opacity: 1,
+    ease: 'power3.inOut',
+  });
+};
+
+const leave = (element: any, done: any) => {
+  // Opacité du contenu
+  gsap.to(element, {
+    duration: 0.4,
+    height: 0,
+    opacity: 0,
+    ease: 'power3.inOut',
+    onComplete: () => emit('open'),
+  });
+};
+
 const open = () => {
   visible.value = !visible.value;
-};
-
-const start = (element) => {
-  element.style.height = `${element.scrollHeight}px`;
-};
-
-const end = (element) => {
-  element.style.height = '';
 };
 </script>
 
@@ -68,19 +95,11 @@ li
       opacity: .4
 
   .content
+    overflow: hidden
 
     .description
       margin: 20px 0 0 0
       font-size: 14px
       opacity: .4
       font-weight: 500
-
-  .item-enter-active, .item-leave-active
-    will-change: height, opacity
-    transition: height .4s cubic-bezier(.76, .07, .53, .89), opacity .6s ease .4s
-    overflow: hidden
-
-  .item-enter-from, .item-leave-to
-    height: 0 !important
-    opacity: 0
 </style>
