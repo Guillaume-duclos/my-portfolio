@@ -10,13 +10,13 @@
           <router-link to="ProfessionalProjects" active-class="active">Projets pro</router-link>
         </li>
         <li>
-          <router-link to="PersonalProjects">Projets perso</router-link>
+          <router-link to="PersonalProjects" active-class="active">Projets perso</router-link>
         </li>
         <li>
-          <router-link to="Stack">Stack</router-link>
+          <router-link to="Stack" active-class="active">Stack</router-link>
         </li>
         <li>
-          <router-link to="Contact">Me contacter</router-link>
+          <router-link to="Contact" active-class="active">Me contacter</router-link>
         </li>
         <li>
           <router-link to="">Mon CV</router-link>

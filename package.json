@@ -1,7 +1,7 @@
 {
   "name": "my-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,9 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/three": "^0.152.1",
     "prettier": "^2.8.8",
-    "three": "^0.154.0",
     "vue": "^3.2.47",
     "vue-router": "^4.2.4"
   },

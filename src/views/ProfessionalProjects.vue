@@ -38,9 +38,9 @@ const companyCount = computed(() => {
 
 <style scoped lang="sass">
 .page
+  flex: 1
   display: flex
   justify-content: space-between
-  flex: 1
   height: calc(100vh - 80px - 24px * 2)
   padding: calc(80px + 24px) 24px 24px 24px
   border: 0px solid black

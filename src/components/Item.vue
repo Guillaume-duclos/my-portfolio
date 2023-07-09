@@ -38,13 +38,11 @@ const open = () => {
 
 const start = (element) => {
   console.log('start');
-  console.log('element.scrollHeight : ', element.scrollHeight);
   element.style.height = `${element.scrollHeight}px`;
 };
 
 const end = (element) => {
   console.log('end');
-  console.log(element);
   element.style.height = '';
 };
 </script>
@@ -67,8 +65,9 @@ li
       font-size: 18px
 
     h5
-      opacity: .4
+      margin-top: 4px
       font-weight: 600
+      opacity: .4
 
   .content
 
@@ -80,7 +79,7 @@ li
 
   .item-enter-active, .item-leave-active
     will-change: height, opacity
-    transition: height .3s ease, opacity .3s ease
+    transition: height 1s ease, opacity 1s ease
     overflow: hidden
 
   .item-enter, .item-leave-to
