@@ -11,9 +11,10 @@
 
     <main>
       <ul v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
-        <li v-for="(projet, index) in company.projects" :key="`project-${index}`">
-          <Item :data="projet" />
-        </li>
+        <Item
+          v-for="(projet, index) in company.projects"
+          :key="`project-${index}`"
+          :data="projet" />
       </ul>
 
       <Navigation

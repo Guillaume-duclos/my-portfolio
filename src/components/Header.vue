@@ -7,7 +7,7 @@
     <nav>
       <ul>
         <li>
-          <router-link to="ProfessionalProjects">Projets pro</router-link>
+          <router-link to="ProfessionalProjects" active-class="active">Projets pro</router-link>
         </li>
         <li>
           <router-link to="PersonalProjects">Projets perso</router-link>
@@ -68,4 +68,11 @@ header
           font-size: 14px
           font-weight: 500
           text-decoration: none
+
+          &.active::after
+            content: ''
+            display: block
+            width: 100%
+            height: 3px
+            background-color: #000000
 </style>
