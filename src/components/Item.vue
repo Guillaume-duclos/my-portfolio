@@ -2,8 +2,8 @@
   <li>
     <header @click="open">
       <div>
-        <h4>{{ props.data.name }}</h4>
-        <h5>{{ props.data.scope }}</h5>
+        <h4>{{ props.data?.name || props.title }}</h4>
+        <h5>{{ props.data?.scope || props.subTitle }}</h5>
       </div>
 
       <img v-if="visible" src="../assets/icons/close.svg" alt="Fermer" />
@@ -12,24 +12,35 @@
 
     <transition name="item" v-on:enter="enter" v-on:leave="leave">
       <div class="content" v-show="visible">
-        <p class="description">{{ props.data.description }}</p>
+        <p class="description">{{ props.data?.description }}</p>
+        <slot />
       </div>
     </transition>
   </li>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
 
 const emit = defineEmits(['open']);
 
 const props = defineProps({
   data: Object,
+  title: String,
+  subTitle: String,
 });
 
 const visible = ref(false);
 
+onMounted(() => {
+  gsap.registerPlugin(CustomEase);
+  CustomEase.create('heightEase', '0.76, 0.07, 0.53, 0.89');
+  CustomEase.create('opacityEase', '0.25, 0.1, 0.25, 1');
+});
+
+// Animation d'ouverture de l'item
 const enter = (element: any, done: any) => {
   // On créer la timeline
   let timeline = gsap.timeline({ onComplete: done });
@@ -44,29 +55,31 @@ const enter = (element: any, done: any) => {
   timeline.to(element, {
     duration: 0.4,
     height: element.scrollHeight,
-    ease: 'power3.inOut',
+    ease: 'heightEase',
     onComplete: () => emit('open'),
   });
 
   // Opacité du contenu
   timeline.to(element, {
-    duration: 0.4,
+    duration: 0.2,
     opacity: 1,
-    ease: 'power3.inOut',
+    ease: 'opacityEase',
   });
 };
 
+// Animation de fermeture de l'item
 const leave = (element: any, done: any) => {
   // Opacité du contenu
   gsap.to(element, {
     duration: 0.4,
-    height: 0,
     opacity: 0,
-    ease: 'power3.inOut',
+    height: 0,
+    ease: 'heightEase',
     onComplete: () => emit('open'),
   });
 };
 
+// On set l'affichage ou non de l'item
 const open = () => {
   visible.value = !visible.value;
 };

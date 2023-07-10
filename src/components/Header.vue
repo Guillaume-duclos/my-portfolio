@@ -73,6 +73,6 @@ header
             content: ''
             display: block
             width: 100%
-            height: 3px
+            height: 2px
             background-color: #000000
 </style>
