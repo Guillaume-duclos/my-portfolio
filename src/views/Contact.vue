@@ -74,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import PageTitle from './PageTitle.vue';
+import PageTitle from '../components/PageTitle.vue';
 import Item from '../components/Item.vue';
 import Navigation from '../components/Navigation.vue';
 </script>

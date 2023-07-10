@@ -35,11 +35,17 @@ header
   align-items: center
   justify-content: space-between
   padding: 0 24px
-  width: calc(100% - 24px * 2)
+  max-width: 1400px
   height: 80px
-  border: 0px solid black
-  backdrop-filter: blur(10px)
+  left: 24px
+  right: 24px
+  backdrop-filter: blur(12px)
   z-index: 1
+
+  @media (min-width: 1100px)
+    left: 54px
+    right: 54px
+    padding: 0 54px
 
   h1
     font-size: 30px
@@ -58,6 +64,9 @@ header
       display: flex
       grid-gap: 24px
       border: 0px solid black
+
+      @media (min-width: 1100px)
+        grid-gap: 32px
 
       li
         list-style-type: none

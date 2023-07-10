@@ -30,7 +30,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Item from '../components/Item.vue';
 import ProfessionalProjects from '../data/professional-projects.json';
 import Navigation from '../components/Navigation.vue';
-import PageTitle from './PageTitle.vue';
+import PageTitle from '../components/PageTitle.vue';
 
 const content = ref();
 const activeList = ref(0);

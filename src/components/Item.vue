@@ -10,7 +10,7 @@
       <img v-else src="../assets/icons/open.svg" alt="Ouvrir" />
     </header>
 
-    <transition name="item" v-on:enter="enter" v-on:leave="leave">
+    <transition v-on:enter="enter" v-on:leave="leave">
       <div class="content" v-show="visible">
         <p class="description">{{ props.data?.description }}</p>
         <slot />

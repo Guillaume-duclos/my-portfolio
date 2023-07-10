@@ -3,7 +3,7 @@
     <Header />
 
     <router-view v-slot="{ Component }">
-      <transition name="scale" mode="out-in">
+      <transition v-on:enter="enter" v-on:leave="leave" mode="out-in" appear>
         <component :is="Component" />
       </transition>
     </router-view>
@@ -11,7 +11,47 @@
 </template>
 
 <script setup lang="ts">
+import { gsap } from 'gsap';
+import { onMounted } from 'vue';
+import { CustomEase } from 'gsap/CustomEase';
 import Header from './components/Header.vue';
+
+onMounted(() => {
+  gsap.registerPlugin(CustomEase);
+  CustomEase.create('opacityEase', '0.25, 0.1, 0.25, 1');
+});
+
+// Animation d'ouverture de l'item
+const enter = (element: any, done: any) => {
+  // Affichage de la page
+  gsap.fromTo(
+    element,
+    {
+      autoAlpha: 0,
+    },
+    {
+      autoAlpha: 1,
+      duration: 0.6,
+      onComplete: done,
+    }
+  );
+};
+
+// Animation de fermeture de l'item
+const leave = (element: any, done: any) => {
+  // On cache la page
+  gsap.fromTo(
+    element,
+    {
+      autoAlpha: 1,
+    },
+    {
+      autoAlpha: 0,
+      duration: 0.6,
+      onComplete: done,
+    }
+  );
+};
 </script>
 
 <style lang="sass">
@@ -28,9 +68,12 @@ import Header from './components/Header.vue';
     height: calc(100vh - 80px - 48px)
     padding: calc(80px + 24px) 24px 24px 24px
 
+    @media (min-width: 1100px)
+      padding: calc(80px + 24px) 54px 24px 54px
+
     .content
       flex: 1
-      max-width: 500px
+      max-width: 600px
       border: 0px solid black
 
       .content-lists-container
@@ -40,7 +83,6 @@ import Header from './components/Header.vue';
           margin: 0
           padding: 0
           width: 100%
-          max-width: 500px
 
           &:not(:last-of-type)
             margin-bottom: 130px
@@ -48,9 +90,9 @@ import Header from './components/Header.vue';
           li
             list-style-type: none
 
-  .scale-enter-active, .scale-leave-active
-    transition: all .35s ease
-
-  .scale-enter-from, .scale-leave-to
-    opacity: 0
+  //.scale-enter-active, .scale-leave-active
+  //  transition: all .35s ease
+  //
+  //.scale-enter-from, .scale-leave-to
+  //  opacity: 0
 </style>

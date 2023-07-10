@@ -12,9 +12,9 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  titlePage: Number,
-  activeListIndex: Number,
-  companyCount: Number,
+  titlePage: String,
+  activeListIndex: String,
+  companyCount: String,
 });
 </script>
 
