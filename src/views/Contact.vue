@@ -39,22 +39,22 @@
             <form class="content-form">
               <div class="content-input-container">
                 <label>Email : *</label>
-                <input type="email" required />
+                <input type="email" required placeholder="john.doe@mail.com" />
               </div>
 
               <div class="content-input-container">
                 <label>Célulaire :</label>
-                <input type="tel" />
+                <input type="tel" placeholder="+1 (000)-000-0000" />
               </div>
 
               <div class="content-input-container">
                 <label>Objet : *</label>
-                <input type="text" required />
+                <input type="text" required placeholder="Que me vaut ce plaisir ?" />
               </div>
 
               <div class="content-input-container">
                 <label>Message : *</label>
-                <textarea required />
+                <textarea required placeholder="Votre message ici..." />
               </div>
 
               <input type="submit" value="Envoyer" />
@@ -113,12 +113,10 @@ import Navigation from '../components/Navigation.vue';
       text-decoration: none
 
 .content-form
-  border: 0px solid black
 
   .content-input-container
     display: flex
     flex-direction: column
-    border: 0px solid black
 
     &:not(:first-of-type) label
       margin-top: 20px
@@ -130,13 +128,16 @@ import Navigation from '../components/Navigation.vue';
       font-weight: 500
 
     input, textarea
-      padding: 0 10px
+      padding: 0 10px 0 0
       background: transparent
       color: #000000
       border: 0
       outline: none
       font-size: 18px
       border-bottom: 1px solid rgba(0, 0, 0, .08)
+
+      &::placeholder
+        color:  rgba(0, 0, 0, .2)
 
     input[required] + label:after
       content: ' *'
@@ -146,7 +147,7 @@ import Navigation from '../components/Navigation.vue';
       height: 40px
 
     textarea
-      padding: 6px 10px
+      padding: 8px 0
       height: 150px
       resize: none
       font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif

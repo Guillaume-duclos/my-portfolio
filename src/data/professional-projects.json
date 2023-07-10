@@ -1,7 +1,7 @@
 [
   {
-    "company": "We \nCraft \nApps",
-    "projects": [
+    "title": "We \nCraft \nApps",
+    "list": [
       {
         "name": "Manrina",
         "scope": "Back-office, Mobile, API",
@@ -50,8 +50,8 @@
     ]
   },
   {
-    "company": "Idix",
-    "projects": [
+    "title": "Idix",
+    "list": [
       {
         "name": "Manrina",
         "scope": "Back-office, Mobile, API",
@@ -100,8 +100,8 @@
     ]
   },
   {
-    "company": "Warrega",
-    "projects": [
+    "title": "Warrega",
+    "list": [
       {
         "name": "Manrina",
         "scope": "Back-office, Mobile, API",

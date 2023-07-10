@@ -7,9 +7,9 @@
 
     <main class="content">
       <div class="content-lists-container" ref="content">
-        <ul v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
+        <ul v-for="(company, index) in Stacks" :key="`company-${index}`">
           <Item
-            v-for="(projet, index) in company.projects"
+            v-for="(projet, index) in company.list"
             :key="`project-${index}`"
             :data="projet"
             @open="refreshScrollTrigger" />
@@ -28,7 +28,7 @@ import { computed, onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Item from '../components/Item.vue';
-import ProfessionalProjects from '../data/professional-projects.json';
+import Stacks from '../data/stack.json';
 import Navigation from '../components/Navigation.vue';
 import PageTitle from '../components/PageTitle.vue';
 
@@ -57,12 +57,12 @@ const activeListIndex = computed(() => {
 
 // Compte le nombre de listes affichés
 const companyCount = computed(() => {
-  return ('0' + ProfessionalProjects.length).slice(-2);
+  return ('0' + Stacks.length).slice(-2);
 });
 
 // Retourne le titre de la liste courente
 const titlePage = computed(() => {
-  return ProfessionalProjects[activeList.value].company;
+  return Stacks[activeList.value].title;
 });
 
 // Set l'index de la liste active

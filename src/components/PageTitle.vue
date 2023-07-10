@@ -26,6 +26,7 @@ const props = defineProps({
   flex-direction: column
   justify-content: space-between
   height: 100%
+  overflow: auto
   border: 0px solid black
 
   div

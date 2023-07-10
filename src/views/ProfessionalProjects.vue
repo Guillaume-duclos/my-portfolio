@@ -9,7 +9,7 @@
       <div class="content-lists-container" ref="content">
         <ul v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
           <Item
-            v-for="(projet, index) in company.projects"
+            v-for="(projet, index) in company.list"
             :key="`project-${index}`"
             :data="projet"
             @open="refreshScrollTrigger" />
@@ -62,7 +62,7 @@ const companyCount = computed(() => {
 
 // Retourne le titre de la liste courente
 const titlePage = computed(() => {
-  return ProfessionalProjects[activeList.value].company;
+  return ProfessionalProjects[activeList.value].title;
 });
 
 // Set l'index de la liste active

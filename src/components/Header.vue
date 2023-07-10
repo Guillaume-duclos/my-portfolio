@@ -37,8 +37,8 @@ header
   padding: 0 24px
   max-width: 1400px
   height: 80px
-  left: 24px
-  right: 24px
+  left: 0
+  right: 0
   backdrop-filter: blur(12px)
   z-index: 1
 
