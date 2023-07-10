@@ -17,19 +17,49 @@
             <ul class="content-list">
               <li>
                 <img src="../assets/icons/github.svg" alt="Lien github" />
-                github.com/guillaume-duclos
+                <a href="https://github.com/guillaume-duclos" target="_blank">
+                  github.com/guillaume-duclos
+                </a>
               </li>
               <li>
                 <img src="../assets/icons/twitter.svg" alt="Lien twitter" />
-                twitter.com/GuillaumeDcl
+                <a href="https://twitter.com/GuillaumeDcl" target="_blank">
+                  twitter.com/GuillaumeDcl
+                </a>
               </li>
               <li>
                 <img src="../assets/icons/linkedin.svg" alt="Lien linkedin" />
-                linkedin.com/in/duclos-guillaume
+                <a href="https://linkedin.com/in/duclos-guillaume" target="_blank">
+                  linkedin.com/in/duclos-guillaume
+                </a>
               </li>
             </ul>
           </Item>
-          <Item title="M'écrire" subTitle="Laissez moi un message que je pourrais lire plus tard" />
+          <Item title="M'écrire" subTitle="Laissez moi un message que je pourrais lire plus tard">
+            <form class="content-form">
+              <div class="content-input-container">
+                <label>Email : *</label>
+                <input type="email" required />
+              </div>
+
+              <div class="content-input-container">
+                <label>Célulaire :</label>
+                <input type="tel" />
+              </div>
+
+              <div class="content-input-container">
+                <label>Objet : *</label>
+                <input type="text" required />
+              </div>
+
+              <div class="content-input-container">
+                <label>Message : *</label>
+                <textarea required />
+              </div>
+
+              <input type="submit" value="Envoyer" />
+            </form>
+          </Item>
           <Item
             title="Me laisser un vocale"
             subTitle="Laissez moi un message que je pourrais écouter plus tard" />
@@ -57,6 +87,7 @@ import Navigation from '../components/Navigation.vue';
     border-top: 1px solid rgba(0, 0, 0, .08)
 
   &:not(:last-of-type)
+
     li:last-of-type
       margin-bottom: 20px
 
@@ -76,4 +107,61 @@ import Navigation from '../components/Navigation.vue';
 
     img
       width: 18px
+
+    a
+      color: #000000
+      text-decoration: none
+
+.content-form
+  border: 0px solid black
+
+  .content-input-container
+    display: flex
+    flex-direction: column
+    border: 0px solid black
+
+    &:not(:first-of-type) label
+      margin-top: 20px
+
+    label
+      display: flex
+      flex-direction: column
+      font-size: 14px
+      font-weight: 500
+
+    input, textarea
+      padding: 0 10px
+      background: transparent
+      color: #000000
+      border: 0
+      outline: none
+      font-size: 18px
+      border-bottom: 1px solid rgba(0, 0, 0, .08)
+
+    input[required] + label:after
+      content: ' *'
+      display: contents
+
+    input
+      height: 40px
+
+    textarea
+      padding: 6px 10px
+      height: 150px
+      resize: none
+      font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif
+
+  input[type=submit]
+    margin-top: 40px
+    width: 100%
+    height: 40px
+    border: none
+    font-size: 16px
+    font-weight: 600
+    line-height: 1
+    cursor: pointer
+    color: #FFFFFF
+    text-transform: uppercase
+    background-color: #000000
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif
 </style>
