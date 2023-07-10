@@ -75,5 +75,3 @@ const refreshScrollTrigger = () => {
   ScrollTrigger.refresh();
 };
 </script>
-
-<style scoped lang="sass"></style>

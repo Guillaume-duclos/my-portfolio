@@ -1,5 +1,5 @@
 <template>
-  <section class="home">
+  <section class="page home">
     <main class="content">
       <h2>
         Guillaume <br />
@@ -8,22 +8,22 @@
 
       <h3>
         Développeur full-stack et <br />
-        mobile typescript
+        mobile TypeScript
       </h3>
 
       <ul>
         <li>
-          <a href="">
+          <a href="https://github.com/guillaume-duclos" target="_blank">
             <img src="../assets/icons/github.svg" alt="Lien github" />
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="https://twitter.com/GuillaumeDcl" target="_blank">
             <img src="../assets/icons/twitter.svg" alt="Lien twitter" />
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="https://github.com/guillaume-duclos" target="_blank">
             <img src="../assets/icons/linkedin.svg" alt="Lien linkedin" />
           </a>
         </li>
@@ -40,7 +40,9 @@
 
 <style scoped lang="sass">
 .home
+  flex: none !important
   display: flex
+  grid-gap: 50px
   justify-content: space-between
 
   .content
@@ -51,29 +53,31 @@
 
     h2
       margin: 0
-      font-size: 70px
-      line-height: 70px
-      text-transform: uppercase
+      font-size: 80px
+      line-height: 80px
+
       font-weight: 800
 
     h3
       margin: 10px 0 0 0
       font-size: 24px
-      line-height: 28px
+      line-height: 30px
 
     ul
       margin: 18px 0 0 0
       padding: 0
       display: flex
-      grid-gap: 8px
+      grid-gap: 10px
 
       li
         list-style-type: none
 
   .picture
-    border: 1px solid black
+    display: flex
+    align-items: center
 
     img
       display: block
-      max-width: 500px
+      max-width: 100%
+      max-height: 100%
 </style>

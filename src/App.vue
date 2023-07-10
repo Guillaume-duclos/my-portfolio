@@ -27,7 +27,6 @@ import Header from './components/Header.vue';
     justify-content: space-between
     height: calc(100vh - 80px - 48px)
     padding: calc(80px + 24px) 24px 24px 24px
-    border: 0px solid red
 
     .content
       flex: 1
