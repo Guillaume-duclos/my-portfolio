@@ -2,8 +2,8 @@
   <li>
     <header @click="open">
       <div>
-        <h4>{{ props.data?.name || props.title }}</h4>
-        <h5>{{ props.data?.scope || props.subTitle }}</h5>
+        <h4>{{ props.data?.title || props.title }}</h4>
+        <h5>{{ props.data?.subTitle || props.subTitle }}</h5>
       </div>
 
       <img v-if="visible" src="../assets/icons/close.svg" alt="Fermer" />
@@ -12,7 +12,6 @@
 
     <transition v-on:enter="enter" v-on:leave="leave">
       <div class="content" v-show="visible">
-        <p class="description">{{ props.data?.description }}</p>
         <slot />
       </div>
     </transition>
@@ -85,16 +84,16 @@ const open = () => {
 };
 </script>
 
-<style scoped lang="sass">
+<style lang="sass">
 li
   position: relative
   padding: 30px 0
-  cursor: pointer
   border-bottom: 1px solid rgba(0, 0, 0, .08)
 
   header
     display: flex
     justify-content: space-between
+    cursor: pointer
 
     h4, h5
       margin: 0
@@ -110,9 +109,51 @@ li
   .content
     overflow: hidden
 
-    .description
+    .content-text
       margin: 20px 0 0 0
       font-size: 14px
-      opacity: .4
-      font-weight: 500
+      opacity: .6
+
+    .content-container
+      margin: 20px 0
+      border: 0px solid black
+
+      h6
+        margin: 32px 0 10px 0
+        font-size: 14px
+
+      ul
+        border: 0px solid black
+
+        li
+          padding: 5px 0
+          font-size: 14px
+          border: 0px solid black
+
+          .content-list-title
+            font-weight: 500
+
+          .content-list-text
+            opacity: .6
+
+          .content-list-link
+            position: relative
+            opacity: .6
+            color: #000000
+            text-decoration: none
+
+            &:after
+              content: url('../assets/icons/arrow-link.svg')
+              height: 6px
+              transform: scale(.9)
+              position: absolute
+              right: -16px
+              top: -4px
+              visibility: hidden
+
+            &:hover
+              text-decoration: underline
+
+              &:after
+                visibility: visible
 </style>

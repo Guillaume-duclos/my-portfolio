@@ -9,10 +9,36 @@
       <div class="content-lists-container" ref="content">
         <ul v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
           <Item
-            v-for="(projet, index) in company.list"
+            v-for="(project, index) in company.list"
             :key="`project-${index}`"
-            :data="projet"
-            @open="refreshScrollTrigger" />
+            :data="project"
+            @open="refreshScrollTrigger">
+            <p class="content-text">{{ project.content.description }}</p>
+
+            <div class="content-container">
+              <h6>Missions :</h6>
+              <p class="content-text missions">{{ project.content.missions }}</p>
+            </div>
+
+            <div class="content-container">
+              <h6>Stack :</h6>
+              <ul>
+                <li v-for="(stack, index) in project.content.stack" :key="`stack-${index}`">
+                  <span class="content-list-title">{{ stack.name }} : </span>
+                  <span class="content-list-text">{{ stack.technos }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="content-container">
+              <h6>Liens :</h6>
+              <ul>
+                <li v-for="(link, index) in project.content.links" :key="`stack-${index}`">
+                  <a class="content-list-link" :href="link.link" target="_blank">{{ link.name }}</a>
+                </li>
+              </ul>
+            </div>
+          </Item>
         </ul>
       </div>
 

@@ -27,11 +27,11 @@ const enter = (element: any, done: any) => {
   gsap.fromTo(
     element,
     {
-      scale: 0.96,
+      // scale: 0.96,
       autoAlpha: 0,
     },
     {
-      scale: 1,
+      // scale: 1,
       autoAlpha: 1,
       duration: 0.2,
       onComplete: done,
@@ -46,11 +46,11 @@ const leave = (element: any, done: any) => {
   gsap.fromTo(
     element,
     {
-      scale: 1,
+      // scale: 1,
       autoAlpha: 1,
     },
     {
-      scale: 0.96,
+      // scale: 0.96,
       autoAlpha: 0,
       duration: 0.2,
       onComplete: done,
@@ -82,7 +82,7 @@ const leave = (element: any, done: any) => {
       border: 0px solid black
 
       .content-lists-container
-        border: 0px solid black
+        border: 0px solid red
 
         ul
           margin: 0
