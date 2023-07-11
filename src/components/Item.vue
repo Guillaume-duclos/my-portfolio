@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li class="item">
     <header @click="open">
       <div>
         <h4>{{ props.data?.title || props.title }}</h4>
@@ -85,7 +85,7 @@ const open = () => {
 </script>
 
 <style lang="sass">
-li
+.item
   position: relative
   padding: 30px 0
   border-bottom: 1px solid rgba(0, 0, 0, .08)

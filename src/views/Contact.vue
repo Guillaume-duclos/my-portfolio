@@ -36,28 +36,32 @@
             </ul>
           </Item>
           <Item title="M'écrire" subTitle="Laissez moi un message que je pourrais lire plus tard">
-            <form class="content-form">
+            <form class="content-form" ref="contactForm" @submit.prevent="sendEmail">
               <div class="content-input-container">
                 <label>Email : *</label>
-                <input type="email" required placeholder="john.doe@mail.com" />
+                <input type="email" name="user_email" placeholder="john.doe@mail.com" required />
               </div>
 
               <div class="content-input-container">
                 <label>Célulaire :</label>
-                <input type="tel" placeholder="+1 (000)-000-0000" />
+                <input type="tel" name="user_number" placeholder="+1 (000)-000-0000" />
               </div>
 
               <div class="content-input-container">
                 <label>Objet : *</label>
-                <input type="text" required placeholder="Que me vaut ce plaisir ?" />
+                <input
+                  type="text"
+                  name="user_message_object"
+                  placeholder="Que me vaut ce plaisir ?"
+                  required />
               </div>
 
               <div class="content-input-container">
                 <label>Message : *</label>
-                <textarea required placeholder="Votre message ici..." />
+                <textarea placeholder="Votre message ici..." name="user_message" required />
               </div>
 
-              <input type="submit" value="Envoyer" />
+              <input type="submit" :value="messageStatus" />
             </form>
           </Item>
           <Item
@@ -74,14 +78,50 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from 'vue';
 import PageTitle from '../components/PageTitle.vue';
 import Item from '../components/Item.vue';
 import Navigation from '../components/Navigation.vue';
+import emailJs from '@emailjs/browser';
+
+const contactForm = ref();
+const messageLoading = ref(false);
+const messageSent = ref<undefined | boolean>(undefined);
+
+const messageStatus = computed(() => {
+  if (messageLoading.value) {
+    return 'Envoie en cours';
+  } else if (messageSent.value === true) {
+    return 'Votre message a été envoyé';
+  } else if (messageSent.value === false) {
+    return "Un problème est apparue pendant l'envoie du message";
+  }
+
+  return 'Envoyer';
+});
+
+const sendEmail = () => {
+  messageLoading.value = true;
+  messageSent.value = undefined;
+
+  try {
+    emailJs.sendForm(
+      import.meta.env.VITE_EMAIL_SERVICE_ID,
+      import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+      contactForm.value,
+      import.meta.env.VITE_EMAIL_PUBLIC_KEY
+    );
+  } catch (error) {
+    messageSent.value = false;
+  } finally {
+    messageLoading.value = false;
+  }
+};
 </script>
 
 <style scoped lang="sass">
 .content-list
-  margin: 0 !important
+  margin: 26px 0 0 0 !important
 
   &:not(:first-of-type)
     border-top: 1px solid rgba(0, 0, 0, .08)
@@ -113,6 +153,7 @@ import Navigation from '../components/Navigation.vue';
       text-decoration: none
 
 .content-form
+  margin-top: 26px
 
   .content-input-container
     display: flex
@@ -145,6 +186,11 @@ import Navigation from '../components/Navigation.vue';
 
     input
       height: 40px
+
+      &:-webkit-autofill
+        -webkit-text-fill-color: #000000
+        box-shadow: 0 0 0 50px white inset
+        background-color: transparent
 
     textarea
       padding: 8px 0
