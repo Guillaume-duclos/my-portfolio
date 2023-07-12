@@ -7,39 +7,44 @@
 
     <main class="content">
       <div class="content-lists-container" ref="content">
-        <ul v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
-          <Item
-            v-for="(project, index) in company.list"
-            :key="`project-${index}`"
-            :data="project"
-            @open="refreshScrollTrigger">
-            <p class="content-text">{{ project.content.description }}</p>
+        <div v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
+          <p v-if="showTitle" class="content-title">{{ company.title }}</p>
+          <ul>
+            <Item
+              v-for="(project, index) in company.list"
+              :key="`project-${index}`"
+              :data="project"
+              @open="refreshScrollTrigger">
+              <p class="content-text">{{ project.content.description }}</p>
 
-            <div class="content-container">
-              <h6>Missions :</h6>
-              <p class="content-text missions">{{ project.content.missions }}</p>
-            </div>
+              <div class="content-container">
+                <h6>Missions :</h6>
+                <p class="content-text missions">{{ project.content.missions }}</p>
+              </div>
 
-            <div class="content-container">
-              <h6>Stack :</h6>
-              <ul>
-                <li v-for="(stack, index) in project.content.stack" :key="`stack-${index}`">
-                  <span class="content-list-title">{{ stack.name }} : </span>
-                  <span class="content-list-text">{{ stack.technos }}</span>
-                </li>
-              </ul>
-            </div>
+              <div class="content-container">
+                <h6>Stack :</h6>
+                <ul>
+                  <li v-for="(stack, index) in project.content.stack" :key="`stack-${index}`">
+                    <span class="content-list-title">{{ stack.name }} : </span>
+                    <span class="content-list-text">{{ stack.technos }}</span>
+                  </li>
+                </ul>
+              </div>
 
-            <div class="content-container">
-              <h6>Liens :</h6>
-              <ul>
-                <li v-for="(link, index) in project.content.links" :key="`stack-${index}`">
-                  <a class="content-list-link" :href="link.link" target="_blank">{{ link.name }}</a>
-                </li>
-              </ul>
-            </div>
-          </Item>
-        </ul>
+              <div class="content-container">
+                <h6>Liens :</h6>
+                <ul>
+                  <li v-for="(link, index) in project.content.links" :key="`stack-${index}`">
+                    <a class="content-list-link" :href="link.link" target="_blank">{{
+                      link.name
+                    }}</a>
+                  </li>
+                </ul>
+              </div>
+            </Item>
+          </ul>
+        </div>
       </div>
 
       <Navigation
@@ -51,6 +56,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
+import { useMediaQuery } from '@vueuse/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Item from '../components/Item.vue';
@@ -60,6 +66,7 @@ import PageTitle from '../components/PageTitle.vue';
 
 const content = ref();
 const activeList = ref(0);
+const showTitle = useMediaQuery('(max-width: 760px)');
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);

@@ -64,40 +64,47 @@ const leave = (element: any, done: any) => {
   position: relative
   display: flex
   flex-direction: column
-  height: 100%
+  padding: calc(80px + 24px) 24px 24px 24px
+  border: 0px solid black
+
+  @media (min-width: 1100px)
+    padding: calc(80px + 24px) 54px 24px 54px
 
   .page
     flex: 1
     display: flex
     justify-content: space-between
     height: calc(100vh - 80px - 48px)
-    padding: calc(80px + 24px) 24px 24px 24px
-
-    @media (min-width: 1100px)
-      padding: calc(80px + 24px) 54px 24px 54px
+    border: 0px solid black
 
     .content
       flex: 1
-      max-width: 600px
       border: 0px solid black
+
+      @media (min-width: 760px)
+        max-width: 600px
 
       .content-lists-container
         border: 0px solid red
 
-        ul
+        .content-title
           margin: 0
-          padding: 0
-          width: 100%
+          font-size: 32px
+          font-weight: 700
+
+        > div
+
+          ul
+            margin: 0
+            padding: 0
+            width: 100%
+
+            li
+              list-style-type: none
 
           &:not(:last-of-type)
+            margin-bottom: 80px
+
+          @media (min-width: 760px)
             margin-bottom: 130px
-
-          li
-            list-style-type: none
-
-  //.scale-enter-active, .scale-leave-active
-  //  transition: all .35s ease
-  //
-  //.scale-enter-from, .scale-leave-to
-  //  opacity: 0
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <aside class="title">
+  <aside v-if="showTitle" class="title">
     <div>
       <h2>{{ props.titlePage }}</h2>
       <p v-if="props.companyCount">
@@ -11,11 +11,15 @@
 </template>
 
 <script setup lang="ts">
+import { useMediaQuery } from '@vueuse/core';
+
 const props = defineProps({
   titlePage: String,
   activeListIndex: String,
   companyCount: String,
 });
+
+const showTitle = useMediaQuery('(min-width: 760px)');
 </script>
 
 <style scoped lang="sass">

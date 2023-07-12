@@ -31,12 +31,16 @@
     </main>
 
     <aside class="picture">
-      <img src="../assets/img/photo.jpg" alt="Moi" />
+      <Tilt>
+        <img src="../assets/img/photo.jpg" alt="Moi" />
+      </Tilt>
     </aside>
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Tilt from '../components/Tilt.vue';
+</script>
 
 <style scoped lang="sass">
 .home
@@ -75,9 +79,5 @@
   .picture
     display: flex
     align-items: center
-
-    img
-      display: block
-      max-width: 100%
-      max-height: 100%
+    perspective: 1200px
 </style>

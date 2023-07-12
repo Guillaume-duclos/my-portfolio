@@ -10,7 +10,7 @@
       <img v-else src="../assets/icons/open.svg" alt="Ouvrir" />
     </header>
 
-    <transition v-on:enter="enter" v-on:leave="leave">
+    <transition v-on:enter="enter" v-on:leave="leave" class="content-transition">
       <div class="content" v-show="visible">
         <slot />
       </div>
@@ -105,6 +105,10 @@ const open = () => {
       margin-top: 4px
       font-weight: 600
       opacity: .4
+
+  .content-transition
+    opacity: 0
+    height: 0
 
   .content
     overflow: hidden

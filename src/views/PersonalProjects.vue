@@ -7,24 +7,29 @@
 
     <main class="content">
       <div class="content-lists-container" ref="content">
-        <ul v-for="(company, index) in PersonalProjects" :key="`company-${index}`">
-          <Item
-            v-for="(projet, index) in company.list"
-            :key="`project-${index}`"
-            :data="projet"
-            @open="refreshScrollTrigger" />
-        </ul>
+        <div v-for="(company, index) in PersonalProjects" :key="`company-${index}`">
+          <p v-if="showTitle" class="content-title">{{ company.title }}</p>
+          <ul>
+            <Item
+              v-for="(projet, index) in company.list"
+              :key="`project-${index}`"
+              :data="projet"
+              @open="refreshScrollTrigger">
+            </Item>
+          </ul>
+        </div>
       </div>
 
       <Navigation
-        :previousPage="{ label: 'Home', name: 'Home' }"
-        :nextPage="{ label: 'Projets perso', name: 'PersonalProjects' }" />
+        :previousPage="{ label: 'Projets pro', name: 'ProfessionalProjects' }"
+        :nextPage="{ label: 'Stack', name: 'Stack' }" />
     </main>
   </section>
 </template>
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
+import { useMediaQuery } from '@vueuse/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Item from '../components/Item.vue';
@@ -34,6 +39,7 @@ import PageTitle from '../components/PageTitle.vue';
 
 const content = ref();
 const activeList = ref(0);
+const showTitle = useMediaQuery('(max-width: 760px)');
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
