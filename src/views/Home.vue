@@ -53,7 +53,7 @@ import Tilt from '../components/Tilt.vue';
     display: flex
     flex-direction: column
     justify-content: center
-    border: 1px solid black
+    border: 0px solid black
 
     h2
       margin: 0
@@ -80,4 +80,5 @@ import Tilt from '../components/Tilt.vue';
     display: flex
     align-items: center
     perspective: 1200px
+    padding: 20px 0
 </style>
