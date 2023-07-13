@@ -11,7 +11,7 @@ import VanillaTilt from 'vanilla-tilt';
 const container = ref();
 
 onMounted(() => {
-  VanillaTilt.init(container.value, { max: 6, glare: true, 'max-glare': 0.3 });
+  VanillaTilt.init(container.value, { max: 4, glare: true, 'max-glare': 0.3 });
 });
 </script>
 

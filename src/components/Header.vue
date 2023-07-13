@@ -45,7 +45,7 @@ header
   .header-container
     display: flex
     margin: 0 auto
-    max-width: 1400px
+    max-width: 1200px
     border: 0px solid green
 
     .header-sub-container

@@ -12,9 +12,21 @@
 
 <script setup lang="ts">
 import { gsap } from 'gsap';
-import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { onMounted, watch } from 'vue';
+import { useTitle } from '@vueuse/core';
 import { CustomEase } from 'gsap/CustomEase';
 import Header from './components/Header.vue';
+
+const route = useRoute();
+const title = useTitle();
+
+watch(
+  () => route.name,
+  () => {
+    title.value = `Portfolio de Guillaume Duclos - ${route.meta.name}`;
+  }
+);
 
 onMounted(() => {
   gsap.registerPlugin(CustomEase);
@@ -93,6 +105,7 @@ const leave = (element: any, done: any) => {
           font-weight: 700
 
         > div
+          margin-bottom: 80px
 
           ul
             margin: 0
@@ -102,9 +115,9 @@ const leave = (element: any, done: any) => {
             li
               list-style-type: none
 
-          &:not(:last-of-type)
+          &:last-of-type
             margin-bottom: 80px
 
           @media (min-width: 760px)
-            margin-bottom: 130px
+            margin-bottom: 120px
 </style>
