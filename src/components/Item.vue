@@ -1,6 +1,6 @@
 <template>
-  <li class="item" @click="open" @mouseenter="updateBackgroundColor">
-    <header>
+  <li class="item" @mouseenter="updateBackgroundColor">
+    <header @click="open">
       <div>
         <h4>{{ props.data?.title || props.title }}</h4>
         <h5>{{ props.data?.subTitle || props.subTitle }}</h5>
@@ -43,7 +43,7 @@ onMounted(() => {
 // Animation d'ouverture de l'item
 const enter = (element: any, done: any) => {
   updateBackgroundColor();
-  emit('updateActivesItem', { active: true });
+  emit('updateActivesItem', { active: true, index: props.data?.color });
 
   // On créer la timeline
   let timeline = gsap.timeline({ onComplete: done });
@@ -72,7 +72,7 @@ const enter = (element: any, done: any) => {
 
 // Animation de fermeture de l'item
 const leave = (element: any, done: any) => {
-  emit('updateActivesItem', { active: false });
+  emit('updateActivesItem', { active: false, index: props.data?.color });
 
   // Opacité du contenu
   gsap.to(element, {
@@ -98,13 +98,13 @@ const updateBackgroundColor = () => {
 <style lang="sass">
 .item
   position: relative
-  padding: 30px 0
-  cursor: pointer
   border-bottom: 1px solid rgba(0, 0, 0, .08)
 
   header
     display: flex
     justify-content: space-between
+    padding: 30px 0
+    cursor: pointer
 
     h4, h5
       margin: 0
@@ -115,7 +115,7 @@ const updateBackgroundColor = () => {
     h5
       margin-top: 4px
       font-weight: 600
-      opacity: .4
+      opacity: .6
 
   .content-transition
     opacity: 0
@@ -124,14 +124,18 @@ const updateBackgroundColor = () => {
   .content
     overflow: hidden
 
-    .content-text
-      margin: 20px 0 0 0
-      font-size: 14px
+    p, h6, li
       opacity: .6
 
+    .content-text
+      margin: 10px 0 0 0
+      font-size: 14px
+
     .content-container
-      margin: 20px 0
-      border: 0px solid black
+      margin: 10px 0
+
+      &:last-of-type
+        margin-bottom: 40px
 
       h6
         margin: 32px 0 10px 0
@@ -146,21 +150,17 @@ const updateBackgroundColor = () => {
           border: 0px solid black
 
           .content-list-title
-            font-weight: 500
-
-          .content-list-text
-            opacity: .6
+            font-weight: 600
 
           .content-list-link
             position: relative
-            opacity: .6
             color: #000000
             text-decoration: none
 
             &:after
               content: url('../assets/icons/arrow-link.svg')
               height: 6px
-              transform: scale(.9)
+              transform: scale(.8)
               position: absolute
               right: -16px
               top: -4px

@@ -8,20 +8,20 @@
         "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "missions": "J'ai mis en place des évolutions sur le projet aussi bien sur la partie <strong>back-end</strong> que sur les applications mobile et le back-office. J'ai également été <strong>lead développeur</strong> sur un lot de <strong>grosses évolutions</strong> sur tout le scope du projet.",
           "images": [],
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue"
+              "technos": "Vue, Day.js"
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Mangopay, Webhooks, Nunjucks"
             },
             {
               "name": "Mobile",
-              "technos": "React-Native"
+              "technos": "React-Native, Local Storage, Google Place API"
             }
           ],
           "links": [

@@ -20,8 +20,8 @@
               <p class="content-text">{{ project.content.description }}</p>
 
               <div class="content-container">
-                <h6>Missions :</h6>
-                <p class="content-text missions">{{ project.content.missions }}</p>
+                <h6>Mes missions :</h6>
+                <p class="content-text missions" v-html="project.content.missions" />
               </div>
 
               <div class="content-container">
@@ -68,7 +68,7 @@ import PageTitle from '../components/PageTitle.vue';
 
 const content = ref();
 const activeList = ref(0);
-const activeItemCount = ref(0);
+const activesItem = ref([]);
 const showTitle = useMediaQuery('(max-width: 760px)');
 let root = document.documentElement;
 
@@ -110,9 +110,9 @@ const updateActiveList = (index) => {
 // On met à jour la liste des items actifs
 const updateActivesItem = (value) => {
   if (value.active) {
-    activeItemCount.value += 1;
+    activesItem.value.push(value.index);
   } else {
-    activeItemCount.value -= 1;
+    activesItem.value = activesItem.value.filter((item) => item !== value.index);
   }
 };
 
@@ -122,8 +122,10 @@ const refreshScrollTrigger = () => {
 };
 
 const updateBackgroundColor = () => {
-  if (!activeItemCount.value) {
+  if (!activesItem.value.length) {
     root.style.setProperty('--bg-color', '#FFFFFF');
+  } else {
+    root.style.setProperty('--bg-color', activesItem.value[activesItem.value.length - 1]);
   }
 };
 </script>
