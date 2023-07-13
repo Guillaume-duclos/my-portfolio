@@ -1,17 +1,17 @@
 <template>
-  <li class="item">
-    <header @click="open">
+  <li class="item" @click="open" @mouseenter="updateBackgroundColor">
+    <header>
       <div>
         <h4>{{ props.data?.title || props.title }}</h4>
         <h5>{{ props.data?.subTitle || props.subTitle }}</h5>
       </div>
 
-      <img v-if="visible" src="../assets/icons/close.svg" alt="Fermer" />
+      <img v-if="isVisible" src="../assets/icons/close.svg" alt="Fermer" />
       <img v-else src="../assets/icons/open.svg" alt="Ouvrir" />
     </header>
 
     <transition v-on:enter="enter" v-on:leave="leave" class="content-transition">
-      <div class="content" v-show="visible">
+      <div class="content" v-show="isVisible">
         <slot />
       </div>
     </transition>
@@ -23,15 +23,16 @@ import { onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 
-const emit = defineEmits(['open']);
+const isVisible = ref(false);
+const emit = defineEmits(['refreshScrollTrigger', 'updateActivesItem']);
+let root = document.documentElement;
 
 const props = defineProps({
   data: Object,
+  index: Number,
   title: String,
   subTitle: String,
 });
-
-const visible = ref(false);
 
 onMounted(() => {
   gsap.registerPlugin(CustomEase);
@@ -41,6 +42,9 @@ onMounted(() => {
 
 // Animation d'ouverture de l'item
 const enter = (element: any, done: any) => {
+  updateBackgroundColor();
+  emit('updateActivesItem', { active: true });
+
   // On créer la timeline
   let timeline = gsap.timeline({ onComplete: done });
 
@@ -55,7 +59,7 @@ const enter = (element: any, done: any) => {
     duration: 0.4,
     height: element.scrollHeight,
     ease: 'heightEase',
-    onComplete: () => emit('open'),
+    onComplete: () => emit('refreshScrollTrigger', { index: props.index }),
   });
 
   // Opacité du contenu
@@ -68,19 +72,26 @@ const enter = (element: any, done: any) => {
 
 // Animation de fermeture de l'item
 const leave = (element: any, done: any) => {
+  emit('updateActivesItem', { active: false });
+
   // Opacité du contenu
   gsap.to(element, {
     duration: 0.4,
     opacity: 0,
     height: 0,
     ease: 'heightEase',
-    onComplete: () => emit('open'),
+    onComplete: () => emit('refreshScrollTrigger', { index: props.index }),
   });
 };
 
 // On set l'affichage ou non de l'item
 const open = () => {
-  visible.value = !visible.value;
+  isVisible.value = !isVisible.value;
+};
+
+// On met à jour la couleur de fond
+const updateBackgroundColor = () => {
+  root.style.setProperty('--bg-color', props.data?.color);
 };
 </script>
 
@@ -88,12 +99,12 @@ const open = () => {
 .item
   position: relative
   padding: 30px 0
+  cursor: pointer
   border-bottom: 1px solid rgba(0, 0, 0, .08)
 
   header
     display: flex
     justify-content: space-between
-    cursor: pointer
 
     h4, h5
       margin: 0

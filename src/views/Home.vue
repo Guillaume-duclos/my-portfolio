@@ -1,15 +1,15 @@
 <template>
   <section class="page home">
     <main class="content">
-      <h2>
-        Guillaume <br />
-        Duclos
-      </h2>
+      <div class="home-title" ref="homeTitle">
+        <h2><span>Guillaume</span></h2>
+        <h2><span>Duclos</span></h2>
+      </div>
 
-      <h3>
-        Développeur full-stack et <br />
-        mobile TypeScript
-      </h3>
+      <div class="home-subtitle" ref="homeSubTitle">
+        <h3><span>Développeur full-stack et</span></h3>
+        <h3><span>mobile TypeScript</span></h3>
+      </div>
 
       <ul>
         <li>
@@ -39,7 +39,44 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
 import Tilt from '../components/Tilt.vue';
+
+const homeTitle = ref();
+const homeSubTitle = ref();
+
+onMounted(() => {
+  gsap.registerPlugin(CustomEase);
+  CustomEase.create('heightEase', '0.56, 0.14, 0.32, 0.81');
+
+  const timeLine = gsap.timeline();
+
+  for (let i = 0; i < homeTitle.value.children.length; i++) {
+    timeLine.to(
+      homeTitle.value.children[i].children,
+      {
+        top: 0,
+        duration: 0.7,
+        ease: 'heightEase',
+      },
+      i === 0 ? 0 : 0.2
+    );
+  }
+
+  for (let i = 0; i < homeSubTitle.value.children.length; i++) {
+    timeLine.to(
+      homeSubTitle.value.children[i].children,
+      {
+        top: 0,
+        duration: 0.7,
+        ease: 'heightEase',
+      },
+      0.5
+    );
+  }
+});
 </script>
 
 <style scoped lang="sass">
@@ -55,17 +92,40 @@ import Tilt from '../components/Tilt.vue';
     justify-content: center
     border: 0px solid black
 
-    h2
-      margin: 0
-      font-size: 80px
-      line-height: 80px
+    .home-title
 
-      font-weight: 800
+      h2
+        position: relative
+        margin: 0
+        height: 80px
+        font-size: 80px
+        line-height: 80px
+        font-weight: 800
+        overflow: hidden
+        border: 0px solid black
 
-    h3
-      margin: 10px 0 0 0
-      font-size: 24px
-      line-height: 30px
+        span
+          top: 80px
+          position: absolute
+          border: 0px solid red
+
+    .home-subtitle
+
+      h3
+        position: relative
+        margin: 0
+        height: 30px
+        font-size: 24px
+        overflow: hidden
+        line-height: 30px
+
+        &:first-of-type
+          margin: 10px 0 0 0
+
+        span
+          top: 30px
+          position: absolute
+          border: 0px solid red
 
     ul
       margin: 18px 0 0 0
@@ -77,8 +137,6 @@ import Tilt from '../components/Tilt.vue';
         list-style-type: none
 
   .picture
-    display: flex
-    align-items: center
     perspective: 1200px
     padding: 20px 0
 </style>

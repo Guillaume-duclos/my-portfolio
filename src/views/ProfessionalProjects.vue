@@ -9,12 +9,14 @@
       <div class="content-lists-container" ref="content">
         <div v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
           <p v-if="showTitle" class="content-title">{{ company.title }}</p>
-          <ul>
+          <ul @mouseleave="updateBackgroundColor">
             <Item
               v-for="(project, index) in company.list"
               :key="`project-${index}`"
               :data="project"
-              @open="refreshScrollTrigger">
+              :index="index"
+              @updateActivesItem="updateActivesItem"
+              @refreshScrollTrigger="refreshScrollTrigger">
               <p class="content-text">{{ project.content.description }}</p>
 
               <div class="content-container">
@@ -66,7 +68,9 @@ import PageTitle from '../components/PageTitle.vue';
 
 const content = ref();
 const activeList = ref(0);
+const activeItemCount = ref(0);
 const showTitle = useMediaQuery('(max-width: 760px)');
+let root = document.documentElement;
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
@@ -103,8 +107,23 @@ const updateActiveList = (index) => {
   activeList.value = index;
 };
 
+// On met à jour la liste des items actifs
+const updateActivesItem = (value) => {
+  if (value.active) {
+    activeItemCount.value += 1;
+  } else {
+    activeItemCount.value -= 1;
+  }
+};
+
 // Refresh le scrollTrigger lors de l'ouverture de la fermeture d'un item
 const refreshScrollTrigger = () => {
   ScrollTrigger.refresh();
+};
+
+const updateBackgroundColor = () => {
+  if (!activeItemCount.value) {
+    root.style.setProperty('--bg-color', '#FFFFFF');
+  }
 };
 </script>
