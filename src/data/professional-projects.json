@@ -42,16 +42,16 @@
       },
       {
         "title": "CNH",
-        "subTitle": "Back-office, Mobile",
+        "subTitle": "Back-office, Mobile, One Signal",
         "color": "#DDE2EE",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "missions": "",
           "images": [],
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue"
+              "technos": "Vue, Vuetify"
             },
             {
               "name": "Back",
@@ -59,21 +59,33 @@
             },
             {
               "name": "Mobile",
-              "technos": "React-Native"
+              "technos": "React-Native, i18n, One Signal, Google Maps, Native Modules"
             }
           ],
           "links": [
             {
-              "name": "Application consommateur",
-              "link": "https://apps.apple.com/fr/app/manrina/id1539143521?l=en-GB"
+              "name": "Application New Holland",
+              "link": "https://apps.apple.com/ca/app/new-holland-plm-rtk-plus/id1495790835?l=fr"
             },
             {
-              "name": "Application producteur",
-              "link": "https://apps.apple.com/fr/app/manrina-producteur/id1570860655?l=en"
+              "name": "Application Case IH",
+              "link": "https://apps.apple.com/ca/app/case-ih-afs-rtk-plus/id1495790539?l=fr-CA"
             },
             {
-              "name": "Site vitrine",
-              "link": "https://www.manrina.fr"
+              "name": "Application Raven",
+              "link": "https://apps.apple.com/ca/app/raven-rtk-plus/id6443619246?l=fr-CA"
+            },
+            {
+              "name": "Application STEYR",
+              "link": "https://play.google.com/store/apps/details?id=com.cnhrtkapp.steyr"
+            },
+            {
+              "name": "Application RTK Premium",
+              "link": "https://play.google.com/store/apps/details?id=com.cnhrtkapp.rtkpremium"
+            },
+            {
+              "name": "Application Axioteq",
+              "link": "https://play.google.com/store/apps/details?id=com.cnhrtkapp.axioteq"
             }
           ]
         }

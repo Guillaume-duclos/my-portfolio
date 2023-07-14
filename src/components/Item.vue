@@ -6,8 +6,15 @@
         <h5>{{ props.data?.subTitle || props.subTitle }}</h5>
       </div>
 
-      <img v-if="isVisible" src="../assets/icons/close.svg" alt="Fermer" />
-      <img v-else src="../assets/icons/open.svg" alt="Ouvrir" />
+      <div class="header-buttons">
+        <button class="extend-button" @click="extendItemView">
+          <img src="../assets/icons/arrow-up.svg" alt="Flèche" />
+        </button>
+        <button>
+          <img v-if="isVisible" src="../assets/icons/close.svg" alt="Fermer" />
+          <img v-else src="../assets/icons/open.svg" alt="Ouvrir" />
+        </button>
+      </div>
     </header>
 
     <transition v-on:enter="enter" v-on:leave="leave" class="content-transition">
@@ -24,7 +31,7 @@ import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 
 const isVisible = ref(false);
-const emit = defineEmits(['refreshScrollTrigger', 'updateActivesItem']);
+const emit = defineEmits(['refreshScrollTrigger', 'updateActivesItem', 'extendView']);
 let root = document.documentElement;
 
 const props = defineProps({
@@ -93,6 +100,11 @@ const open = () => {
 const updateBackgroundColor = () => {
   root.style.setProperty('--bg-color', props.data?.color);
 };
+
+// On étend la vue des items
+const extendItemView = () => {
+  emit('extendView');
+};
 </script>
 
 <style lang="sass">
@@ -116,6 +128,29 @@ const updateBackgroundColor = () => {
       margin-top: 4px
       font-weight: 600
       opacity: .6
+
+    .header-buttons
+      display: flex
+      align-items: center
+      grid-gap: 14px
+      border: 0px solid black
+
+      button
+        padding: 0
+        height: 16px
+        border: none
+        background: transparent
+        cursor: pointer
+
+        &.extend-button
+          visibility: hidden
+
+        img
+          display: block
+          height: 100%
+
+    &:hover .header-buttons .extend-button
+      visibility: visible
 
   .content-transition
     opacity: 0

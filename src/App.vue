@@ -91,6 +91,8 @@ const leave = (element: any, done: any) => {
 
     .content
       flex: 1
+      display: flex
+      flex-direction: column
       border: 0px solid black
 
       @media (min-width: 760px)

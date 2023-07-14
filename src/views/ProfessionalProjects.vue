@@ -1,9 +1,11 @@
 <template>
   <section class="page projects">
     <PageTitle
+      ref="pageTitle"
       :titlePage="titlePage"
       :activeListIndex="activeListIndex"
-      :companyCount="companyCount" />
+      :companyCount="companyCount"
+      :hide="itemViewExtended" />
 
     <main class="content">
       <div class="content-lists-container" ref="content">
@@ -15,6 +17,7 @@
               :key="`project-${index}`"
               :data="project"
               :index="index"
+              @extendView="extendItemView"
               @updateActivesItem="updateActivesItem"
               @refreshScrollTrigger="refreshScrollTrigger">
               <p class="content-text">{{ project.content.description }}</p>
@@ -67,8 +70,11 @@ import Navigation from '../components/Navigation.vue';
 import PageTitle from '../components/PageTitle.vue';
 
 const content = ref();
+const pageTitle = ref();
 const activeList = ref(0);
 const activesItem = ref([]);
+const itemViewExtended = ref(false);
+
 const showTitle = useMediaQuery('(max-width: 760px)');
 let root = document.documentElement;
 
@@ -121,11 +127,21 @@ const refreshScrollTrigger = () => {
   ScrollTrigger.refresh();
 };
 
+// On met à jour la couleur de fond
 const updateBackgroundColor = () => {
   if (!activesItem.value.length) {
     root.style.setProperty('--bg-color', '#FFFFFF');
   } else {
     root.style.setProperty('--bg-color', activesItem.value[activesItem.value.length - 1]);
   }
+};
+
+// On étend la vue des items
+const extendItemView = () => {
+  itemViewExtended.value = !itemViewExtended.value;
+
+  gsap.to(pageTitle.value.container, {
+    duration: 1,
+  });
 };
 </script>
