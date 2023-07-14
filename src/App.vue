@@ -83,18 +83,17 @@ const leave = (element: any, done: any) => {
     padding: calc(80px + 24px) 54px 24px 54px
 
   .page
-    flex: 1
     display: flex
     justify-content: space-between
     height: calc(100vh - 80px - 48px)
     border: 0px solid black
 
     .content
-      flex: 1
       display: flex
       flex-direction: column
       margin-top: calc(-80px - 24px)
       padding-top: 80px
+      width: 50%
       height: calc(100vh - 80px)
       overflow: auto
       -ms-overflow-style: none
@@ -106,7 +105,7 @@ const leave = (element: any, done: any) => {
         background: transparent
 
       @media (min-width: 760px)
-        max-width: 600px
+        // max-width: 600px
 
       .content-lists-container
         border: 0px solid red

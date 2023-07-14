@@ -31,7 +31,7 @@ const showTitle = useMediaQuery('(min-width: 760px)');
 
 <style scoped lang="sass">
 .title
-  flex: 1
+  width: 50%
   height: 100%
   border: 0px solid black
 

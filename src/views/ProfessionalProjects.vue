@@ -17,6 +17,7 @@
               :key="`project-${index}`"
               :data="project"
               :index="index"
+              :isViewExtended="itemViewExtended"
               @extendView="extendItemView"
               @updateActivesItem="updateActivesItem"
               @refreshScrollTrigger="refreshScrollTrigger">
@@ -63,6 +64,7 @@
 import { computed, onMounted, ref } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
 import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Item from '../components/Item.vue';
 import ProfessionalProjects from '../data/professional-projects.json';
@@ -80,7 +82,9 @@ const showTitle = useMediaQuery('(max-width: 760px)');
 let root = document.documentElement;
 
 onMounted(() => {
+  gsap.registerPlugin(CustomEase);
   gsap.registerPlugin(ScrollTrigger);
+  CustomEase.create('expendEase', '0.56, 0.14, 0.27, 0.97');
 
   for (let i = 0; i < content.value.children.length; i++) {
     ScrollTrigger.create({
@@ -140,11 +144,18 @@ const updateBackgroundColor = () => {
 
 // On étend la vue des items
 const extendItemView = () => {
-  itemViewExtended.value = !itemViewExtended.value;
-
   gsap.to(pageTitle.value.container, {
-    duration: 1,
-    xPercent: -50,
+    duration: 0.6,
+    marginLeft: itemViewExtended.value ? 0 : '-50%',
+    ease: 'expendEase',
   });
+
+  gsap.to(contentContainer.value, {
+    duration: 0.6,
+    width: itemViewExtended.value ? '50%' : '100%',
+    ease: 'expendEase',
+  });
+
+  itemViewExtended.value = !itemViewExtended.value;
 };
 </script>

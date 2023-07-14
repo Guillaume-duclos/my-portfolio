@@ -7,8 +7,9 @@
       </div>
 
       <div class="header-buttons">
-        <button class="extend-button" @click="extendItemView">
-          <img src="../assets/icons/arrow-up.svg" alt="Flèche" />
+        <button class="extend-button" @click.stop="extendItemView">
+          <img v-if="isViewExtended" src="../assets/icons/arrow-down.svg" alt="Flèche" />
+          <img v-else src="../assets/icons/arrow-up.svg" alt="Flèche" />
         </button>
         <button>
           <img v-if="isVisible" src="../assets/icons/close.svg" alt="Fermer" />
@@ -18,7 +19,7 @@
     </header>
 
     <transition v-on:enter="enter" v-on:leave="leave" class="content-transition">
-      <div class="content" v-show="isVisible">
+      <div class="item-content" v-show="isVisible">
         <slot />
       </div>
     </transition>
@@ -39,6 +40,7 @@ const props = defineProps({
   index: Number,
   title: String,
   subTitle: String,
+  isViewExtended: Boolean,
 });
 
 onMounted(() => {
@@ -156,7 +158,7 @@ const extendItemView = () => {
     opacity: 0
     height: 0
 
-  .content
+  .item-content
     overflow: hidden
 
     p, h6, li
