@@ -7,7 +7,7 @@
       :companyCount="companyCount"
       :hide="itemViewExtended" />
 
-    <main class="content">
+    <main class="content" ref="contentContainer">
       <div class="content-lists-container" ref="content">
         <div v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
           <p v-if="showTitle" class="content-title">{{ company.title }}</p>
@@ -69,6 +69,7 @@ import ProfessionalProjects from '../data/professional-projects.json';
 import Navigation from '../components/Navigation.vue';
 import PageTitle from '../components/PageTitle.vue';
 
+const contentContainer = ref();
 const content = ref();
 const pageTitle = ref();
 const activeList = ref(0);
@@ -88,6 +89,7 @@ onMounted(() => {
       end: 'bottom center',
       scrub: true,
       markers: false,
+      scroller: contentContainer.value,
       onUpdate: () => updateActiveList(i),
     });
   }
@@ -142,6 +144,7 @@ const extendItemView = () => {
 
   gsap.to(pageTitle.value.container, {
     duration: 1,
+    xPercent: -50,
   });
 };
 </script>
