@@ -1,7 +1,5 @@
 <template>
   <section class="page contact">
-    <PageTitle titlePage="Contact" />
-
     <main class="content">
       <div class="content-lists-container" ref="content">
         <div>
@@ -101,7 +99,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
-import PageTitle from '../components/PageTitle.vue';
 import Item from '../components/Item.vue';
 import Navigation from '../components/Navigation.vue';
 import emailJs from '@emailjs/browser';
