@@ -31,16 +31,16 @@ const showTitle = useMediaQuery('(min-width: 760px)');
 
 <style scoped lang="sass">
 .title
-  flex: 1
+  width: 50%
   height: 100%
+  margin-left: 0
   border: 0px solid black
 
   div
-    position: fixed
     display: flex
     flex-direction: column
     justify-content: space-between
-    height: calc(100% - 80px - 24px * 2)
+    height: calc(100vh - 80px - 24px * 2)
 
     h2, p
       margin: 0

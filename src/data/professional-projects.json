@@ -7,8 +7,8 @@
         "subTitle": "Back-office, Mobile, API",
         "color": "#FACAAB",
         "content": {
-          "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "J'ai mis en place des évolutions sur le projet aussi bien sur la partie <strong>back-end</strong> que sur les applications mobile et le back-office. J'ai également été <strong>lead développeur</strong> sur un lot de <strong>grosses évolutions</strong> sur tout le scope du projet.",
+          "description": "Manrina est une startup spécialisée dans la livraison à domicile de produits alimentaires, cultivés par des producteurs locaux. L’objectif est de mettre en relation les producteurs et les consommateurs. Manrina accompagne des producteurs afin qu’ils puissent vendre leurs produits en circuit court, directement aux consommateurs qu’ils soient des particuliers ou des professionnels.<br/><br/>L’application consommateur permet aux clients de passer commande chaque semaine et de se faire livrer à domicile par Manrina. L’API que nous avons développée permet à tous les outils numériques de communiquer entre eux et notamment avec un back office pour administrer toutes les ventes, les tournées de livraison ainsi que les stocks et les utilisateurs.",
+          "missions": ["J'ai mis en place des évolutions sur le projet aussi bien sur la partie <strong>back-end</strong> que sur les applications mobile et le back-office.", "J'ai également été <strong>lead développeur</strong> sur un lot de <strong>grosses évolutions</strong> sur tout le scope du projet."],
           "images": [],
           "stack": [
             {
@@ -45,8 +45,8 @@
         "subTitle": "Back-office, Mobile, One Signal",
         "color": "#DDE2EE",
         "content": {
-          "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "",
+          "description": "CNH Industrial est une holding de droit néerlandais. Il s'agit d'une structure regroupant les activités de construction de machines agricoles et engins de chantier comme par exemple New Holland et Case IH.<br/><br/>Nous avons développé une application mobile pour chaque marque d'engin agricole appartenant au groupe. Celles-ci permettant la géolocalisation en temps réel des rovers en activité.",
+          "missions": ["J'ai mis en place un <strong>back-office</strong> afin de gérer l'envoie de notifications à travers toutes les applications avec <strong>OneSignal</strong>.", "Mise en place de la nouvelle application pour la marque Raven.", "Intégration <strong>natif</strong> en <strong>Swift</strong> et en <strong>Java</strong> du marqueur de géolocalisation de l'utilisateur sur la carte Google Maps."],
           "images": [],
           "stack": [
             {
@@ -91,12 +91,12 @@
         }
       },
       {
-        "title": "Hedifys",
-        "subTitle": "Back-office, API",
-        "color": "#f59557",
+        "title": "Viji",
+        "subTitle": "Back-office, Mobile, API",
+        "color": "#BDD3D9",
         "content": {
-          "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": "ViJi est une startup dans le domaine de la traçabilité appliquée à l'univers du textile dont le focus se situe sur les valeurs RSE des marques, de leurs produits et de leurs fournisseurs.",
+          "missions": ["Mise en place de nouvelles pages et fonctionnalités sur le back office", "Ajout de nouvelles features sur l'application mobile"],
           "images": [],
           "stack": [
             {
@@ -109,21 +109,65 @@
             },
             {
               "name": "Mobile",
+              "technos": "React-Native, i18n"
+            }
+          ],
+          "links": [
+            {
+              "name": "Application mobile",
+              "link": "https://apps.apple.com/fr/app/viji/id1494882949"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Le CRIJ",
+        "subTitle": "Application mobile",
+        "color": "#FDEBB2",
+        "content": {
+          "description": "Le Centre Régional Information Jeunesse (CRIJ) des Pays de la Loire est une association avec mission de service public dédié aux jeunes du territoire.<br/><br/>Dans le cadre d’une démarche de modernisation de ses outils de communication et afin d’être plus proche des usages des jeunes, nous avons réalisé en collaboration avec le CRIJ une application mobile pour les jeunes des Pays de la Loire.",
+          "missions": ["Ajout d'une nouvelle rubrique dans l'application", "Mise en place d'une <strong>montée de version majeur de React-Native</strong> pour continuer le support sur Android"],
+          "images": [],
+          "stack": [
+            {
+              "name": "Mobile",
               "technos": "React-Native"
             }
           ],
           "links": [
             {
-              "name": "Application consommateur",
-              "link": "https://apps.apple.com/fr/app/manrina/id1539143521?l=en-GB"
+              "name": "Application mobile",
+              "link": "https://apps.apple.com/ca/app/tilt-infos-jeunes-fr/id1472495540"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Hedifys",
+        "subTitle": "Back-office, API",
+        "color": "#C0E3FE",
+        "content": {
+          "description": "Hedifys est une société construction de maisons travaillant avec l'agence de vente \"Maison Alysia\". Nous avons mis en place un back-office pour Maison Alysia afin qu'ils puissent configurer les paramètres des différents type de maison.<br/><br/>Un site mis à la dispositions des potentiels clients a également été développé avec un configurateur de prix, de type de maison, de terrain...",
+          "missions": ["J'ai été amené à la construction du <strong>back-office</strong> avec l'équipe", "J'ai mis en place une feature permettant de visualiser toutes les communes de France sur une carte Mapbox via une recherche par code postale. J'ai créer côté serveur un <strong>script d'import</strong> de tous les codes postaux et de leur coordonnées afin de les inscrire dans le base de données"],
+          "images": [],
+          "stack": [
+            {
+              "name": "Front",
+              "technos": "Vue, Mapbox"
             },
             {
-              "name": "Application producteur",
-              "link": "https://apps.apple.com/fr/app/manrina-producteur/id1570860655?l=en"
-            },
+              "name": "Back",
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Amazone S3"
+            }
+          ],
+          "links": [
             {
               "name": "Site vitrine",
-              "link": "https://www.manrina.fr"
+              "link": "https://www.maisons-alysia.com/"
+            },
+            {
+              "name": "Back-office",
+              "link": "https://app.hedifys.com/connexion"
             }
           ]
         }
@@ -131,10 +175,10 @@
       {
         "title": "Graslin Immobilier",
         "subTitle": "Web, Back-office, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
-          "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": "",
+          "missions": "",
           "images": [],
           "stack": [
             {
@@ -144,62 +188,37 @@
             {
               "name": "Back",
               "technos": "Node.js, Nest.js, JWT, PostgreSQL"
-            },
-            {
-              "name": "Mobile",
-              "technos": "React-Native"
             }
           ],
-          "links": [
-            {
-              "name": "Application consommateur",
-              "link": "https://apps.apple.com/fr/app/manrina/id1539143521?l=en-GB"
-            },
-            {
-              "name": "Application producteur",
-              "link": "https://apps.apple.com/fr/app/manrina-producteur/id1570860655?l=en"
-            },
-            {
-              "name": "Site vitrine",
-              "link": "https://www.manrina.fr"
-            }
-          ]
+          "links": []
         }
       },
       {
         "title": "Orraculum",
         "subTitle": "Mobile",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
-          "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": "",
+          "missions": "",
           "images": [],
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue"
-            },
-            {
-              "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
+              "technos": "Vue, Gsap"
             },
             {
               "name": "Mobile",
-              "technos": "React-Native"
+              "technos": "React-Native, React Native Reanimated, i18n, Local Storage"
             }
           ],
           "links": [
             {
-              "name": "Application consommateur",
-              "link": "https://apps.apple.com/fr/app/manrina/id1539143521?l=en-GB"
+              "name": "Application",
+              "link": "https://apps.apple.com/kh/app/oraculum-tarot/id785372376?l=fr"
             },
             {
-              "name": "Application producteur",
-              "link": "https://apps.apple.com/fr/app/manrina-producteur/id1570860655?l=en"
-            },
-            {
-              "name": "Site vitrine",
-              "link": "https://www.manrina.fr"
+              "name": "Application",
+              "link": "https://play.google.com/store/apps/details?id=com.wecraftapps.tarotapp&hl=fr&gl=US"
             }
           ]
         }
@@ -207,37 +226,25 @@
       {
         "title": "Doppio",
         "subTitle": "Site vitrine, Back-office, API, Documentation",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
-          "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": "",
+          "missions": "",
           "images": [],
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue"
+              "technos": "Vue, Intersection Observer"
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
-            },
-            {
-              "name": "Mobile",
-              "technos": "React-Native"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Stripe, Nunjucks, Puppeteer"
             }
           ],
           "links": [
             {
-              "name": "Application consommateur",
-              "link": "https://apps.apple.com/fr/app/manrina/id1539143521?l=en-GB"
-            },
-            {
-              "name": "Application producteur",
-              "link": "https://apps.apple.com/fr/app/manrina-producteur/id1570860655?l=en"
-            },
-            {
-              "name": "Site vitrine",
-              "link": "https://www.manrina.fr"
+              "name": "Vitrine",
+              "link": "https://doppio.sh/"
             }
           ]
         }
@@ -245,10 +252,10 @@
       {
         "title": "KVN",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
-          "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": "",
+          "missions": "",
           "images": [],
           "stack": [
             {
@@ -283,10 +290,10 @@
       {
         "title": "Ealigner",
         "subTitle": "Back-office, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
-          "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": "",
+          "missions": "",
           "images": [],
           "stack": [
             {
@@ -295,11 +302,7 @@
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
-            },
-            {
-              "name": "Mobile",
-              "technos": "React-Native"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Amazone S3, Stripe"
             }
           ],
           "links": [
@@ -321,7 +324,7 @@
       {
         "title": "Alyseade",
         "subTitle": "Back-office, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -364,7 +367,7 @@
       {
         "title": "Manrina",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -402,7 +405,7 @@
       {
         "title": "CNH",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -440,7 +443,7 @@
       {
         "title": "Hedifys",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -478,7 +481,7 @@
       {
         "title": "Graslin Immobilier",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -516,7 +519,7 @@
       {
         "title": "Orraculum",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -554,7 +557,7 @@
       {
         "title": "Doppio",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -592,7 +595,7 @@
       {
         "title": "KVN",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -630,7 +633,7 @@
       {
         "title": "Ealigner",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -668,7 +671,7 @@
       {
         "title": "Alyseade",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -711,7 +714,7 @@
       {
         "title": "Manrina",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -749,7 +752,7 @@
       {
         "title": "CNH",
         "subTitle": "Back-office, Mobile, API",
-        "color": "#f59557",
+        "color": "#FACAAB",
         "content": {
           "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
           "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

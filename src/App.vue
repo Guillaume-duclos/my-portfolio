@@ -39,11 +39,11 @@ const enter = (element: any, done: any) => {
   gsap.fromTo(
     element,
     {
-      // scale: 0.96,
+      scale: 0.96,
       autoAlpha: 0,
     },
     {
-      // scale: 1,
+      scale: 1,
       autoAlpha: 1,
       duration: 0.2,
       onComplete: done,
@@ -58,11 +58,11 @@ const leave = (element: any, done: any) => {
   gsap.fromTo(
     element,
     {
-      // scale: 1,
+      scale: 1,
       autoAlpha: 1,
     },
     {
-      // scale: 0.96,
+      scale: 0.96,
       autoAlpha: 0,
       duration: 0.2,
       onComplete: done,
@@ -76,27 +76,40 @@ const leave = (element: any, done: any) => {
   position: relative
   display: flex
   flex-direction: column
-  padding: calc(80px + 24px) 24px 24px 24px
+  padding: calc(80px + 24px) 24px 0 24px
   border: 0px solid black
 
   @media (min-width: 1100px)
     padding: calc(80px + 24px) 54px 24px 54px
 
   .page
-    flex: 1
     display: flex
+    position: relative
     justify-content: space-between
     height: calc(100vh - 80px - 48px)
     border: 0px solid black
 
     .content
-      flex: 1
       display: flex
+      position: absolute
       flex-direction: column
+      margin-top: calc(-80px - 24px)
+      padding-top: 80px
+      padding-left: 0
+      width: 100%
+      height: calc(100vh - 80px)
+      overflow: auto
+      -ms-overflow-style: none
+      scrollbar-width: none
       border: 0px solid black
 
+      &::-webkit-scrollbar
+        width: 0
+        background: transparent
+
       @media (min-width: 760px)
-        max-width: 600px
+        width: 50%
+        padding-left: 50%
 
       .content-lists-container
         border: 0px solid red
