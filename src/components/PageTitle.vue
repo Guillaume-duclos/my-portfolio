@@ -33,6 +33,7 @@ const showTitle = useMediaQuery('(min-width: 760px)');
 .title
   width: 50%
   height: 100%
+  margin-left: 0
   border: 0px solid black
 
   div

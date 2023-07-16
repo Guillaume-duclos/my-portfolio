@@ -21,11 +21,20 @@
               @extendView="extendItemView"
               @updateActivesItem="updateActivesItem"
               @refreshScrollTrigger="refreshScrollTrigger">
-              <p class="content-text">{{ project.content.description }}</p>
+              <div class="content-container">
+                <h6>Le projet :</h6>
+                <p class="content-text" v-html="project.content.description" />
+              </div>
 
               <div class="content-container">
                 <h6>Mes missions :</h6>
-                <p class="content-text missions" v-html="project.content.missions" />
+                <ul>
+                  <li
+                    v-for="(mission, index) in project.content.missions"
+                    :key="`mission-${index}`"
+                    class="content-text missions"
+                    v-html="mission" />
+                </ul>
               </div>
 
               <div class="content-container">
@@ -54,14 +63,14 @@
       </div>
 
       <Navigation
-        :previousPage="{ label: 'Home', name: 'Home' }"
+        :previousPage="{ label: 'Accueil', name: 'Home' }"
         :nextPage="{ label: 'Projets perso', name: 'PersonalProjects' }" />
     </main>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
@@ -96,6 +105,12 @@ onMounted(() => {
       scroller: contentContainer.value,
       onUpdate: () => updateActiveList(i),
     });
+  }
+});
+
+onUnmounted(() => {
+  if (activesItem.value.length) {
+    root.style.setProperty('--bg-color', '#FFFFFF');
   }
 });
 
@@ -144,6 +159,8 @@ const updateBackgroundColor = () => {
 
 // On étend la vue des items
 const extendItemView = () => {
+  gsap.set(contentContainer.value, { width: itemViewExtended.value ? '100%' : '50%' });
+
   gsap.to(pageTitle.value.container, {
     duration: 0.6,
     marginLeft: itemViewExtended.value ? 0 : '-50%',
@@ -152,6 +169,7 @@ const extendItemView = () => {
 
   gsap.to(contentContainer.value, {
     duration: 0.6,
+    paddingLeft: itemViewExtended.value ? '50%' : 0,
     width: itemViewExtended.value ? '50%' : '100%',
     ease: 'expendEase',
   });

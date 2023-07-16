@@ -9,7 +9,8 @@
           <ul>
             <Item
               title="Mes coordonnées"
-              subTitle="Consultez mes coordonnées ainsi que mes liens Github, ...">
+              subTitle="Consultez mes coordonnées ainsi que mes liens Github, ..."
+              :enableViewExtend="false">
               <ul class="content-list">
                 <li>Tel : (438)-529-2542</li>
                 <li>Mail : guillaume-duclos@hotmail.fr</li>
@@ -37,7 +38,10 @@
                 </li>
               </ul>
             </Item>
-            <Item title="M'écrire" subTitle="Laissez moi un message que je pourrais lire plus tard">
+            <Item
+              title="M'écrire"
+              subTitle="Laissez moi un message que je pourrais lire plus tard"
+              :enableViewExtend="false">
               <form class="content-form" ref="contactForm" @submit.prevent="sendEmail">
                 <div class="content-input-container">
                   <label>Email : *</label>
@@ -68,7 +72,8 @@
             </Item>
             <Item
               title="Me laisser un vocale"
-              subTitle="Laissez moi un message que je pourrais écouter plus tard">
+              subTitle="Laissez moi un message que je pourrais écouter plus tard"
+              :enableViewExtend="false">
               <div class="record-container">
                 <button
                   class="record-button"
@@ -88,7 +93,7 @@
 
       <Navigation
         :previousPage="{ label: 'Stack', name: 'Stack' }"
-        :nextPage="{ label: 'Home', name: 'Home' }" />
+        :nextPage="{ label: 'Accueil', name: 'Home' }" />
     </main>
   </section>
 </template>
@@ -449,6 +454,9 @@ const computeElapsedTime = (startTime) => {
 <style scoped lang="sass">
 .content-list
   margin: 26px 0 0 0 !important
+
+  &:last-of-type
+    padding-bottom: 26px !important
 
   &:not(:first-of-type)
     border-top: 1px solid rgba(0, 0, 0, .08)

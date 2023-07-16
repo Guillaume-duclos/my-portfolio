@@ -84,15 +84,18 @@ const leave = (element: any, done: any) => {
 
   .page
     display: flex
+    position: relative
     justify-content: space-between
     height: calc(100vh - 80px - 48px)
     border: 0px solid black
 
     .content
       display: flex
+      position: absolute
       flex-direction: column
       margin-top: calc(-80px - 24px)
       padding-top: 80px
+      padding-left: 50%
       width: 50%
       height: calc(100vh - 80px)
       overflow: auto

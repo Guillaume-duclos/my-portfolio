@@ -7,7 +7,7 @@
       </div>
 
       <div class="header-buttons">
-        <button class="extend-button" @click.stop="extendItemView">
+        <button v-if="enableViewExtend" class="extend-button" @click.stop="extendItemView">
           <img v-if="isViewExtended" src="../assets/icons/arrow-down.svg" alt="Flèche" />
           <img v-else src="../assets/icons/arrow-up.svg" alt="Flèche" />
         </button>
@@ -41,6 +41,11 @@ const props = defineProps({
   title: String,
   subTitle: String,
   isViewExtended: Boolean,
+  enableViewExtend: {
+    type: Boolean,
+    required: false,
+    default: true,
+  },
 });
 
 onMounted(() => {
@@ -100,7 +105,9 @@ const open = () => {
 
 // On met à jour la couleur de fond
 const updateBackgroundColor = () => {
-  root.style.setProperty('--bg-color', props.data?.color);
+  if (props.data?.color) {
+    root.style.setProperty('--bg-color', props.data?.color);
+  }
 };
 
 // On étend la vue des items
@@ -169,14 +176,24 @@ const extendItemView = () => {
       font-size: 14px
 
     .content-container
-      margin: 10px 0
+      margin-top: 28px
+      padding-bottom: 28px
+      border-bottom: 1px solid rgba(0, 0, 0, .04)
+
+      &:first-of-type
+        margin-top: 0
 
       &:last-of-type
         margin-bottom: 40px
+        border-bottom: none
+        padding-bottom: 0
 
       h6
-        margin: 32px 0 10px 0
+        margin: 0 0 10px 0
         font-size: 14px
+
+        &:first-of-type
+         margin-top: 0
 
       ul
         border: 0px solid black
@@ -185,6 +202,20 @@ const extendItemView = () => {
           padding: 5px 0
           font-size: 14px
           border: 0px solid black
+
+          &.missions
+            position: relative
+            padding-left: 14px
+
+            &::before
+              content: ''
+              position: absolute
+              top: 12px
+              left: 0
+              width: 7px
+              height: 7px
+              border-radius: 50%
+              background-color: #000000
 
           .content-list-title
             font-weight: 600
@@ -197,10 +228,9 @@ const extendItemView = () => {
             &:after
               content: url('../assets/icons/arrow-link.svg')
               height: 6px
-              transform: scale(.8)
               position: absolute
-              right: -16px
-              top: -4px
+              right: -14px
+              top: -5px
               visibility: hidden
 
             &:hover
