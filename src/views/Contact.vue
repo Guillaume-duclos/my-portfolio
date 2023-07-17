@@ -1,5 +1,7 @@
 <template>
-  <section class="page contact">
+  <PageContent>
+    <PageTitle ref="pageTitle" titlePage="Contact" />
+
     <main class="content">
       <div class="content-lists-container" ref="content">
         <div>
@@ -65,7 +67,7 @@
                   <textarea placeholder="Votre message ici..." name="user_message" required />
                 </div>
 
-                <input type="submit" :value="messageStatus" />
+                <input type="submit" :value="emailStatus" />
               </form>
             </Item>
             <Item
@@ -93,19 +95,20 @@
         :previousPage="{ label: 'Stack', name: 'Stack' }"
         :nextPage="{ label: 'Accueil', name: 'Home' }" />
     </main>
-  </section>
+  </PageContent>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
 import Item from '../components/Item.vue';
 import Navigation from '../components/Navigation.vue';
 import emailJs from '@emailjs/browser';
+import PageContent from '../components/PageContent.vue';
+import PageTitle from '../components/PageTitle.vue';
 
 const contactForm = ref();
-const messageLoading = ref(false);
-const messageSent = ref<undefined | boolean>(undefined);
+const emailStatus = ref('Envoyer');
 const showTitle = useMediaQuery('(max-width: 760px)');
 
 const audioRecordStartTime = ref<any>();
@@ -115,35 +118,25 @@ const recordTime = ref();
 const maximumRecordingTimeInHours = 1;
 let elapsedTimeTimer: number;
 
-const messageStatus = computed(() => {
-  if (messageLoading.value) {
-    return 'Envoie en cours';
-  } else if (messageSent.value === true) {
-    return 'Votre message a été envoyé';
-  } else if (messageSent.value === false) {
-    return "Un problème est apparue pendant l'envoie du message";
-  }
-
-  return 'Envoyer';
-});
-
 // Envoie du message écrit
-const sendEmail = () => {
-  messageLoading.value = true;
-  messageSent.value = undefined;
+const sendEmail = async () => {
+  emailStatus.value = 'Envoie en cours';
 
-  try {
-    emailJs.sendForm(
+  emailJs
+    .sendForm(
       import.meta.env.VITE_EMAIL_SERVICE_ID,
       import.meta.env.VITE_EMAIL_TEMPLATE_ID,
       contactForm.value,
       import.meta.env.VITE_EMAIL_PUBLIC_KEY
+    )
+    .then(
+      () => {
+        emailStatus.value = 'Votre message a été envoyé';
+      },
+      () => {
+        emailStatus.value = "Un problème est apparue pendant l'envoie du message";
+      }
     );
-  } catch (error) {
-    messageSent.value = false;
-  } finally {
-    messageLoading.value = false;
-  }
 };
 
 // Audio recorder

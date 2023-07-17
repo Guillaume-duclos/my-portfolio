@@ -21,7 +21,7 @@
               <router-link to="Contact" active-class="active">Me contacter</router-link>
             </li>
             <li>
-              <router-link to="">Mon CV</router-link>
+              <a class="external-link" href="../assets/documents/cv.pdf" target="_blank">Mon CV</a>
             </li>
           </ul>
         </nav>
@@ -46,7 +46,7 @@
               <router-link to="Contact" active-class="active">Me contacter</router-link>
             </li>
             <li>
-              <router-link to="">Mon CV</router-link>
+              <a class="external-link" href="../assets/documents/cv.pdf" target="_blank">Mon CV</a>
             </li>
           </ul>
         </nav>
@@ -149,6 +149,19 @@ header
                 height: 2px
                 margin-top: 5px
                 background-color: #000000
+
+              &.external-link
+
+                &:after
+                  content: url('../assets/icons/arrow-link.svg')
+                  height: 6px
+                  position: absolute
+                  right: -14px
+                  top: -5px
+                  visibility: hidden
+
+                &:hover:after
+                  visibility: visible
 
       .header-menu-button
         display: flex

@@ -259,8 +259,8 @@
         "subTitle": "Site vitrine",
         "color": "#FCECFF",
         "content": {
-          "description": "",
-          "missions": [],
+          "description": "Site vitrine réalisé pour la société de construction de carrosserie CVIM.",
+          "missions": ["Mise en place d'une page représentant des modèles de carrosserie en 3D à l'aide de <strong>Three.js</strong>. Ajout d'un menu permettant de personnaliser les modèles avec un changement des modèles 3D en temps réel"],
           "images": [],
           "stack": [
             {
@@ -271,29 +271,7 @@
           "links": [
             {
               "name": "Vitrine",
-              "link": "https://doppio.sh/"
-            }
-          ]
-        }
-      },
-      {
-        "title": "F2G",
-        "subTitle": "Site vitrine",
-        "color": "#FCECFF",
-        "content": {
-          "description": "",
-          "missions": [],
-          "images": [],
-          "stack": [
-            {
-              "name": "Front",
-              "technos": "Vue, Sass, Three.js"
-            }
-          ],
-          "links": [
-            {
-              "name": "Vitrine",
-              "link": "https://doppio.sh/"
+              "link": "https://www.cvim.fr/"
             }
           ]
         }
@@ -303,19 +281,19 @@
         "subTitle": "Site vitrine",
         "color": "#FCECFF",
         "content": {
-          "description": "",
-          "missions": [],
+          "description": "Collectif est une société de courtage et de conseil en énergie. Nous avons développé pour eux une application permettant aux clients de visualiser les différents prix futurs de l'énergie grace à un dashboard.",
+          "missions": ["Mise en place de différents graphes sur le dashboard pour la visualisation du court de l'énergie via <strong>Chart.js</strong>", "Ajout de correction de différents bugs rencontrés"],
           "images": [],
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue, Sass, Three.js"
+              "technos": "Vue, Sass, Chart.js"
             }
           ],
           "links": [
             {
               "name": "Vitrine",
-              "link": "https://doppio.sh/"
+              "link": "https://collectifenergie.com/"
             }
           ]
         }
@@ -325,21 +303,21 @@
         "subTitle": "Back-office, Mobile, API",
         "color": "#FACAAB",
         "content": {
-          "description": "",
-          "missions": "",
+          "description": "KVN est une néo-banque Française dont nous avons crée toutes les interfaces, de l'application mobile pour les clients ainsi qu'un back-office pour le client lui même. Nous avons travaillé avec l'API <strong>Treezor</strong> pour les virement bancaires.",
+          "missions": ["Mise en place des vues de l'application pour l'affichage des historiques de virement", "Review de code sur l'application mobile", "Ajout de correctifs sur le back-office"],
           "images": [],
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue"
+              "technos": "Vue, sass"
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, API Treezor"
             },
             {
               "name": "Mobile",
-              "technos": "React-Native"
+              "technos": "React-Native, i18n"
             }
           ],
           "links": [
@@ -374,44 +352,6 @@
             {
               "name": "Back",
               "technos": "Node.js, Nest.js, JWT, PostgreSQL, Amazone S3, Stripe"
-            }
-          ],
-          "links": [
-            {
-              "name": "Application consommateur",
-              "link": "https://apps.apple.com/fr/app/manrina/id1539143521?l=en-GB"
-            },
-            {
-              "name": "Application producteur",
-              "link": "https://apps.apple.com/fr/app/manrina-producteur/id1570860655?l=en"
-            },
-            {
-              "name": "Site vitrine",
-              "link": "https://www.manrina.fr"
-            }
-          ]
-        }
-      },
-      {
-        "title": "Alyseade",
-        "subTitle": "Back-office, API",
-        "color": "#FACAAB",
-        "content": {
-          "description": "Manrina est un service de livraison de produits alimentaire en Martinique. Il permet aux clients de commander des produits sur l'application mobile consommateur. Manrina se charge de collecter les produits commandés chez le producteur avant d'effectuer la livraison chez le client. Une seconde application est mis à disposition aux producteurs afin qu'ils puissent proposer et mettre en avant leur produits sur l'application client. Un back-office a également été développé pour que Manrina puisse gérer ses livraisons.",
-          "missions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "images": [],
-          "stack": [
-            {
-              "name": "Front",
-              "technos": "Vue"
-            },
-            {
-              "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
-            },
-            {
-              "name": "Mobile",
-              "technos": "React-Native"
             }
           ],
           "links": [
