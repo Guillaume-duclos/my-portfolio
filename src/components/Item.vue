@@ -205,12 +205,12 @@ const extendItemView = () => {
 
           &.missions
             position: relative
-            padding-left: 14px
+            padding: 0 0 0 14px
 
             &::before
               content: ''
               position: absolute
-              top: 12px
+              top: 7px
               left: 0
               width: 7px
               height: 7px

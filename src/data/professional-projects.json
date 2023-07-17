@@ -13,11 +13,11 @@
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue, Day.js"
+              "technos": "Vue, Sass, Day.js"
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Mangopay, Webhooks, Nunjucks"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Mangopay, Webhooks, Nunjucks, Docker Compose"
             },
             {
               "name": "Mobile",
@@ -51,11 +51,11 @@
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue, Vuetify"
+              "technos": "Vue, Sass, Vuetify"
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Docker Compose"
             },
             {
               "name": "Mobile",
@@ -101,11 +101,11 @@
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue"
+              "technos": "Vue, Sass"
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Docker Compose"
             },
             {
               "name": "Mobile",
@@ -153,11 +153,11 @@
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue, Mapbox"
+              "technos": "Vue, Sass, Mapbox"
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Amazone S3"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Docker Compose, Amazone S3"
             }
           ],
           "links": [
@@ -173,33 +173,38 @@
         }
       },
       {
-        "title": "Graslin Immobilier",
+        "title": "Immobilier Enchère",
         "subTitle": "Web, Back-office, API",
-        "color": "#FACAAB",
+        "color": "#F3E6D6",
         "content": {
-          "description": "",
-          "missions": "",
+          "description": "Immobilier Enchère est une application de l'agence immobilière Graslin Immobilier dans le but de mettre en concurrence les potentielles acheteurs de biens. Étant <strong>lead développeur</strong> sur le projet, j'ai ainsi développé un <strong>back-office</strong> permettant à l'agence d'enregistrer des biens à vendre pour un prix de départ, une date d'enchère... Chaque membre invité à l'enchère reçois par mail un lien unique pour y participer. Une interface client a ainsi également été développer pour eux.",
+          "missions": ["Réalisation des spécifications techniques : User Stories, API, BDD", "Mise en place de l'API", "Développement du back-office et d'interface client", "Développement de l’envoie des mails automatique : invitation à une enchère avec token, modification du mot de passe", "Simulations d’enchères pour effectuer des tests avec toute l’équipe en exposant l’adresse IP local du front"],
           "images": [],
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue"
+              "technos": "Vue, Sass, Intersection Observer"
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Docker Compose"
             }
           ],
-          "links": []
+          "links": [
+            {
+              "name": "Site vitrine",
+              "link": "https://www.immobilierencheres.fr/"
+            }
+          ]
         }
       },
       {
         "title": "Orraculum",
         "subTitle": "Mobile",
-        "color": "#FACAAB",
+        "color": "#D1D1DE",
         "content": {
-          "description": "",
-          "missions": "",
+          "description": "Orraculum est un <strong>produit interne</strong> à We Craft Apps. Il s'agit d'une application mobile de jeu de tarot. Elle contient un mode de découverte gratuit ainsi qu'un abonnement mensuel.",
+          "missions": ["Développement de le vue du tirage des cartes en croix avec la librairie <strong>React Native Reanimated</strong> pour des performances natives sur les animations", "Ajout des différentes langues supportés avec <strong>i18n</strong>", "Développement du site intéractif \"Oraculum wex experience\" pour la mise en avant de l'application"],
           "images": [],
           "stack": [
             {
@@ -226,19 +231,85 @@
       {
         "title": "Doppio",
         "subTitle": "Site vitrine, Back-office, API, Documentation",
-        "color": "#FACAAB",
+        "color": "#FCECFF",
         "content": {
-          "description": "",
-          "missions": "",
+          "description": "Doppio est un produit <strong>SASS</strong> interne à We Craft Apps. Il s'agit d'une solution de conversion de code HTML vers du PDF, PNG, JPG ou WEBP via la librairie <strong>Puppeteer.js</strong>",
+          "missions": ["Développement du site vitrine", "Intégration de certaines vue sur la partie back-office dédié aux clients", "<strong>Veille</strong> sur la solution <strong>Vitepress</strong> pour un site à contenu statique, dans le but de rédiger une documentation", "Mise en place de la <strong>documentation</strong> de l'API fournie aux utilisateurs avec <strong>Vitepress</strong>"],
           "images": [],
           "stack": [
             {
               "name": "Front",
-              "technos": "Vue, Intersection Observer"
+              "technos": "Vue, PostCSS, Intersection Observer, Vitepress"
             },
             {
               "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Stripe, Nunjucks, Puppeteer"
+              "technos": "Node.js, Nest.js, JWT, PostgreSQL, Stripe, Nunjucks, Puppeteer, "
+            }
+          ],
+          "links": [
+            {
+              "name": "Vitrine",
+              "link": "https://doppio.sh/"
+            }
+          ]
+        }
+      },
+      {
+        "title": "CVIM",
+        "subTitle": "Site vitrine",
+        "color": "#FCECFF",
+        "content": {
+          "description": "",
+          "missions": [],
+          "images": [],
+          "stack": [
+            {
+              "name": "Front",
+              "technos": "Vue, Sass, Three.js"
+            }
+          ],
+          "links": [
+            {
+              "name": "Vitrine",
+              "link": "https://doppio.sh/"
+            }
+          ]
+        }
+      },
+      {
+        "title": "F2G",
+        "subTitle": "Site vitrine",
+        "color": "#FCECFF",
+        "content": {
+          "description": "",
+          "missions": [],
+          "images": [],
+          "stack": [
+            {
+              "name": "Front",
+              "technos": "Vue, Sass, Three.js"
+            }
+          ],
+          "links": [
+            {
+              "name": "Vitrine",
+              "link": "https://doppio.sh/"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Collectif énergie",
+        "subTitle": "Site vitrine",
+        "color": "#FCECFF",
+        "content": {
+          "description": "",
+          "missions": [],
+          "images": [],
+          "stack": [
+            {
+              "name": "Front",
+              "technos": "Vue, Sass, Three.js"
             }
           ],
           "links": [

@@ -6,7 +6,32 @@
           <router-link to="Home">Portfolio</router-link>
         </h1>
 
-        <nav>
+        <nav class="header-menu-desktop">
+          <ul>
+            <li>
+              <router-link to="ProfessionalProjects" active-class="active">Projets pro</router-link>
+            </li>
+            <li>
+              <router-link to="PersonalProjects" active-class="active">Projets perso</router-link>
+            </li>
+            <li>
+              <router-link to="Stack" active-class="active">Stack</router-link>
+            </li>
+            <li>
+              <router-link to="Contact" active-class="active">Me contacter</router-link>
+            </li>
+            <li>
+              <router-link to="">Mon CV</router-link>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="header-menu-button" @click="showMenu">
+          <img v-if="menuOpened" src="../assets/icons/exit.svg" alt="Quitter" />
+          <img v-else src="../assets/icons/burger.svg" alt="Menu" />
+        </button>
+
+        <nav v-if="menuOpened" class="header-menu-mobile">
           <ul>
             <li>
               <router-link to="ProfessionalProjects" active-class="active">Projets pro</router-link>
@@ -30,7 +55,27 @@
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const menuOpened = ref(false);
+
+watch(
+  () => route.name,
+  () => {
+    if (menuOpened.value) {
+      showMenu();
+    }
+  }
+);
+
+// Affiche / cache le menu sur mobile
+const showMenu = () => {
+  menuOpened.value = !menuOpened.value;
+};
+</script>
 
 <style scoped lang="sass">
 header
@@ -68,8 +113,12 @@ header
           color: #000000
           text-decoration: none
 
-      nav
+      .header-menu-desktop
+        display: none
         border: 0px solid black
+
+        @media (min-width: 760px)
+          display: block
 
         ul
           margin: 0
@@ -100,4 +149,49 @@ header
                 height: 2px
                 margin-top: 5px
                 background-color: #000000
+
+      .header-menu-button
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 0
+        width: 32px
+        height: 32px
+        background: transparent
+        cursor: pointer
+        border: none
+        z-index: 1
+
+        @media (min-width: 760px)
+          display: none
+
+      .header-menu-mobile
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        position: absolute
+        inset: 0
+        height: 100vh
+        background-color: #FFFFFF
+
+        ul
+          display: flex
+          flex-direction: column
+          align-items: center
+          justify-content: space-evenly
+          height: 100%
+          margin: 0
+          padding: 0
+
+          li
+            list-style-type: none
+
+            a
+              color: #000000
+              text-decoration: none
+              font-size: 40px
+              font-weight: 800
+              line-height: 40px
+              text-transform: uppercase
 </style>
