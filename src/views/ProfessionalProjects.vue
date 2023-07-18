@@ -11,7 +11,7 @@
       <div class="content-lists-container" ref="content">
         <div v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
           <p v-if="!showTitle" class="content-title">{{ company.title }}</p>
-          <ul @mouseleave="updateBackgroundColor">
+          <ul>
             <Item
               v-for="(project, index) in company.list"
               :key="`project-${index}`"
@@ -21,10 +21,23 @@
               :enableViewExtend="showTitle"
               @extendView="extendItemView"
               @updateActivesItem="updateActivesItem"
-              @refreshScrollTrigger="refreshScrollTrigger">
+              @refreshScrollTrigger="refreshScrollTrigger"
+              @updateBackgroundColor="updateBackgroundColor">
               <div class="content-container">
                 <h6>Le projet :</h6>
                 <p class="content-text" v-html="project.content?.description" />
+              </div>
+
+              <div v-if="project.content.images.length" class="content-container">
+                <h6>Images :</h6>
+                <div class="content-image">
+                  <img
+                    v-for="(image, index) in project.content.images"
+                    :key="`image-${index}`"
+                    :src="`../assets/img/${image.name}.png`"
+                    :alt="image.description"
+                    :class="{ 'desktop-image': image.type === ImageType.DESKTOP }" />
+                </div>
               </div>
 
               <div class="content-container">
@@ -52,9 +65,9 @@
                 <h6>Liens :</h6>
                 <ul>
                   <li v-for="(link, index) in project.content?.links" :key="`stack-${index}`">
-                    <a class="content-list-link" :href="link.link" target="_blank">{{
-                      link.name
-                    }}</a>
+                    <a class="content-list-link" :href="link.link" target="_blank">
+                      {{ link.name }}
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -76,6 +89,7 @@ import { useMediaQuery } from '@vueuse/core';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ImageType from '../enums/image-type.enum.ts';
 import ProfessionalProjects from '../data/professional-projects.json';
 import Navigation from '../components/Navigation.vue';
 import Item from '../components/Item.vue';

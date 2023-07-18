@@ -1,5 +1,5 @@
 <template>
-  <li class="item" @mouseenter="updateBackgroundColor">
+  <li class="item">
     <header @click="open">
       <div>
         <h4>{{ props.data?.title || props.title }}</h4>
@@ -32,7 +32,12 @@ import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 
 const isVisible = ref(false);
-const emit = defineEmits(['refreshScrollTrigger', 'updateActivesItem', 'extendView']);
+const emit = defineEmits([
+  'refreshScrollTrigger',
+  'updateActivesItem',
+  'extendView',
+  'updateBackgroundColor',
+]);
 let root = document.documentElement;
 
 const props = defineProps({
@@ -94,7 +99,10 @@ const leave = (element: any, done: any) => {
     opacity: 0,
     height: 0,
     ease: 'heightEase',
-    onComplete: () => emit('refreshScrollTrigger', { index: props.index }),
+    onComplete: () => {
+      emit('refreshScrollTrigger', { index: props.index });
+      emit('updateBackgroundColor');
+    },
   });
 };
 
@@ -194,6 +202,22 @@ const extendItemView = () => {
 
         &:first-of-type
          margin-top: 0
+
+      .content-image
+        display: flex
+        grid-gap: 8px
+        overflow-x: auto
+
+        &::-webkit-scrollbar
+          width: 0
+          height: 0
+          background: transparent
+
+        img
+          width: 120px
+
+          &.desktop-image
+            width: 320px
 
       ul
         border: 0px solid black
