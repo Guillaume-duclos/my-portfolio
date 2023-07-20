@@ -18,7 +18,7 @@
       </div>
     </header>
 
-    <transition v-on:enter="enter" v-on:leave="leave" class="content-transition">
+    <transition v-on:enter="enter" v-on:leave="leave">
       <div class="item-content" v-show="isVisible">
         <slot />
       </div>
@@ -38,7 +38,6 @@ const emit = defineEmits([
   'extendView',
   'updateBackgroundColor',
 ]);
-let root = document.documentElement;
 
 const props = defineProps({
   data: Object,
@@ -90,7 +89,7 @@ const enter = (element: any, done: any) => {
 };
 
 // Animation de fermeture de l'item
-const leave = (element: any, done: any) => {
+const leave = (element: any) => {
   emit('updateActivesItem', { active: false, index: props.data?.color });
 
   // Opacité du contenu

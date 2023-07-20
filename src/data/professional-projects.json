@@ -1,6 +1,7 @@
 [
   {
     "title": "We \nCraft \nApps",
+    "period": "3 ans et demi",
     "list": [
       {
         "title": "Manrina",
@@ -12,32 +13,32 @@
           "role": "Développeur full-stack puis lead développeur full-stack",
           "medias": [
             {
-              "name": "manrina-1",
+              "path": "manrina-1",
               "description": "Manrina",
               "type": "app"
             },
             {
-              "name": "manrina-2",
+              "path": "manrina-2",
               "description": "Manrina",
               "type": "app"
             },
             {
-              "name": "manrina-3",
+              "path": "manrina-3",
               "description": "Manrina",
               "type": "app"
             },
             {
-              "name": "manrina-4",
+              "path": "manrina-4",
               "description": "Manrina",
               "type": "app"
             },
             {
-              "name": "manrina-5",
+              "path": "manrina-5",
               "description": "Manrina",
               "type": "app"
             },
             {
-              "name": "manrina-6",
+              "path": "manrina-6",
               "description": "Manrina",
               "type": "app"
             }
@@ -82,32 +83,32 @@
           "role": "Développeur mobile",
           "medias": [
             {
-              "name": "cnh-1",
+              "path": "cnh-1",
               "description": "CNH",
               "type": "app"
             },
             {
-              "name": "cnh-2",
+              "path": "cnh-2",
               "description": "CNH",
               "type": "app"
             },
             {
-              "name": "cnh-3",
+              "path": "cnh-3",
               "description": "CNH",
               "type": "app"
             },
             {
-              "name": "cnh-4",
+              "path": "cnh-4",
               "description": "CNH",
               "type": "app"
             },
             {
-              "name": "cnh-5",
+              "path": "cnh-5",
               "description": "CNH",
               "type": "app"
             },
             {
-              "name": "cnh-6",
+              "path": "cnh-6",
               "description": "CNH",
               "type": "app"
             }
@@ -164,32 +165,32 @@
           "role": "Développeur full-stack",
           "medias": [
             {
-              "name": "viji-1",
+              "path": "viji-1",
               "description": "Viji",
               "type": "app"
             },
             {
-              "name": "viji-2",
+              "path": "viji-2",
               "description": "Viji",
               "type": "app"
             },
             {
-              "name": "viji-3",
+              "path": "viji-3",
               "description": "Viji",
               "type": "app"
             },
             {
-              "name": "viji-4",
+              "path": "viji-4",
               "description": "Viji",
               "type": "app"
             },
             {
-              "name": "viji-5",
+              "path": "viji-5",
               "description": "Viji",
               "type": "app"
             },
             {
-              "name": "viji-6",
+              "path": "viji-6",
               "description": "Viji",
               "type": "app"
             }
@@ -226,32 +227,32 @@
           "role": "Lead développeur mobile",
           "medias": [
             {
-              "name": "crij-1",
+              "path": "crij-1",
               "description": "Crij",
               "type": "app"
             },
             {
-              "name": "crij-2",
+              "path": "crij-2",
               "description": "Crij",
               "type": "app"
             },
             {
-              "name": "crij-3",
+              "path": "crij-3",
               "description": "Crij",
               "type": "app"
             },
             {
-              "name": "crij-4",
+              "path": "crij-4",
               "description": "Crij",
               "type": "app"
             },
             {
-              "name": "crij-5",
+              "path": "crij-5",
               "description": "Crij",
               "type": "app"
             },
             {
-              "name": "crij-6",
+              "path": "crij-6",
               "description": "Crij",
               "type": "app"
             }
@@ -280,32 +281,32 @@
           "role": "Développeur full-stack",
           "medias": [
             {
-              "name": "hedifys-1",
+              "path": "hedifys-1",
               "description": "Hedifys",
               "type": "website"
             },
             {
-              "name": "hedifys-2",
+              "path": "hedifys-2",
               "description": "Hedifys",
               "type": "website"
             },
             {
-              "name": "hedifys-3",
+              "path": "hedifys-3",
               "description": "Hedifys",
               "type": "website"
             },
             {
-              "name": "hedifys-4",
+              "path": "hedifys-4",
               "description": "Hedifys",
               "type": "website"
             },
             {
-              "name": "hedifys-5",
+              "path": "hedifys-5",
               "description": "Hedifys",
               "type": "website"
             },
             {
-              "name": "hedifys-6",
+              "path": "hedifys-6",
               "description": "Hedifys",
               "type": "website"
             }
@@ -342,7 +343,7 @@
           "role": "Lead développeur full-stack",
           "medias": [
             {
-              "name": "graslin-1",
+              "path": "graslin-1",
               "description": "Graslin",
               "type": "website"
             }
@@ -375,32 +376,32 @@
           "role": "Développeur mobil et lead développeur front-end",
           "medias": [
             {
-              "name": "oraculum-1",
+              "path": "oraculum-1",
               "description": "Oraculum",
               "type": "app"
             },
             {
-              "name": "oraculum-2",
+              "path": "oraculum-2",
               "description": "Oraculum",
               "type": "app"
             },
             {
-              "name": "oraculum-3",
+              "path": "oraculum-3",
               "description": "Oraculum",
               "type": "app"
             },
             {
-              "name": "oraculum-4",
+              "path": "oraculum-4",
               "description": "Oraculum",
               "type": "app"
             },
             {
-              "name": "oraculum-5",
+              "path": "oraculum-5",
               "description": "Oraculum",
               "type": "app"
             },
             {
-              "name": "oraculum-6",
+              "path": "oraculum-6",
               "description": "Oraculum",
               "type": "app"
             }
@@ -437,27 +438,27 @@
           "role": "Développeur font-end",
           "medias": [
             {
-              "name": "doppio-1",
+              "path": "doppio-1",
               "description": "Doppio",
               "type": "website"
             },
             {
-              "name": "doppio-2",
+              "path": "doppio-2",
               "description": "Doppio",
               "type": "website"
             },
             {
-              "name": "doppio-3",
+              "path": "doppio-3",
               "description": "Doppio",
               "type": "website"
             },
             {
-              "name": "doppio-4",
+              "path": "doppio-4",
               "description": "Doppio",
               "type": "website"
             },
             {
-              "name": "doppio-5",
+              "path": "doppio-5",
               "description": "Doppio",
               "type": "website"
             }
@@ -490,7 +491,7 @@
           "role": "Développeur font-end",
           "medias": [
             {
-              "name": "cvim-1",
+              "path": "cvim-1",
               "description": "CVIM",
               "type": "website"
             }
@@ -581,7 +582,7 @@
           "role": "Développeur full-stack",
           "medias": [
             {
-              "name": "ealigner-1",
+              "path": "ealigner-1",
               "description": "Ealigner",
               "type": "website"
             }
@@ -608,6 +609,7 @@
   },
   {
     "title": "Idix",
+    "period": "2 ans",
     "list": [
       {
         "title": "Pour l'Éco",
@@ -738,6 +740,7 @@
   },
   {
     "title": "Warrega",
+    "period": "1 an",
     "list": [
       {
         "title": "Développement front-end",
@@ -788,42 +791,24 @@
           "role": "Réalisateur sur les quatre vidéos",
           "medias": [
             {
-              "name": "wareega-1",
-              "url": "https://www.youtube.com/embed/_4DvSRSItCI",
+              "path": "https://www.youtube.com/embed/_4DvSRSItCI",
               "description": "CVIM",
               "type": "video"
             },
             {
-              "name": "wareega-2",
-              "url": "https://www.youtube.com/embed/NcDW233A8go",
+              "path": "https://www.youtube.com/embed/NcDW233A8go",
               "description": "CVIM",
               "type": "video"
             },
             {
-              "name": "wareega-3",
-              "url": "https://www.youtube.com/embed/Sln7FDX5C9o",
+              "path": "https://www.youtube.com/embed/Sln7FDX5C9o",
               "description": "CVIM",
               "type": "video"
             },
             {
-              "name": "wareega-4",
-              "url": "https://www.youtube.com/embed/kVRLOEqwTnc",
+              "path": "https://www.youtube.com/embed/kVRLOEqwTnc",
               "description": "CVIM",
               "type": "video"
-            }
-          ],
-          "stack": [
-            {
-              "name": "Front",
-              "technos": "Vue"
-            },
-            {
-              "name": "Back",
-              "technos": "Node.js, Nest.js, JWT, PostgreSQL"
-            },
-            {
-              "name": "Mobile",
-              "technos": "React-Native"
             }
           ],
           "links": [

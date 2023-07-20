@@ -1,15 +1,15 @@
 <template>
   <nav>
     <div>
-      <router-link :to="previousPage.name">
+      <router-link :to="props.previousPage?.name">
         <img src="../assets/icons/arrow-left.svg" alt="Page précédente" />
-        {{ previousPage.label }}
+        {{ props.previousPage.label }}
       </router-link>
     </div>
 
     <div>
-      <router-link :to="nextPage.name">
-        {{ nextPage.label }}
+      <router-link :to="props.nextPage?.name">
+        {{ props.nextPage.label }}
         <img src="../assets/icons/arrow-right.svg" alt="Page suivante" />
       </router-link>
     </div>
@@ -17,9 +17,23 @@
 </template>
 
 <script setup lang="ts">
+import { PropType } from 'vue';
+import { RouteLocationRaw } from 'vue-router';
+
+interface Path {
+  name: RouteLocationRaw;
+  label: String;
+}
+
 const props = defineProps({
-  previousPage: Object<String>,
-  nextPage: Object<String>,
+  previousPage: {
+    type: Object as PropType<Path>,
+    required: true,
+  },
+  nextPage: {
+    type: Object as PropType<Path>,
+    required: true,
+  },
 });
 </script>
 

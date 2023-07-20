@@ -9,9 +9,9 @@
 
     <main class="content" ref="contentContainer">
       <div class="content-lists-container" ref="content">
-        <div v-for="(company, index) in Stack" :key="`company-${index}`">
+        <div v-for="(company, index) in ProfessionalProjects" :key="`company-${index}`">
           <p v-if="!showTitle" class="content-title">{{ company.title }}</p>
-          <ul @mouseleave="updateBackgroundColor">
+          <ul>
             <Item
               v-for="(project, index) in company.list"
               :key="`project-${index}`"
@@ -21,14 +21,57 @@
               :enableViewExtend="showTitle"
               @extendView="extendItemView"
               @updateActivesItem="updateActivesItem"
-              @refreshScrollTrigger="refreshScrollTrigger">
-              <div class="content-container">
-                <h6>Le projet :</h6>
+              @refreshScrollTrigger="refreshScrollTrigger"
+              @updateBackgroundColor="updateBackgroundColor">
+              <div v-if="project.content?.description" class="content-container">
+                <h6>Le projet</h6>
                 <p class="content-text" v-html="project.content?.description" />
               </div>
 
-              <div class="content-container">
-                <h6>Mes missions :</h6>
+              <div
+                v-if="
+                  project.content.medias.length &&
+                  project.content.medias[0].type !== ImageType.VIDEO
+                "
+                class="content-container">
+                <h6>Images</h6>
+                <div class="content-media">
+                  <img
+                    v-for="(media, index) in project.content.medias"
+                    :key="`image-${index}`"
+                    :src="`../assets/img/${media.path}.png`"
+                    :alt="media.description"
+                    :class="{ 'website-image': media.type === ImageType.WEBSITE }" />
+                </div>
+              </div>
+
+              <div
+                v-else-if="
+                  project.content.medias.length &&
+                  project.content.medias[0].type === ImageType.VIDEO
+                "
+                class="content-container">
+                <h6>Vidéos</h6>
+                <div class="content-media">
+                  <iframe
+                    v-for="(media, index) in project.content.medias"
+                    :key="`image-${index}`"
+                    :src="media.path"
+                    title="Déballage d'un vélo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen />
+                </div>
+              </div>
+
+              <div v-else-if="project.content?.role" class="content-container">
+                <h6>Role occupé</h6>
+                <p class="content-text" v-html="project.content?.role" />
+              </div>
+
+              <div
+                v-if="project.content?.missions && project.content?.missions.length"
+                class="content-container">
+                <h6>Mes missions</h6>
                 <ul>
                   <li
                     v-for="(mission, index) in project.content?.missions"
@@ -38,8 +81,10 @@
                 </ul>
               </div>
 
-              <div class="content-container">
-                <h6>Stack :</h6>
+              <div
+                v-if="project.content?.stack && project.content?.stack.length"
+                class="content-container">
+                <h6>Stack</h6>
                 <ul>
                   <li v-for="(stack, index) in project.content?.stack" :key="`stack-${index}`">
                     <span class="content-list-title">{{ stack.name }} : </span>
@@ -48,13 +93,15 @@
                 </ul>
               </div>
 
-              <div class="content-container">
-                <h6>Liens :</h6>
+              <div
+                v-if="project.content?.links && project.content?.links.length"
+                class="content-container">
+                <h6>Liens</h6>
                 <ul>
                   <li v-for="(link, index) in project.content?.links" :key="`stack-${index}`">
-                    <a class="content-list-link" :href="link.link" target="_blank">{{
-                      link.name
-                    }}</a>
+                    <a class="content-list-link" :href="link.link" target="_blank">
+                      {{ link.name }}
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -64,8 +111,8 @@
       </div>
 
       <Navigation
-        :previousPage="{ label: 'Projets perso', name: 'PersonalProjects' }"
-        :nextPage="{ label: 'Contact', name: 'Contact' }" />
+        :previousPage="{ label: 'Accueil', name: 'Home' }"
+        :nextPage="{ label: 'Projets perso', name: 'PersonalProjects' }" />
     </main>
   </PageContent>
 </template>
@@ -76,7 +123,8 @@ import { useMediaQuery } from '@vueuse/core';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Stack from '../data/stack.json';
+import ImageType from '../enums/image-type.enum.ts';
+import ProfessionalProjects from '../data/professional-projects.json';
 import Navigation from '../components/Navigation.vue';
 import Item from '../components/Item.vue';
 import PageContent from '../components/PageContent.vue';
@@ -86,7 +134,7 @@ const pageTitle = ref();
 const contentContainer = ref();
 const content = ref();
 const activeList = ref(0);
-const activesItem = ref([]);
+const activesItem = ref<number[]>([]);
 const itemViewExtended = ref(false);
 
 const showTitle = useMediaQuery('(min-width: 760px)');
@@ -116,11 +164,11 @@ onUnmounted(() => {
   }
 });
 
-watch(showTitle, (value) => {
-  if (value) {
-    itemViewExtended.value = !itemViewExtended.value;
+watch(showTitle, (value: any) => {
+  if (value && itemViewExtended.value) {
+    itemViewExtended.value = false;
     gsap.set(contentContainer.value, { width: '50%', paddingLeft: '50%' });
-  } else {
+  } else if (itemViewExtended.value) {
     gsap.set(contentContainer.value, { width: '100%', paddingLeft: 0 });
   }
 });
@@ -132,21 +180,21 @@ const activeListIndex = computed(() => {
 
 // Compte le nombre de listes affichés
 const companyCount = computed(() => {
-  return ('0' + Stack?.length).slice(-2);
+  return ('0' + ProfessionalProjects?.length).slice(-2);
 });
 
 // Retourne le titre de la liste courente
 const titlePage = computed(() => {
-  return Stack?.[activeList.value].title;
+  return ProfessionalProjects?.[activeList.value].title;
 });
 
 // Set l'index de la liste active
-const updateActiveList = (index) => {
+const updateActiveList = (index: number) => {
   activeList.value = index;
 };
 
 // On met à jour la liste des items actifs
-const updateActivesItem = (value) => {
+const updateActivesItem = (value: any) => {
   if (value.active) {
     activesItem.value.push(value.index);
   } else {
@@ -162,9 +210,12 @@ const refreshScrollTrigger = () => {
 // On met à jour la couleur de fond
 const updateBackgroundColor = () => {
   if (!activesItem.value.length) {
-    root.style.setProperty('--bg-color', '#FFFFFF');
+    gsap.to('html', { '--bg-color': '#FFFFFF', duration: 0.2 });
   } else {
-    root.style.setProperty('--bg-color', activesItem.value[activesItem.value.length - 1]);
+    gsap.to('html', {
+      '--bg-color': activesItem.value[activesItem.value.length - 1],
+      duration: 0.2,
+    });
   }
 };
 

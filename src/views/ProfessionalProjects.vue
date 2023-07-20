@@ -23,7 +23,7 @@
               @updateActivesItem="updateActivesItem"
               @refreshScrollTrigger="refreshScrollTrigger"
               @updateBackgroundColor="updateBackgroundColor">
-              <div class="content-container">
+              <div v-if="project.content?.description" class="content-container">
                 <h6>Le projet</h6>
                 <p class="content-text" v-html="project.content?.description" />
               </div>
@@ -37,11 +37,11 @@
                 <h6>Images</h6>
                 <div class="content-media">
                   <img
-                    v-for="(medias, index) in project.content.medias"
+                    v-for="(media, index) in project.content.medias"
                     :key="`image-${index}`"
-                    :src="`../assets/img/${medias.name}.png`"
-                    :alt="medias.description"
-                    :class="{ 'website-image': medias.type === ImageType.WEBSITE }" />
+                    :src="`../assets/img/${media.path}.png`"
+                    :alt="media.description"
+                    :class="{ 'website-image': media.type === ImageType.WEBSITE }" />
                 </div>
               </div>
 
@@ -54,21 +54,23 @@
                 <h6>Vidéos</h6>
                 <div class="content-media">
                   <iframe
-                    v-for="(medias, index) in project.content.medias"
+                    v-for="(media, index) in project.content.medias"
                     :key="`image-${index}`"
-                    :src="medias.url"
+                    :src="media.path"
                     title="Déballage d&#39;un vélo"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen />
                 </div>
               </div>
 
-              <div class="content-container">
+              <div v-else-if="project.content?.role" class="content-container">
                 <h6>Role occupé</h6>
                 <p class="content-text" v-html="project.content?.role" />
               </div>
 
-              <div class="content-container">
+              <div
+                v-if="project.content?.missions && project.content?.missions.length"
+                class="content-container">
                 <h6>Mes missions</h6>
                 <ul>
                   <li
@@ -79,7 +81,9 @@
                 </ul>
               </div>
 
-              <div class="content-container">
+              <div
+                v-if="project.content?.stack && project.content?.stack.length"
+                class="content-container">
                 <h6>Stack</h6>
                 <ul>
                   <li v-for="(stack, index) in project.content?.stack" :key="`stack-${index}`">
@@ -89,7 +93,9 @@
                 </ul>
               </div>
 
-              <div class="content-container">
+              <div
+                v-if="project.content?.links && project.content?.links.length"
+                class="content-container">
                 <h6>Liens</h6>
                 <ul>
                   <li v-for="(link, index) in project.content?.links" :key="`stack-${index}`">
@@ -128,7 +134,7 @@ const pageTitle = ref();
 const contentContainer = ref();
 const content = ref();
 const activeList = ref(0);
-const activesItem = ref([]);
+const activesItem = ref<number[]>([]);
 const itemViewExtended = ref(false);
 
 const showTitle = useMediaQuery('(min-width: 760px)');
@@ -158,7 +164,7 @@ onUnmounted(() => {
   }
 });
 
-watch(showTitle, (value) => {
+watch(showTitle, (value: any) => {
   if (value && itemViewExtended.value) {
     itemViewExtended.value = false;
     gsap.set(contentContainer.value, { width: '50%', paddingLeft: '50%' });
@@ -183,12 +189,12 @@ const titlePage = computed(() => {
 });
 
 // Set l'index de la liste active
-const updateActiveList = (index) => {
+const updateActiveList = (index: number) => {
   activeList.value = index;
 };
 
 // On met à jour la liste des items actifs
-const updateActivesItem = (value) => {
+const updateActivesItem = (value: any) => {
   if (value.active) {
     activesItem.value.push(value.index);
   } else {

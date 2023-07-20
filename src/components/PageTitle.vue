@@ -3,7 +3,10 @@
     <div>
       <div>
         <h2>{{ props.titlePage }}</h2>
-        <h3>3 ans et demi</h3>
+        <h3>
+          <span>Période</span>
+          3 ans et demi
+        </h3>
       </div>
       <p v-if="props.companyCount">
         <span>{{ props.activeListIndex }}</span>
@@ -60,7 +63,14 @@ const showTitle = useMediaQuery('(min-width: 760px)');
       margin: 8px 0 0 0
       font-size: 24px
       font-weight: 700
-      color: rgb(0, 0, 0, .32)
+      line-height: 22px
+      color: rgb(0, 0, 0, .3)
+
+      span
+        display: block
+        font-size: 12px
+        font-weight: 600
+        text-transform: uppercase
 
     p
 
