@@ -1,7 +1,10 @@
 <template>
   <aside v-if="showTitle" class="title" ref="container">
     <div>
-      <h2>{{ props.titlePage }}</h2>
+      <div>
+        <h2>{{ props.titlePage }}</h2>
+        <h3>3 ans et demi</h3>
+      </div>
       <p v-if="props.companyCount">
         <span>{{ props.activeListIndex }}</span>
         <span>/{{ props.companyCount }}</span>
@@ -36,7 +39,7 @@ const showTitle = useMediaQuery('(min-width: 760px)');
   margin-left: 0
   border: 0px solid black
 
-  div
+  > div
     display: flex
     flex-direction: column
     justify-content: space-between
@@ -52,6 +55,12 @@ const showTitle = useMediaQuery('(min-width: 760px)');
     h2
       white-space: pre-wrap
       word-wrap: break-word
+
+    h3
+      margin: 8px 0 0 0
+      font-size: 24px
+      font-weight: 700
+      color: rgb(0, 0, 0, .32)
 
     p
 

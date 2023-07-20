@@ -1,17 +1,39 @@
 <template>
-  <section class="page home">
-    <main class="content">
+  <section class="home">
+    <main class="home-content">
       <div class="home-title" ref="homeTitle">
-        <h2><span>Guillaume</span></h2>
-        <h2><span>Duclos</span></h2>
+        <h2>Guillaume Duclos</h2>
+        <h3>Développeur full-stack<br />et mobile TypeScript</h3>
       </div>
 
-      <div class="home-subtitle" ref="homeSubTitle">
-        <h3><span>Développeur full-stack et</span></h3>
-        <h3><span>mobile TypeScript</span></h3>
-      </div>
+      <ul class="home-menu">
+        <li>
+          <RouterLink to="ProfessionalProjects">
+            <span>Projets Pro</span>
+            <span>Projets Pro</span>
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink to="PersonalProjects">
+            <span>Projets Perso</span>
+            <span>Projets Perso</span>
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink to="Stack">
+            <span>Stack</span>
+            <span>Stack</span>
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink to="Contact">
+            <span>Contact</span>
+            <span>Contact</span>
+          </RouterLink>
+        </li>
+      </ul>
 
-      <ul>
+      <ul class="home-rs">
         <li>
           <a href="https://github.com/guillaume-duclos" target="_blank">
             <img src="../assets/icons/github.svg" alt="Lien github" />
@@ -31,9 +53,7 @@
     </main>
 
     <aside class="picture">
-      <Tilt>
-        <img src="../assets/img/photo.jpg" alt="Moi" />
-      </Tilt>
+      <div />
     </aside>
   </section>
 </template>
@@ -42,101 +62,144 @@
 import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
-import Tilt from '../components/Tilt.vue';
 
 const homeTitle = ref();
-const homeSubTitle = ref();
 
 onMounted(() => {
   gsap.registerPlugin(CustomEase);
-  CustomEase.create('heightEase', '0.56, 0.14, 0.32, 0.81');
+  CustomEase.create('heightEase', '0.4, 0.11, 0.45, 0.97');
 
-  const timeLine = gsap.timeline();
-
-  for (let i = 0; i < homeTitle.value.children.length; i++) {
-    timeLine.to(
-      homeTitle.value.children[i].children,
-      {
-        top: 0,
-        duration: 0.7,
-        ease: 'heightEase',
-      },
-      i === 0 ? 0 : 0.2
-    );
-  }
-
-  for (let i = 0; i < homeSubTitle.value.children.length; i++) {
-    timeLine.to(
-      homeSubTitle.value.children[i].children,
-      {
-        top: 0,
-        duration: 0.7,
-        ease: 'heightEase',
-      },
-      0.5
-    );
-  }
+  gsap.to('html', {
+    '--photo-scale': 1,
+    duration: 0.5,
+    ease: 'heightEase',
+  });
 });
 </script>
 
 <style scoped lang="sass">
 .home
-  flex: none !important
   display: flex
-  grid-gap: 50px
-  justify-content: space-between
+  grid-gap: 20px
+  height: 100vh
+  padding: 0 24px 0 24px
 
-  .content
+  .home-content
     display: flex
     flex-direction: column
     justify-content: center
+    grid-gap: 50px
+    width: 50%
     border: 0px solid black
 
     .home-title
+      border: 0px solid black
 
       h2
         position: relative
         margin: 0
-        height: 80px
-        font-size: 80px
-        line-height: 80px
+        font-size: 40px
+        line-height: 40px
         font-weight: 800
         overflow: hidden
         border: 0px solid black
 
-        span
-          top: 80px
-          position: absolute
-          border: 0px solid red
-
-    .home-subtitle
-
       h3
         position: relative
-        margin: 0
-        height: 30px
-        font-size: 24px
+        margin: 10px 0 0 0
+        font-size: 22px
+        line-height: 28px
         overflow: hidden
-        line-height: 30px
+        opacity: .35
 
-        &:first-of-type
-          margin: 10px 0 0 0
-
-        span
-          top: 30px
-          position: absolute
-          border: 0px solid red
-
-    ul
+    .home-menu
+      display: flex
+      flex-direction: column
+      grid-gap: 20px
       margin: 18px 0 0 0
       padding: 0
-      display: flex
-      grid-gap: 10px
 
       li
         list-style-type: none
 
+        a
+          position: relative
+          display: block
+          font-size: 65px
+          line-height: 65px
+          font-weight: 900
+          text-decoration: none
+          text-transform: uppercase
+          color: #000000
+          height: 66px
+          overflow: hidden
+          border: 0px solid red
+
+          span
+            position: absolute
+            display: block
+            transition: top .2s ease-in-out
+            border: 0px solid black
+
+            &:first-of-type
+              top: 0
+              opacity: 1
+
+            &:last-of-type
+              top: 100%
+
+          &:hover span:first-of-type
+            top: -100%
+            transition: top .2s ease-in-out
+
+          &:hover span:last-of-type
+            top: 0
+            transition: top .2s ease-in-out
+
+    .home-rs
+      position: relative
+      display: flex
+      grid-gap: 12px
+      margin: 18px 0 0 0
+      padding: 50px 0 0 0
+
+      &::before
+        position: absolute
+        content: ''
+        height: 1px
+        width: 120px
+        top: 0
+        left: 0
+        background-color: rgba(0, 0, 0, .07)
+
+      li
+        list-style-type: none
+
+        a
+          font-weight: 800
+          text-decoration: none
+          text-transform: uppercase
+
   .picture
-    perspective: 1200px
-    padding: 20px 0
+    width: 50%
+    border: 0px solid red
+
+    div
+      position: relative
+      height: 100%
+      width: 50vw
+      overflow: hidden
+      background-image: url("../assets/img/photo.jpg")
+      background-repeat: no-repeat
+      background-position: bottom
+      background-size: cover
+
+      &::after
+        content: ''
+        position: absolute
+        inset: 0
+        background: inherit
+        background-size: cover
+        transform-origin: center
+        transform: scale(var(--photo-scale))
 </style>

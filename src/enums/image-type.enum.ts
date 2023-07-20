@@ -1,6 +1,7 @@
 const enum ImageType {
   'APP' = 'app',
-  'DESKTOP' = 'desktop',
+  'VIDEO' = 'video',
+  'WEBSITE' = 'website',
 }
 
 export default ImageType;

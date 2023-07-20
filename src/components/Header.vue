@@ -3,7 +3,7 @@
     <div class="header-container">
       <div class="header-sub-container">
         <h1>
-          <router-link to="Home">Portfolio</router-link>
+          <router-link to="Home">Guillaume D.</router-link>
         </h1>
 
         <nav class="header-menu-desktop">
@@ -83,7 +83,7 @@ header
   top: 0
   left: 0
   right: 0
-  backdrop-filter: blur(12px)
+  backdrop-filter: blur(16px)
   z-index: 1
   border: 0px solid red
 
@@ -106,7 +106,7 @@ header
         padding: 0 54px
 
       h1
-        font-size: 30px
+        font-size: 29px
         margin: 0
 
         a

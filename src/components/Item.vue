@@ -114,7 +114,7 @@ const open = () => {
 // On met à jour la couleur de fond
 const updateBackgroundColor = () => {
   if (props.data?.color) {
-    root.style.setProperty('--bg-color', props.data?.color);
+    gsap.to('html', { '--bg-color': props.data?.color, duration: 0.2 });
   }
 };
 
@@ -203,21 +203,36 @@ const extendItemView = () => {
         &:first-of-type
          margin-top: 0
 
-      .content-image
+      .content-media
         display: flex
         grid-gap: 8px
+        padding-bottom: 12px
         overflow-x: auto
 
+        &:hover::-webkit-scrollbar-thumb
+          background: rgba(0, 0, 0, 1)
+
         &::-webkit-scrollbar
-          width: 0
-          height: 0
+          height: 2px
           background: transparent
+
+        &::-webkit-scrollbar-track
+          background: rgba(0, 0, 0, .2)
+
+        &::-webkit-scrollbar-thumb
+          background: rgba(0, 0, 0, .6)
 
         img
           width: 120px
 
-          &.desktop-image
+          &.website-image
             width: 320px
+
+        iframe
+          width: 320px
+          height: 168px
+          border: none
+          border-radius: 10px
 
       ul
         border: 0px solid black

@@ -24,24 +24,52 @@
               @refreshScrollTrigger="refreshScrollTrigger"
               @updateBackgroundColor="updateBackgroundColor">
               <div class="content-container">
-                <h6>Le projet :</h6>
+                <h6>Le projet</h6>
                 <p class="content-text" v-html="project.content?.description" />
               </div>
 
-              <div v-if="project.content.images.length" class="content-container">
-                <h6>Images :</h6>
-                <div class="content-image">
+              <div
+                v-if="
+                  project.content.medias.length &&
+                  project.content.medias[0].type !== ImageType.VIDEO
+                "
+                class="content-container">
+                <h6>Images</h6>
+                <div class="content-media">
                   <img
-                    v-for="(image, index) in project.content.images"
+                    v-for="(medias, index) in project.content.medias"
                     :key="`image-${index}`"
-                    :src="`../assets/img/${image.name}.png`"
-                    :alt="image.description"
-                    :class="{ 'desktop-image': image.type === ImageType.DESKTOP }" />
+                    :src="`../assets/img/${medias.name}.png`"
+                    :alt="medias.description"
+                    :class="{ 'website-image': medias.type === ImageType.WEBSITE }" />
+                </div>
+              </div>
+
+              <div
+                v-else-if="
+                  project.content.medias.length &&
+                  project.content.medias[0].type === ImageType.VIDEO
+                "
+                class="content-container">
+                <h6>Vidéos</h6>
+                <div class="content-media">
+                  <iframe
+                    v-for="(medias, index) in project.content.medias"
+                    :key="`image-${index}`"
+                    :src="medias.url"
+                    title="Déballage d&#39;un vélo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen />
                 </div>
               </div>
 
               <div class="content-container">
-                <h6>Mes missions :</h6>
+                <h6>Role occupé</h6>
+                <p class="content-text" v-html="project.content?.role" />
+              </div>
+
+              <div class="content-container">
+                <h6>Mes missions</h6>
                 <ul>
                   <li
                     v-for="(mission, index) in project.content?.missions"
@@ -52,7 +80,7 @@
               </div>
 
               <div class="content-container">
-                <h6>Stack :</h6>
+                <h6>Stack</h6>
                 <ul>
                   <li v-for="(stack, index) in project.content?.stack" :key="`stack-${index}`">
                     <span class="content-list-title">{{ stack.name }} : </span>
@@ -62,7 +90,7 @@
               </div>
 
               <div class="content-container">
-                <h6>Liens :</h6>
+                <h6>Liens</h6>
                 <ul>
                   <li v-for="(link, index) in project.content?.links" :key="`stack-${index}`">
                     <a class="content-list-link" :href="link.link" target="_blank">
@@ -131,10 +159,10 @@ onUnmounted(() => {
 });
 
 watch(showTitle, (value) => {
-  if (value) {
-    itemViewExtended.value = !itemViewExtended.value;
+  if (value && itemViewExtended.value) {
+    itemViewExtended.value = false;
     gsap.set(contentContainer.value, { width: '50%', paddingLeft: '50%' });
-  } else {
+  } else if (itemViewExtended.value) {
     gsap.set(contentContainer.value, { width: '100%', paddingLeft: 0 });
   }
 });
@@ -176,9 +204,12 @@ const refreshScrollTrigger = () => {
 // On met à jour la couleur de fond
 const updateBackgroundColor = () => {
   if (!activesItem.value.length) {
-    root.style.setProperty('--bg-color', '#FFFFFF');
+    gsap.to('html', { '--bg-color': '#FFFFFF', duration: 0.2 });
   } else {
-    root.style.setProperty('--bg-color', activesItem.value[activesItem.value.length - 1]);
+    gsap.to('html', {
+      '--bg-color': activesItem.value[activesItem.value.length - 1],
+      duration: 0.2,
+    });
   }
 };
 

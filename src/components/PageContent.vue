@@ -10,7 +10,10 @@
   position: relative
   justify-content: space-between
   height: calc(100vh - 80px - 48px)
-  border: 0px solid black
+  padding: calc(80px + 24px) 24px 0 24px
+
+  @media (min-width: 1100px)
+    padding: calc(80px + 24px) 54px 24px 54px
 
   .content
     display: flex
@@ -19,7 +22,7 @@
     margin-top: calc(-80px - 24px)
     padding-top: 80px
     padding-left: 0
-    width: 100%
+    width: calc(100% - 24px * 2)
     height: calc(100vh - 80px)
     overflow: auto
     -ms-overflow-style: none
@@ -31,8 +34,11 @@
       background: transparent
 
     @media (min-width: 760px)
-      width: 50%
       padding-left: 50%
+      width: calc(50% - 24px * 2)
+
+    @media (min-width: 1100px)
+      width: calc(50% - 54px * 2)
 
     .content-lists-container
       border: 0px solid red

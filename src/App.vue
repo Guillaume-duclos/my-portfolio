@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Header />
+    <Header v-if="route.name !== 'Home'" />
 
     <router-view v-slot="{ Component }">
       <transition v-on:enter="enter" v-on:leave="leave" mode="out-in">
@@ -13,13 +13,14 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import { useRoute } from 'vue-router';
-import { onMounted, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useTitle } from '@vueuse/core';
 import { CustomEase } from 'gsap/CustomEase';
 import Header from './components/Header.vue';
 
 const route = useRoute();
 const title = useTitle();
+const enableTransition = ref(false);
 
 watch(
   () => route.name,
@@ -35,21 +36,25 @@ onMounted(() => {
 
 // Animation d'ouverture de l'item
 const enter = (element: any, done: any) => {
-  // Affichage de la page
-  gsap.fromTo(
-    element,
-    {
-      scale: 0.96,
-      autoAlpha: 0,
-    },
-    {
-      scale: 1,
-      autoAlpha: 1,
-      duration: 0.2,
-      onComplete: done,
-      clearProps: 'scale',
-    }
-  );
+  if (enableTransition.value) {
+    // Affichage de la page
+    gsap.fromTo(
+      element,
+      {
+        scale: 0.96,
+        autoAlpha: 0,
+      },
+      {
+        scale: 1,
+        autoAlpha: 1,
+        duration: 0.2,
+        onComplete: done,
+        clearProps: 'scale',
+      }
+    );
+  } else {
+    enableTransition.value = true;
+  }
 };
 
 // Animation de fermeture de l'item
@@ -73,12 +78,8 @@ const leave = (element: any, done: any) => {
 
 <style lang="sass">
 .app
-  position: relative
   display: flex
+  position: relative
   flex-direction: column
-  padding: calc(80px + 24px) 24px 0 24px
   border: 0px solid black
-
-  @media (min-width: 1100px)
-    padding: calc(80px + 24px) 54px 24px 54px
 </style>
