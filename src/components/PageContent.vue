@@ -15,6 +15,72 @@
   @media (min-width: 1100px)
     padding: calc(80px + 24px) 54px 24px 54px
 
+  .title
+    width: 50%
+    height: 100%
+    margin-left: 0
+    border: 0px solid black
+    z-index: 10
+
+    > div
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      height: calc(100vh - 80px - 24px * 2)
+
+      h2, p
+        margin: 0
+        line-height: 70px
+        font-size: 80px
+        font-weight: 800
+        text-transform: uppercase
+
+      h2
+        white-space: pre-wrap
+        word-wrap: break-word
+
+      h3
+        margin: 8px 0 0 0
+        font-size: 24px
+        font-weight: 700
+        line-height: 22px
+        color: rgb(0, 0, 0, .3)
+
+        span
+          display: block
+          font-size: 12px
+          font-weight: 600
+          text-transform: uppercase
+
+      .active-company-index-container
+        position: relative
+        height: 72px
+        line-height: 77px
+        overflow: hidden
+        border: 0px solid black
+
+        .active-company-index
+          position: absolute
+          height: 100%
+          width: 54px
+          border: 0px solid blue
+
+          &:not(:first-of-type)
+            left: 54px
+
+          span
+            display: block
+            height: 100%
+            font-variant-numeric: tabular-nums
+            border: 0px solid red
+
+        .company-count
+          position: absolute
+          left: calc(54px * 2)
+          bottom: 0
+          line-height: 30px
+          font-size: 30px
+
   .content
     display: flex
     position: absolute

@@ -10,7 +10,8 @@
             <Item
               title="Mes coordonnées"
               subTitle="Consultez mes coordonnées ainsi que mes liens Github, ..."
-              :enableViewExtend="false">
+              :enableViewExtend="false"
+              :isOpen="true">
               <ul class="content-list">
                 <li><span class="content-list-title">Tel : </span>(438)-529-2542</li>
                 <li><span class="content-list-title">Mail : </span>guillaume-duclos@hotmail.fr</li>
@@ -101,9 +102,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
+import emailJs from '@emailjs/browser';
 import Item from '../components/Item.vue';
 import Navigation from '../components/Navigation.vue';
-import emailJs from '@emailjs/browser';
 import PageContent from '../components/PageContent.vue';
 import PageTitle from '../components/PageTitle.vue';
 

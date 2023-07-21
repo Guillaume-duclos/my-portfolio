@@ -3,7 +3,7 @@
     <main class="home-content">
       <div class="home-title" ref="homeTitle">
         <h2>Guillaume Duclos</h2>
-        <h3>Développeur full-stack<br />et mobile TypeScript</h3>
+        <h3>Développeur <span>full-stack</span><br />et <span>mobile</span> TypeScript</h3>
       </div>
 
       <ul class="home-menu">
@@ -71,7 +71,8 @@ onMounted(() => {
 
   gsap.to('html', {
     '--photo-scale': 1,
-    duration: 0.5,
+    duration: 0.7,
+    delay: 0.25,
     ease: 'heightEase',
   });
 });
@@ -102,15 +103,21 @@ onMounted(() => {
         line-height: 40px
         font-weight: 800
         overflow: hidden
+        color: rgba(0, 0, 0, .85)
         border: 0px solid black
 
       h3
         position: relative
-        margin: 10px 0 0 0
-        font-size: 22px
-        line-height: 28px
+        margin: 6px 0 0 0
+        font-size: 20px
+        line-height: 25px
+        font-weight: 500
         overflow: hidden
-        opacity: .35
+        color: rgba(0, 0, 0, .3)
+
+        span
+          color: rgba(0, 0, 0, .75)
+          font-weight: 700
 
     .home-menu
       display: flex
@@ -127,7 +134,7 @@ onMounted(() => {
           display: block
           font-size: 65px
           line-height: 65px
-          font-weight: 900
+          font-weight: 800
           text-decoration: none
           text-transform: uppercase
           color: #000000
@@ -143,18 +150,22 @@ onMounted(() => {
 
             &:first-of-type
               top: 0
-              opacity: 1
+              opacity: .3
+              letter-spacing: -1px
+
+              &:hover
+                opacity: .85
 
             &:last-of-type
               top: 100%
 
-          &:hover span:first-of-type
-            top: -100%
-            transition: top .2s ease-in-out
+          //&:hover span:first-of-type
+          //  top: -100%
+          //  transition: top .2s ease-in-out
 
-          &:hover span:last-of-type
-            top: 0
-            transition: top .2s ease-in-out
+          //&:hover span:last-of-type
+          //  top: 0
+          //  transition: top .2s ease-in-out
 
     .home-rs
       position: relative
@@ -179,6 +190,7 @@ onMounted(() => {
           font-weight: 800
           text-decoration: none
           text-transform: uppercase
+          opacity: .85
 
   .picture
     width: 50%

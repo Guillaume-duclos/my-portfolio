@@ -45,6 +45,7 @@ const props = defineProps({
   title: String,
   subTitle: String,
   isViewExtended: Boolean,
+  isOpen: Boolean,
   enableViewExtend: {
     type: Boolean,
     required: false,
@@ -56,6 +57,10 @@ onMounted(() => {
   gsap.registerPlugin(CustomEase);
   CustomEase.create('heightEase', '0.76, 0.07, 0.53, 0.89');
   CustomEase.create('opacityEase', '0.25, 0.1, 0.25, 1');
+
+  if (props.isOpen) {
+    isVisible.value = true;
+  }
 });
 
 // Animation d'ouverture de l'item
@@ -89,7 +94,7 @@ const enter = (element: any, done: any) => {
 };
 
 // Animation de fermeture de l'item
-const leave = (element: any) => {
+const leave = (element: any, done: any) => {
   emit('updateActivesItem', { active: false, index: props.data?.color });
 
   // Opacité du contenu
@@ -101,6 +106,7 @@ const leave = (element: any) => {
     onComplete: () => {
       emit('refreshScrollTrigger', { index: props.index });
       emit('updateBackgroundColor');
+      done();
     },
   });
 };
@@ -167,10 +173,6 @@ const extendItemView = () => {
 
     &:hover .header-buttons .extend-button
       visibility: visible
-
-  .content-transition
-    opacity: 0
-    height: 0
 
   .item-content
     overflow: hidden

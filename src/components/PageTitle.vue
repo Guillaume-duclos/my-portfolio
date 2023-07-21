@@ -5,11 +5,13 @@
         <h2>{{ props.titlePage }}</h2>
         <h3>
           <span>Période</span>
-          3 ans et demi
+          {{ props.period }}
         </h3>
       </div>
       <p v-if="props.companyCount">
-        <span>{{ props.activeListIndex }}</span>
+        <span v-for="index in companyCount" :key="`company-${index}`">
+          {{ props.activeListIndex }}
+        </span>
         <span>/{{ props.companyCount }}</span>
       </p>
     </div>
@@ -22,6 +24,7 @@ import { useMediaQuery } from '@vueuse/core';
 
 const props = defineProps({
   titlePage: String,
+  period: String,
   activeListIndex: String,
   companyCount: String,
 });

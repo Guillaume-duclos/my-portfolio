@@ -1,11 +1,28 @@
 <template>
   <PageContent>
-    <PageTitle
-      ref="pageTitle"
-      :titlePage="titlePage"
-      :activeListIndex="activeListIndex"
-      :companyCount="companyCount"
-      :hide="itemViewExtended" />
+    <aside v-if="showTitle" class="title" ref="container">
+      <div>
+        <div>
+          <h2>{{ titlePage }}</h2>
+          <h3>
+            <span>Période</span>
+            {{ period }}
+          </h3>
+        </div>
+
+        <p class="active-company-index-container" v-if="companyCount">
+          <span class="active-company-index">
+            <span v-for="index in ProfessionalProjects.length" :key="`company-${index}`">0</span>
+          </span>
+          <span class="active-company-index">
+            <span v-for="index in ProfessionalProjects.length" :key="`company-${index}`">
+              {{ index }}
+            </span>
+          </span>
+          <span class="company-count">/{{ companyCount }}</span>
+        </p>
+      </div>
+    </aside>
 
     <main class="content" ref="contentContainer">
       <div class="content-lists-container" ref="content">
@@ -136,6 +153,7 @@ const content = ref();
 const activeList = ref(0);
 const activesItem = ref<number[]>([]);
 const itemViewExtended = ref(false);
+const timeLine = gsap.timeline();
 
 const showTitle = useMediaQuery('(min-width: 760px)');
 let root = document.documentElement;
@@ -173,10 +191,34 @@ watch(showTitle, (value: any) => {
   }
 });
 
+watch(activeList, (newValue, oldValue) => {
+  updateActiveListIndex(newValue, oldValue);
+});
+
 // Retourne le numéro de la liste courente
 const activeListIndex = computed(() => {
   return ('0' + (activeList.value + 1)).slice(-2);
 });
+
+const updateActiveListIndex = (newValue: number, oldValue: number) => {
+  console.log('updateActiveListIndex');
+  console.log('newValue : ', newValue);
+  console.log('oldValue : ', oldValue);
+
+  timeLine.to('.active-company-index:first-of-type', {
+    top: `-${72 * newValue}px`,
+    duration: 0.5,
+  });
+
+  timeLine.to(
+    '.active-company-index:not(:first-of-type)',
+    {
+      top: `-${72 * newValue}px`,
+      duration: 0.5,
+    },
+    '-=0.42'
+  );
+};
 
 // Compte le nombre de listes affichés
 const companyCount = computed(() => {
@@ -186,6 +228,11 @@ const companyCount = computed(() => {
 // Retourne le titre de la liste courente
 const titlePage = computed(() => {
   return ProfessionalProjects?.[activeList.value].title;
+});
+
+// Retourne la période de la liste courente
+const period = computed(() => {
+  return ProfessionalProjects?.[activeList.value].period;
 });
 
 // Set l'index de la liste active
