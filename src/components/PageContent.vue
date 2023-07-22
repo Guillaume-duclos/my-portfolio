@@ -20,7 +20,7 @@
     height: 100%
     margin-left: 0
     border: 0px solid black
-    z-index: 10
+    // z-index: 10
 
     > div
       display: flex

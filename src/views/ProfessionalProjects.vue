@@ -255,7 +255,7 @@ onMounted(() => {
 
   // titles.value = ProfessionalProjects.map((title) => title.title.split('\n'));
 
-  console.log(titles.value);
+  // console.log(titles.value);
 });
 
 onUnmounted(() => {

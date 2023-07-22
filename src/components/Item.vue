@@ -7,10 +7,10 @@
       </div>
 
       <div class="header-buttons">
-        <button v-if="enableViewExtend" class="extend-button" @click.stop="extendItemView">
-          <img v-if="isViewExtended" src="../assets/icons/arrow-down.svg" alt="Flèche" />
-          <img v-else src="../assets/icons/arrow-up.svg" alt="Flèche" />
-        </button>
+        <!--        <button v-if="enableViewExtend" class="extend-button" @click.stop="extendItemView">-->
+        <!--          <img v-if="isViewExtended" src="../assets/icons/arrow-down.svg" alt="Flèche" />-->
+        <!--          <img v-else src="../assets/icons/arrow-up.svg" alt="Flèche" />-->
+        <!--        </button>-->
         <button>
           <img v-if="isVisible" src="../assets/icons/close.svg" alt="Fermer" />
           <img v-else src="../assets/icons/open.svg" alt="Ouvrir" />
@@ -149,7 +149,7 @@ const extendItemView = () => {
     h5
       margin-top: 4px
       font-weight: 600
-      opacity: .6
+      opacity: .5
 
     .header-buttons
       display: flex
