@@ -7,28 +7,36 @@
       </div>
 
       <ul class="home-menu">
+        <!--        <li v-for="(title, index) in titles">-->
+        <!--          <RouterLink to="ProfessionalProjects">-->
+        <!--            <span v-for="(letter, index) in title">-->
+        <!--              {{ letter }}-->
+        <!--            </span>-->
+        <!--          </RouterLink>-->
+        <!--        </li>-->
+
         <li>
           <RouterLink to="ProfessionalProjects">
-            <span>Projets Pro</span>
-            <span>Projets Pro</span>
+            <span>Projets <span>professionnels</span></span>
+            <!--            <span>Projets Pro</span>-->
           </RouterLink>
         </li>
         <li>
           <RouterLink to="PersonalProjects">
-            <span>Projets Perso</span>
-            <span>Projets Perso</span>
+            <span>Projets <span>personnels</span></span>
+            <!--            <span>Projets Perso</span>-->
           </RouterLink>
         </li>
         <li>
           <RouterLink to="Stack">
-            <span>Stack</span>
-            <span>Stack</span>
+            <span>Stack <span>technique</span></span>
+            <!--            <span>Stack</span>-->
           </RouterLink>
         </li>
         <li>
           <RouterLink to="Contact">
-            <span>Contact</span>
-            <span>Contact</span>
+            <span>Contactez <span>moi</span></span>
+            <!--            <span>Contact</span>-->
           </RouterLink>
         </li>
       </ul>
@@ -64,11 +72,20 @@ import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 
 const homeTitle = ref();
+const titles = ref([]);
 
 onMounted(() => {
   gsap.registerPlugin(CustomEase);
   CustomEase.create('heightEase', '0.4, 0.11, 0.45, 0.97');
 
+  const titlesList = ['Projets pro', 'Projets perso', 'Stack', 'Contact'];
+
+  // Animation des titres
+  titles.value = titlesList.map((title) => {
+    return title.split('');
+  });
+
+  // Animation de la photo
   gsap.to('html', {
     '--photo-scale': 1,
     duration: 0.7,
@@ -88,8 +105,8 @@ onMounted(() => {
   .home-content
     display: flex
     flex-direction: column
-    justify-content: center
-    grid-gap: 50px
+    justify-content: space-between
+    padding: 30px 0
     width: 50%
     border: 0px solid black
 
@@ -119,6 +136,9 @@ onMounted(() => {
           color: rgba(0, 0, 0, .75)
           font-weight: 700
 
+          span
+            display: block
+
     .home-menu
       display: flex
       flex-direction: column
@@ -131,10 +151,10 @@ onMounted(() => {
 
         a
           position: relative
-          display: block
+          display: inline-table
           font-size: 65px
           line-height: 65px
-          font-weight: 800
+          font-weight: 900
           text-decoration: none
           text-transform: uppercase
           color: #000000
@@ -143,15 +163,22 @@ onMounted(() => {
           border: 0px solid red
 
           span
-            position: absolute
+            // position: absolute
+            // transition: top .2s ease-in-out
             display: block
-            transition: top .2s ease-in-out
+            color: rgba(0, 0, 0, .85)
             border: 0px solid black
 
-            &:first-of-type
-              top: 0
+            span
+              font-size: 20px
+              line-height: 20px
+              font-weight: 600
               opacity: .3
-              letter-spacing: -1px
+
+            //&:first-of-type
+            //  top: 0
+            //  opacity: .3
+            //  letter-spacing: -1px
 
               &:hover
                 opacity: .85

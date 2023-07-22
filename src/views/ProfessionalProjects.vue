@@ -3,7 +3,30 @@
     <aside v-if="showTitle" class="title" ref="container">
       <div>
         <div>
-          <h2>{{ titlePage }}</h2>
+          <h2>
+            <!--            <span v-for="(title, index) in words" :key="`title-${index}`" class="titles-container">-->
+            <!--              <span-->
+            <!--                class="words-container"-->
+            <!--                :class="`words-container-${index}`"-->
+            <!--                v-for="(word, index) in title"-->
+            <!--                :key="`word-${index}`">-->
+            <!--                <span-->
+            <!--                  class="letters-container"-->
+            <!--                  v-for="(letter, index) in word"-->
+            <!--                  :key="`letter-${index}`">-->
+            <!--                  {{ letter }}-->
+            <!--                </span>-->
+            <!--              </span>-->
+            <!--            </span>-->
+
+            <span v-for="(title, index) in titles" :key="`title-${index}`" class="titles-container">
+              <span class="titles-sub-container">
+                <span v-for="(word, index) in title" :key="`word-${index}`" class="words-container">
+                  {{ word }}
+                </span>
+              </span>
+            </span>
+          </h2>
           <h3>
             <span>Période</span>
             {{ period }}
@@ -62,23 +85,23 @@
                 </div>
               </div>
 
-              <div
-                v-else-if="
-                  project.content.medias.length &&
-                  project.content.medias[0].type === ImageType.VIDEO
-                "
-                class="content-container">
-                <h6>Vidéos</h6>
-                <div class="content-media">
-                  <iframe
-                    v-for="(media, index) in project.content.medias"
-                    :key="`image-${index}`"
-                    :src="media.path"
-                    title="Déballage d&#39;un vélo"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen />
-                </div>
-              </div>
+              <!--              <div-->
+              <!--                v-else-if="-->
+              <!--                  project.content.medias.length &&-->
+              <!--                  project.content.medias[0].type === ImageType.VIDEO-->
+              <!--                "-->
+              <!--                class="content-container">-->
+              <!--                <h6>Vidéos</h6>-->
+              <!--                <div class="content-media">-->
+              <!--                  <iframe-->
+              <!--                    v-for="(media, index) in project.content.medias"-->
+              <!--                    :key="`image-${index}`"-->
+              <!--                    :src="media.path"-->
+              <!--                    title="Déballage d&#39;un vélo"-->
+              <!--                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
+              <!--                    allowfullscreen />-->
+              <!--                </div>-->
+              <!--              </div>-->
 
               <div v-else-if="project.content?.role" class="content-container">
                 <h6>Role occupé</h6>
@@ -153,7 +176,35 @@ const content = ref();
 const activeList = ref(0);
 const activesItem = ref<number[]>([]);
 const itemViewExtended = ref(false);
-const timeLine = gsap.timeline();
+const titles = ref([
+  ['we', 'idix', 'wareega'],
+  ['craft', '', ''],
+  ['apps', '', ''],
+]);
+// const words = [
+//   [
+//     ['w', 'i', 'w'],
+//     ['e', 'd', 'a'],
+//     [' ', 'i', 'r'],
+//     [' ', 'x', 'e'],
+//     [' ', ' ', 'e'],
+//     [' ', ' ', 'g'],
+//     [' ', ' ', 'a'],
+//   ],
+//   [
+//     ['c', ' ', ' '],
+//     ['r', ' ', ' '],
+//     ['a', ' ', ' '],
+//     ['f', ' ', ' '],
+//     ['t', ' ', ' '],
+//   ],
+//   [
+//     ['a', ' ', ' '],
+//     ['p', ' ', ' '],
+//     ['p', ' ', ' '],
+//     ['s', ' ', ' '],
+//   ],
+// ];
 
 const showTitle = useMediaQuery('(min-width: 760px)');
 let root = document.documentElement;
@@ -162,6 +213,7 @@ onMounted(() => {
   gsap.registerPlugin(CustomEase);
   gsap.registerPlugin(ScrollTrigger);
   CustomEase.create('expendEase', '0.56, 0.14, 0.27, 0.97');
+  CustomEase.create('countEase', '0.4, 0.11, 0.45, 0.97');
 
   for (let i = 0; i < content.value.children.length; i++) {
     ScrollTrigger.create({
@@ -174,6 +226,36 @@ onMounted(() => {
       onUpdate: () => updateActiveList(i),
     });
   }
+
+  // 0 : ['w', 'e']
+  // 1 : ['c', 'r', 'a', 'f', 't']
+  // 2 : ['a', 'p', 'p', 's']
+  // ------
+  // 0 : ['i', 'd', 'i', 'x']
+  // ------
+  // 0 : ['w', 'a', 'r', 'e', 'e', 'g', 'a']
+
+  // [
+  //   [['w', 'i', 'w'], ['e', 'd', 'a'], [' ', 'i', 'r'], [' ', 'x', 'e'], [' ', ' ', 'e'], [' ', ' ', 'g'], [' ', ' ', 'a']],
+  //   [['c', ' ', ' '], ['r', ' ', ' '], ['a', ' ', ' '], ['f', ' ', ' '], ['t', ' ', ' ']],
+  //   [['a', ' ', ' '], ['p', ' ', ' '], ['p', ' ', ' '], ['s', ' ', ' ']]
+  // ]
+
+  // ProfessionalProjects.forEach((projet) => {
+  //   titles.value.push(
+  //     projet.title.split('\n').map((word) => {
+  //       return word.split('');
+  //     })
+  //   );
+  // });
+
+  // ['we', 'idix', 'wareega'],
+  // ['craft', '', ''],
+  // ['apps', '', ''],
+
+  // titles.value = ProfessionalProjects.map((title) => title.title.split('\n'));
+
+  console.log(titles.value);
 });
 
 onUnmounted(() => {
@@ -191,8 +273,9 @@ watch(showTitle, (value: any) => {
   }
 });
 
-watch(activeList, (newValue, oldValue) => {
-  updateActiveListIndex(newValue, oldValue);
+watch(activeList, (newValue) => {
+  updateActiveListTitle(newValue);
+  updateActiveListIndex(newValue);
 });
 
 // Retourne le numéro de la liste courente
@@ -200,10 +283,40 @@ const activeListIndex = computed(() => {
   return ('0' + (activeList.value + 1)).slice(-2);
 });
 
-const updateActiveListIndex = (newValue: number, oldValue: number) => {
-  console.log('updateActiveListIndex');
-  console.log('newValue : ', newValue);
-  console.log('oldValue : ', oldValue);
+const largestTitle = computed(() => {
+  return titles.value.reduce((maxI, el, i, arr) => (el.length > arr[maxI].length ? i : maxI), 0);
+});
+
+const updateActiveListTitle = (newValue: number) => {
+  // for (let i = 0; i < 7; i++) {
+  //   gsap.to(`.words-container:nth-of-type(${i + 1})`, {
+  //     marginTop: `-${72 * newValue}px`,
+  //     duration: 0.5,
+  //     delay: `${0.1 * i}`,
+  //     ease: 'countEase',
+  //   });
+  // }
+
+  // for (let i = 0; i < titles.value.length; i++) {
+  //   gsap.to(`.titles-container:nth-of-type(${i + 1})`, {
+  //     marginTop: `-${72 * newValue}px`,
+  //     duration: 0.5,
+  //     delay: `${0.1 * i}`,
+  //     ease: 'countEase',
+  //   });
+  // }
+
+  for (let i = 0; i < titles.value.length; i++) {
+    gsap.to(`.titles-sub-container`, {
+      marginTop: `-${(62 + 3 * i) * newValue}px`,
+      duration: 0.5,
+      ease: 'countEase',
+    });
+  }
+};
+
+const updateActiveListIndex = (newValue: number) => {
+  const timeLine = gsap.timeline();
 
   timeLine.to('.active-company-index:first-of-type', {
     top: `-${72 * newValue}px`,
@@ -215,6 +328,7 @@ const updateActiveListIndex = (newValue: number, oldValue: number) => {
     {
       top: `-${72 * newValue}px`,
       duration: 0.5,
+      ease: 'countEase',
     },
     '-=0.42'
   );

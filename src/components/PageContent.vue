@@ -30,14 +30,61 @@
 
       h2, p
         margin: 0
-        line-height: 70px
         font-size: 80px
         font-weight: 800
         text-transform: uppercase
+        border: 0px solid red
 
       h2
+        display: block
+        line-height: 60px
+        overflow: hidden
         white-space: pre-wrap
         word-wrap: break-word
+
+        //.titles-container
+        //  position: relative
+        //  display: flex
+        //  height: 72px
+        //  line-height: 72px
+        //  overflow: hidden
+        //  border: 1px solid black
+        //
+        //  &:not(:first-of-type)
+        //    margin-top: 5px
+        //
+        //  .words-container
+        //    height: 100%
+        //    border: 0px solid blue
+        //
+        //    .letters-container
+        //      display: block
+        //      height: 100%
+        //      // text-align: center
+        //      border: 1px solid red
+
+      .titles-container
+        position: relative
+        display: block
+        height: 60px
+        overflow: hidden
+        border: 0px solid black
+
+        &:not(:first-of-type)
+          margin-top: 8px
+
+        .titles-sub-container
+          display: block
+          height: 100%
+          border: 0px solid red
+
+          .words-container
+            display: block
+            height: 100%
+            border: 0px solid blue
+
+            &:not(:first-of-type)
+              margin-top: 8px
 
       h3
         margin: 8px 0 0 0
