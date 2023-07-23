@@ -164,6 +164,9 @@
       > div
         margin-bottom: 80px
 
+        a
+          color: #000000
+
         ul
           margin: 0
           padding: 0

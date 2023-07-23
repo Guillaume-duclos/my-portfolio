@@ -72,7 +72,7 @@ import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 
 const homeTitle = ref();
-const titles = ref([]);
+const titles = ref<any[]>([]);
 
 onMounted(() => {
   gsap.registerPlugin(CustomEase);

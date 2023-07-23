@@ -124,9 +124,9 @@ const updateBackgroundColor = () => {
 };
 
 // On étend la vue des items
-const extendItemView = () => {
-  emit('extendView');
-};
+// const extendItemView = () => {
+//   emit('extendView');
+// };
 </script>
 
 <style lang="sass">
@@ -136,6 +136,7 @@ const extendItemView = () => {
 
   header
     display: flex
+    grid-gap: 20px
     justify-content: space-between
     padding: 30px 0
     cursor: pointer
@@ -235,12 +236,14 @@ const extendItemView = () => {
           border: none
           border-radius: 10px
 
+      p, li
+        padding: 5px 0
+        font-size: 14px
+
       ul
         border: 0px solid black
 
         li
-          padding: 5px 0
-          font-size: 14px
           border: 0px solid black
 
           &.missions

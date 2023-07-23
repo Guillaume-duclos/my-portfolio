@@ -1,31 +1,152 @@
 [
   {
-    "title": "Front\nEnd",
+    "title": "Front",
     "list": [
       {
-        "name": "Manrina",
-        "scope": "Back-office, Mobile, API",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "title": "React",
+        "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
+        "color": "#CCCCCC",
+        "content": {
+          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose."
+        }
       },
       {
-        "name": "CNH",
-        "scope": "Back-office, Mobile, API",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "title": "Vue",
+        "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
+        "color": "#CCCCCC",
+        "content": {
+          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose."
+        }
+      },
+      {
+        "title": "Webpack / Vite / VitePress",
+        "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
+        "color": "#CCCCCC",
+        "content": {
+          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose."
+        }
+      },
+      {
+        "title": "JavaScript / TypeScript",
+        "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
+        "color": "#CCCCCC",
+        "content": {
+          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose."
+        }
+      },
+      {
+        "title": "SCSS / SASS / PostCSS",
+        "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
+        "color": "#CCCCCC",
+        "content": {
+          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose."
+        }
+      },
+      {
+        "title": "GSAP",
+        "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
+        "color": "#CCCCCC",
+        "content": {
+          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose."
+        }
+      },
+      {
+        "title": "Three.js",
+        "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
+        "color": "#CCCCCC",
+        "content": {
+          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose."
+        }
+      },
+      {
+        "title": "Canvas HTML",
+        "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
+        "color": "#CCCCCC",
+        "content": {
+          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose."
+        }
+      },
+      {
+        "title": "Axios",
+        "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
+        "color": "#CCCCCC",
+        "content": {
+          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose."
+        }
       }
     ]
   },
   {
-    "title": "Back\nEnd",
+    "title": "Back",
     "list": [
       {
-        "name": "Manrina",
-        "scope": "Back-office, Mobile, API",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "title": "Node.js",
+        "subTitle": "Application iOS développé avec le framework SwiftUI",
+        "color": "#F7DDDA",
+        "content": {
+          "description": "J'ai voulu développer une application permettant de localisez des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localisez un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuel onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement."
+        }
       },
       {
-        "name": "CNH",
-        "scope": "Back-office, Mobile, API",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "title": "Nest.js",
+        "subTitle": "Application iOS développé avec le framework SwiftUI",
+        "color": "#F7DDDA",
+        "content": {
+          "description": "J'ai voulu développer une application permettant de localisez des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localisez un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuel onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement."
+        }
+      },
+      {
+        "title": "PostgreSQL",
+        "subTitle": "Application iOS développé avec le framework SwiftUI",
+        "color": "#F7DDDA",
+        "content": {
+          "description": "J'ai voulu développer une application permettant de localisez des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localisez un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuel onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement."
+        }
+      },
+      {
+        "title": "Knex.js",
+        "subTitle": "Application iOS développé avec le framework SwiftUI",
+        "color": "#F7DDDA",
+        "content": {
+          "description": "J'ai voulu développer une application permettant de localisez des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localisez un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuel onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement."
+        }
+      },
+      {
+        "title": "Nunjucks",
+        "subTitle": "Application iOS développé avec le framework SwiftUI",
+        "color": "#F7DDDA",
+        "content": {
+          "description": "J'ai voulu développer une application permettant de localisez des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localisez un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuel onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement."
+        }
+      },
+      {
+        "title": "JWT",
+        "subTitle": "Application iOS développé avec le framework SwiftUI",
+        "color": "#F7DDDA",
+        "content": {
+          "description": "J'ai voulu développer une application permettant de localisez des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localisez un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuel onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement."
+        }
+      }
+    ]
+  },
+  {
+    "title": "Mobile",
+    "list": [
+      {
+        "title": "React-Native",
+        "subTitle": "Application iOS développé avec le framework SwiftUI",
+        "color": "#F7DDDA",
+        "content": {
+          "description": "J'ai voulu développer une application permettant de localisez des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localisez un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuel onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement."
+        }
+      },
+      {
+        "title": "SwiftUI",
+        "subTitle": "Application iOS développé avec le framework SwiftUI",
+        "color": "#F7DDDA",
+        "content": {
+          "description": "J'ai voulu développer une application permettant de localisez des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localisez un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuel onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement."
+        }
       }
     ]
   }

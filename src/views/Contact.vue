@@ -1,6 +1,20 @@
 <template>
   <PageContent>
-    <PageTitle ref="pageTitle" titlePage="Contact" />
+    <aside v-if="showTitle" class="title" ref="container">
+      <div>
+        <div>
+          <h2>
+            <span v-for="(title, index) in titles" :key="`title-${index}`" class="titles-container">
+              <span class="titles-sub-container">
+                <span v-for="(word, index) in title" :key="`word-${index}`" class="words-container">
+                  {{ word }}
+                </span>
+              </span>
+            </span>
+          </h2>
+        </div>
+      </div>
+    </aside>
 
     <main class="content">
       <div class="content-lists-container" ref="content">
@@ -107,10 +121,16 @@ import Item from '../components/Item.vue';
 import Navigation from '../components/Navigation.vue';
 import PageContent from '../components/PageContent.vue';
 import PageTitle from '../components/PageTitle.vue';
+import Stack from '../data/stack.json';
 
 const contactForm = ref();
 const emailStatus = ref('Envoyer');
-const showTitle = useMediaQuery('(max-width: 760px)');
+const titles = ref([
+  ['contact', '', ''],
+  ['', '', ''],
+  ['', '', ''],
+]);
+const showTitle = useMediaQuery('(min-width: 760px)');
 
 // const audioRecordStartTime = ref<any>();
 // const isRecording = ref(false);

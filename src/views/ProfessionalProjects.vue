@@ -152,7 +152,7 @@
 
       <Navigation
         :previousPage="{ label: 'Accueil', name: 'Home' }"
-        :nextPage="{ label: 'Projets perso', name: 'PersonalProjects' }" />
+        :nextPage="{ label: 'Projets personnels', name: 'PersonalProjects' }" />
     </main>
   </PageContent>
 </template>
@@ -168,7 +168,6 @@ import ProfessionalProjects from '../data/professional-projects.json';
 import Navigation from '../components/Navigation.vue';
 import Item from '../components/Item.vue';
 import PageContent from '../components/PageContent.vue';
-import PageTitle from '../components/PageTitle.vue';
 
 const pageTitle = ref();
 const contentContainer = ref();
@@ -279,13 +278,13 @@ watch(activeList, (newValue) => {
 });
 
 // Retourne le numéro de la liste courente
-const activeListIndex = computed(() => {
-  return ('0' + (activeList.value + 1)).slice(-2);
-});
+// const activeListIndex = computed(() => {
+//   return ('0' + (activeList.value + 1)).slice(-2);
+// });
 
-const largestTitle = computed(() => {
-  return titles.value.reduce((maxI, el, i, arr) => (el.length > arr[maxI].length ? i : maxI), 0);
-});
+// const largestTitle = computed(() => {
+//   return titles.value.reduce((maxI, el, i, arr) => (el.length > arr[maxI].length ? i : maxI), 0);
+// });
 
 const updateActiveListTitle = (newValue: number) => {
   // for (let i = 0; i < 7; i++) {
@@ -340,9 +339,9 @@ const companyCount = computed(() => {
 });
 
 // Retourne le titre de la liste courente
-const titlePage = computed(() => {
-  return ProfessionalProjects?.[activeList.value].title;
-});
+// const titlePage = computed(() => {
+//   return ProfessionalProjects?.[activeList.value].title;
+// });
 
 // Retourne la période de la liste courente
 const period = computed(() => {
