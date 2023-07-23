@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, Router } from 'vue-router';
+import { createRouter, createWebHashHistory, Router } from 'vue-router';
 import Home from './views/Home.vue';
 import ProfessionalProjects from './views/ProfessionalProjects.vue';
 import PersonalProjects from './views/PersonalProjects.vue';
@@ -7,7 +7,7 @@ import Stack from './views/Stack.vue';
 import NotFound from './views/NotFound.vue';
 
 const router: Router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     { path: '/home', name: 'Home', component: Home, meta: { name: 'Accueil' } },
     {

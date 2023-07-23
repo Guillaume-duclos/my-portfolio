@@ -39,6 +39,7 @@
               :data="project"
               :index="index"
               :isViewExtended="itemViewExtended"
+              :enableViewOpen="false"
               :enableViewExtend="showTitle"
               @extendView="extendItemView"
               @updateActivesItem="updateActivesItem"
@@ -84,7 +85,6 @@ import { useMediaQuery } from '@vueuse/core';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ImageType from '../enums/image-type.enum.ts';
 import Stack from '../data/stack.json';
 import Navigation from '../components/Navigation.vue';
 import Item from '../components/Item.vue';
@@ -239,11 +239,6 @@ const companyCount = computed(() => {
 // const titlePage = computed(() => {
 //   return Stack?.[activeList.value].title;
 // });
-
-// Retourne la période de la liste courente
-const period = computed(() => {
-  return Stack?.[activeList.value].period;
-});
 
 // Set l'index de la liste active
 const updateActiveList = (index: number) => {

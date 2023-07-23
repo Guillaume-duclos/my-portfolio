@@ -120,7 +120,6 @@ import emailJs from '@emailjs/browser';
 import Item from '../components/Item.vue';
 import Navigation from '../components/Navigation.vue';
 import PageContent from '../components/PageContent.vue';
-import PageTitle from '../components/PageTitle.vue';
 import Stack from '../data/stack.json';
 
 const contactForm = ref();

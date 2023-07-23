@@ -1,12 +1,14 @@
 <template>
   <li class="item">
-    <header @click="open">
+    <header :class="{ 'header-clickable': enableViewOpen }" @click="enableViewOpen ? open() : null">
       <div>
         <h4>{{ props.data?.title || props.title }}</h4>
-        <h5>{{ props.data?.subTitle || props.subTitle }}</h5>
+        <h5 v-if="props.data?.subTitle || props.subTitle">
+          {{ props.data?.subTitle || props.subTitle }}
+        </h5>
       </div>
 
-      <div class="header-buttons">
+      <div class="header-buttons" :class="{ 'header-buttons-enabled': enableViewOpen }">
         <!--        <button v-if="enableViewExtend" class="extend-button" @click.stop="extendItemView">-->
         <!--          <img v-if="isViewExtended" src="../assets/icons/arrow-down.svg" alt="Flèche" />-->
         <!--          <img v-else src="../assets/icons/arrow-up.svg" alt="Flèche" />-->
@@ -46,6 +48,11 @@ const props = defineProps({
   subTitle: String,
   isViewExtended: Boolean,
   isOpen: Boolean,
+  enableViewOpen: {
+    type: Boolean,
+    required: false,
+    default: true,
+  },
   enableViewExtend: {
     type: Boolean,
     required: false,
@@ -139,7 +146,9 @@ const updateBackgroundColor = () => {
     grid-gap: 20px
     justify-content: space-between
     padding: 30px 0
-    cursor: pointer
+
+    &.header-clickable
+      cursor: pointer
 
     h4, h5
       margin: 0
@@ -156,7 +165,11 @@ const updateBackgroundColor = () => {
       display: flex
       align-items: center
       grid-gap: 14px
+      opacity: .1
       border: 0px solid black
+
+      &.header-buttons-enabled
+        opacity: 1
 
       button
         padding: 0
