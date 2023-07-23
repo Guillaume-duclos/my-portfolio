@@ -79,7 +79,7 @@
                   <img
                     v-for="(media, index) in project.content.medias"
                     :key="`image-${index}`"
-                    :src="`../assets/img/${media.path}.png`"
+                    :src="`./assets/img/${media.path}.png`"
                     :alt="media.description"
                     :class="{ 'website-image': media.type === ImageType.WEBSITE }" />
                 </div>
