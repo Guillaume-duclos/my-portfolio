@@ -8,8 +8,8 @@
         "subTitle": "Back-office, Mobile, API",
         "color": "#FACAAB",
         "content": {
-          "description": "Manrina est une startup spécialisée dans la livraison à domicile de produits alimentaires, cultivés par des producteurs locaux. L’objectif est de mettre en relation les producteurs et les consommateurs. Manrina accompagne des producteurs afin qu’ils puissent vendre leurs produits en circuit court, directement aux consommateurs qu’ils soient des particuliers ou des professionnels.<br/><br/>L’application consommateur permet aux clients de passer commande chaque semaine et de se faire livrer à domicile par Manrina. L’API que nous avons développée permet à tous les outils numériques de communiquer entre eux et notamment avec un back office pour administrer toutes les ventes, les tournées de livraison ainsi que les stocks et les utilisateurs.",
-          "missions": ["Mise en place des évolutions sur le projet aussi bien sur la partie <strong>back-end</strong> que sur les applications mobile et le back-office", "<strong>Lead développeur</strong> sur un lot de <strong>d'importante évolutions</strong> sur la <strong>totalité du scope du projet</strong> : <strong>refonte du menu</strong> sur l'application consommateur pour le sélection de la date de livraison souhaité; ajout d'une <strong>nouvelle section de pages</strong> sur le BO afin de pouvoir créer une date de tournée et gérer les commandes clients; <strong>modification de l'API</strong> en conséquence", "Modifications sur la partie <strong>paiement avec l'API de Mangopay</strong> : ajout des metas user dans la requête lors d'un payin afin d'assurer la compatibilité à la version 2 de l'API", "Création et déploiement des <strong>builds iOS et Android</strong> sur les stores"],
+          "description": "Manrina est une startup spécialisée dans la livraison à domicile de produits alimentaires, cultivés par des producteurs locaux. L’objectif est de mettre en relation les producteurs et les consommateurs. Manrina accompagne des producteurs afin qu’ils puissent vendre leurs produits en circuit court, directement aux consommateurs, qu’ils soient des particuliers ou des professionnels.<br/><br/>L’application consommateur permet aux clients de passer commande chaque semaine et de se faire livrer à domicile par Manrina. L’API que nous avons développée permet à tous les outils numériques de communiquer entre eux et notamment avec un back office pour administrer toutes les ventes, les tournées de livraison ainsi que les stocks et les utilisateurs.",
+          "missions": ["Mise en place des évolutions sur le projet sur la partie <strong>back-end</strong> ainsi que sur les applications mobiles et le back-office", "<strong>Lead développeur</strong> sur un lot <strong>d'importantes évolutions</strong> sur la <strong>totalité du scope du projet</strong> : <strong>refonte du menu</strong> sur l'application consommateur pour la sélection de la date de livraison souhaité; ajout d'une <strong>nouvelle section de pages</strong> sur le back-office afin de pouvoir créer une date de tournée et gérer les commandes clients; <strong>modification de l'API</strong> en conséquence", "Modifications sur la partie <strong>paiement avec l'API de Mangopay</strong> : ajout des metas user dans la requête lors d'un payin afin d'assurer la compatibilité à la version 2 de l'API", "Création et déploiement des <strong>builds iOS et Android</strong> sur les stores"],
           "role": "Développeur full-stack puis lead développeur full-stack",
           "medias": [
             {
@@ -79,7 +79,7 @@
         "color": "#DDE2EE",
         "content": {
           "description": "CNH Industrial est une holding de droit néerlandais. Il s'agit d'une structure regroupant les activités de construction de machines agricoles et engins de chantier comme par exemple New Holland et Case IH.<br/><br/>Nous avons développé une application mobile pour chaque marque d'engin agricole appartenant au groupe. Celles-ci permettant la géolocalisation en temps réel des rovers en activité.",
-          "missions": ["Mise en place un <strong>back-office</strong> afin de gérer l'envoie de notifications à travers toutes les applications avec <strong>OneSignal</strong>.", "Mise en place de la <strong>nouvelle application</strong> pour la marque Raven.", "Intégration <strong>natif</strong> en <strong>Swift</strong> et en <strong>Java</strong> pour l'ajout du marqueur de géolocalisation de l'utilisateur sur la carte Google Maps.", "Ajout des nouvelles traductions pour les différentes langues utilisés avec <strong>i18n</strong> en fonction des ajouts de textes effectués", "Création et déploiement des <strong>builds iOS et Android</strong> sur les stores"],
+          "missions": ["Mise en place un <strong>back-office</strong> afin de gérer l'envoie de notifications à travers toutes les applications avec <strong>OneSignal</strong>.", "Mise en place de la <strong>nouvelle application</strong> pour la marque Raven.", "Intégration <strong>natif</strong> en <strong>Swift</strong> et en <strong>Java</strong> pour l'ajout du marqueur de géolocalisation de l'utilisateur sur la carte Google Maps.", "Ajout des nouvelles traductions pour les différentes langues utilisées avec <strong>i18n</strong> en fonction des ajouts de textes effectués", "Création et déploiement des <strong>builds iOS et Android</strong> sur les stores"],
           "role": "Développeur mobile",
           "medias": [
             {
@@ -160,8 +160,8 @@
         "subTitle": "Web, Back-office, API",
         "color": "#F3E6D6",
         "content": {
-          "description": "Immobilier Enchère est une application web de l'agence immobilière Graslin Immobilier. Elle a pour but de mettre en concurrence les potentielles acheteurs de biens immobiliers.<br/><br/>Étant <strong>lead développeur</strong> sur le projet, j'ai ainsi développé un <strong>back-office</strong> permettant à l'agence d'enregistrer des biens à vendre pour un prix de départ, une date d'enchère, un temps imparti... Chaque membre invité à l'enchère reçois par mail un lien unique pour y participer. Une interface client a ainsi également été développer pour ces derniers.",
-          "missions": ["Réalisation des <strong>spécifications techniques</strong> : User Stories, API, BDD", "Mise en place de l'API", "Développement du back-office et d'interface client", "Développement de l’envoie des mails automatique : invitation à une enchère avec <strong>token (JWT)</strong>, modification du mot de passe", "<strong>Simulations</strong> d’enchères pour effectuer des tests avec toute l’équipe en exposant l’adresse IP local du front"],
+          "description": "Immobilier Enchère est une application web de l'agence immobilière Graslin Immobilier. Elle a pour but de mettre en concurrence les potentiels acheteurs de biens immobiliers.<br/><br/>Étant <strong>lead développeur</strong> sur le projet, j'ai ainsi développé un <strong>back-office</strong> permettant à l'agence d'enregistrer des biens à vendre pour un prix de départ, une date d'enchère, un temps imparti... Chaque membre invité à l'enchère reçois par mail un lien unique pour y participer. Une interface client a ainsi également été développer pour ces derniers.",
+          "missions": ["Réalisation des <strong>spécifications techniques</strong> : User Stories, API, BDD", "Mise en place de l'API", "Développement du back-office et d'interface client", "Développement de l’envoie des mails automatiques : invitation à une enchère avec <strong>token (JWT)</strong>, modification du mot de passe", "<strong>Simulations</strong> d’enchères pour effectuer des tests avec toute l’équipe en exposant l’adresse IP local du front"],
           "role": "Lead développeur full-stack",
           "medias": [
             {
@@ -314,8 +314,8 @@
         "subTitle": "Back-office, API",
         "color": "#C0E3FE",
         "content": {
-          "description": "Hedifys est une société construction de maisons travaillant avec l'agence de vente \"Maison Alysia\". Nous avons mis en place un back-office pour Maison Alysia afin qu'ils puissent configurer les paramètres des différents type de maison.<br/><br/>Un site mis à la dispositions des potentiels clients a également été développé avec un configurateur de prix, de type de maison, de terrain...",
-          "missions": ["Mise en place de la deuxième version du <strong>back-office</strong> avec l'équipe", "Support de la première version du back-office avec des corrections de bugs", "Mise en place d'une feature permettant de visualiser toutes les communes de France sur une carte Mapbox via une recherche par code postale. Création côté serveur un <strong>script d'import</strong> de tous les codes postaux et de leur coordonnées afin de les inscrire dans le base de données. Création du composant côte front-end."],
+          "description": "Hedifys est une société construction de maisons travaillant avec l'agence de vente \"Maison Alysia\". Nous avons mis en place un back-office pour Maison Alysia afin qu'ils puissent configurer les paramètres des différents types de maison.<br/><br/>Un site mis à la disposition des potentiels clients a également été développé avec un configurateur de prix, de type de maison, de terrain...",
+          "missions": ["Mise en place de la deuxième version du <strong>back-office</strong> avec l'équipe", "Support de la première version du back-office avec des corrections de bugs", "Mise en place d'une feature permettant de visualiser toutes les communes de France sur une carte Mapbox via une recherche par code postale. Création côté serveur un <strong>script d'import</strong> de tous les codes postaux et de leurs coordonnées afin de les inscrire dans le base de données. Création du composant côte front-end."],
           "role": "Développeur full-stack",
           "medias": [
             {
@@ -376,8 +376,8 @@
         "subTitle": "Back-office, API",
         "color": "#E5F1DB",
         "content": {
-          "description": "Ealigner est une entreprise qui fabrique des gouttières dentaires pour des praticiens destiné à leurs patients. Nous avons mis en place une plateforme web afin de faciliter l'échange et les commandes entre le personnel d'Ealigner et les praticiens.",
-          "missions": ["Mise en place de certaines vues de la plateforme", "Ajout de nouvelle <strong>routes API</strong>", "Mise en place d'une série de <strong>CRON</strong> pour l'envoie automatique de mail aux utilisateurs, en fonction des multiples paramètres liés à leur compte", "<strong>Review de Pull Request</strong> et <strong>encadrement</strong> sur le projet d'un alternant"],
+          "description": "Ealigner est une entreprise qui fabrique des gouttières dentaires pour des praticiens destinés à leurs patients. Nous avons mis en place une plateforme web afin de faciliter l'échange et les commandes entre le personnel d'Ealigner et les praticiens.",
+          "missions": ["Mise en place de certaines vues de la plateforme", "Ajout de nouvelles <strong>routes API</strong>", "Mise en place d'une série de <strong>CRON</strong> pour l'envoi automatique de mail aux utilisateurs, en fonction des multiples paramètres liés à leur compte", "<strong>Review de Pull Request</strong> et <strong>encadrement</strong> sur le projet d'un alternant"],
           "role": "Développeur full-stack",
           "medias": [
             {
@@ -410,7 +410,7 @@
         "color": "#D1D1DE",
         "content": {
           "description": "Oraculum est un <strong>produit interne</strong> à We Craft Apps. Il s'agit d'une application mobile de jeu de tarot. Elle contient un mode de découverte gratuit ainsi qu'un abonnement mensuel.<br/><br/>J'ai également été amené à développer une <strong>application web créative</strong> afin de mettre en avant le produit. Il s'agit d'une <strong>\"expérience web\"</strong> qui propose des informations sur soit en fonctions d'informations fournies.",
-          "missions": ["Développement de la vue du tirage des cartes en croix avec la librairie <strong>React Native Reanimated</strong> pour des performances natives sur les animations", "Ajout des différentes langues supportés avec <strong>i18n</strong>", "Développement du site intéractif \"Oraculum wex experience\" pour la mise en avant de l'application : mise en place d'<strong>animations sur le router</strong> de vue pour le changement de page, ajout d'<strong>animation 3D</strong> fais <strong>maison au survol des cartes..."],
+          "missions": ["Développement de la vue du tirage des cartes en croix avec la librairie <strong>React Native Reanimated</strong> pour des performances natives sur les animations", "Ajout des différentes langues supportées avec <strong>i18n</strong>", "Développement du site interactif \"Oraculum web experience\" pour la mise en avant de l'application : mise en place d'<strong>animations sur le router</strong> de vue pour le changement de page, ajout d'<strong>animation 3D</strong> fais <strong>maison au survol des cartes..."],
           "role": "Développeur mobil et lead développeur front-end",
           "medias": [
             {
@@ -472,7 +472,7 @@
         "color": "#FCECFF",
         "content": {
           "description": "Doppio est un produit <strong>SASS</strong> interne à We Craft Apps. Il s'agit d'une solution de conversion de code HTML vers du PDF, PNG, JPG ou WEBP via la librairie <strong>Puppeteer.js</strong>",
-          "missions": ["Développement du site vitrine", "Intégration de certaines vue sur la partie back-office dédié aux clients", "<strong>Veille</strong> sur la solution <strong>Vitepress</strong> pour un site à contenu statique, dans le but de rédiger une documentation", "Mise en place de la <strong>documentation</strong> de l'API fournie aux utilisateurs avec <strong>Vitepress</strong>", "<strong>Encadrement d'un alternant</strong> sur les évolutions de la documentation"],
+          "missions": ["Développement du site vitrine", "Intégration de certaines vues sur la partie back-office dédié aux clients", "<strong>Veille</strong> sur la solution <strong>Vitepress</strong> pour un site à contenu statique, dans le but de rédiger une documentation", "Mise en place de la <strong>documentation</strong> de l'API fournie aux utilisateurs avec <strong>Vitepress</strong>", "<strong>Encadrement d'un alternant</strong> sur les évolutions de la documentation"],
           "role": "Développeur font-end",
           "medias": [
             {
@@ -524,7 +524,7 @@
         "subTitle": "Site vitrine",
         "color": "#F9E5CC",
         "content": {
-          "description": "Site vitrine réalisé pour la société de construction de carrosserie CVIM.<br/><br/>J'ai été amené à créer la page de configuration des tepematics vendu par la société avec des affichages en 3D. Malheureusement je n'est pas pu finaliser le configurateur et il n'a ainsi pas été mis en ligne car le projet a été gelé par le client et n'a jamais été repris depuis.",
+          "description": "Site vitrine réalisé pour la société de construction de carrosserie CVIM.<br/><br/>J'ai été amené à créer la page de configuration des tepematics vendu par la société avec des affichages en 3D. Malheureusement, je n'ai pas pu finaliser le configurateur et il n'a ainsi pas été mis en ligne car le projet a été gelé par le client et n'a jamais été repris depuis.",
           "missions": ["Mise en place d'une page représentant des modèles de carrosserie en 3D à l'aide de <strong>Three.js</strong>. Ajout d'un menu permettant de personnaliser les modèles avec un <strong>changement des modèles 3D en temps réel</strong>"],
           "role": "Développeur font-end",
           "medias": [
@@ -557,7 +557,7 @@
         "subTitle": "Site vitrine",
         "color": "#CCDAF1",
         "content": {
-          "description": "Collectif est une société de courtage et de conseil en énergie. Nous avons développé pour eux une application permettant aux clients de visualiser les différents prix futurs de l'énergie grace à un dashboard.",
+          "description": "Collectif est une société de courtage et de conseil en énergie. Nous avons développé pour eux une application permettant aux clients de visualiser les différents prix futurs de l'énergie grâce à un dashboard.",
           "missions": ["Mise en place de différents graphes sur le dashboard pour la visualisation du court de l'énergie via <strong>Chart.js</strong>", "Ajout de correction de différents bugs rencontrés"],
           "role": "Développeur font-end",
           "medias": [],
@@ -580,7 +580,7 @@
         "subTitle": "Back-office, Mobile, API",
         "color": "#E5E5E5",
         "content": {
-          "description": "KVN est une néo-banque Française dont nous avons crée toutes les interfaces, de l'application mobile pour les clients ainsi qu'un back-office pour le client lui même. Nous avons travaillé avec l'API <strong>Treezor</strong> pour les virement bancaires.",
+          "description": "KVN est une néo-banque française dont nous avons créé toutes les interfaces, de l'application mobile pour les clients ainsi qu'un back-office pour le client lui-même. Nous avons travaillé avec l'API <strong>Treezor</strong> pour les virements bancaires.",
           "missions": ["Mise en place des vues de l'application pour l'affichage des <strong>historiques de virement</strong>", "<strong>Review de code</strong> sur l'application mobile", "Ajout de correctifs sur le back-office", "<strong>Encadrement</strong> d'un <strong>stagiaire</strong> sur la partie mobile du projet"],
           "role": "Développeur mobile et font-end",
           "medias": [],
@@ -674,7 +674,7 @@
         "color": "#CFEDF3",
         "content": {
           "description": "Intégration de <strong>serious game</strong> avec <strong>React</strong> et ajout de nouvelles pages pour l'affichage de nouvelles rubriques régulièrement ajouter par le client depuis le back-office. Le site n'existe malheureusement plus.",
-          "missions": ["Création d’une configuration <strong>webpack</strong> custom", "Mise en place de <strong>serious game interactifs</strong> depuis des maquettes", "Mise en place de nouvelles pages pour l’affichage de contenu généré depuis le back-office de Wordpress", "Ajout d'une nouvelle page afin de répertorier toutes les infographies interactives réaliser avec un système de <strong>pagination</strong>", "<strong>Mise en préproduction</strong> et <strong>production</strong> des évolutions"],
+          "missions": ["Création d’une configuration <strong>webpack</strong> custom", "Mise en place de <strong>serious game interactifs</strong> depuis des maquettes", "Mise en place de nouvelles pages pour l’affichage de contenu généré depuis le back-office de Wordpress", "Ajout d'une nouvelle page afin de répertorier toutes les infographies interactives réaliser avec un système de <strong>pagination</strong>", "<strong>Mise en pré-production</strong> et <strong>production</strong> des évolutions"],
           "role": "Développeur front-end",
           "medias": [],
           "stack": [
@@ -691,7 +691,7 @@
         "color": "#F0D5DF",
         "content": {
           "description": "FemininBio est un media lifestyle positif, inspirant et conscient. Qui parle de conso éco-responsable, parentalité positive, fooding bio, beauté au naturel...",
-          "missions": ["Ajout d’un nouveau thème sur le site de FemininBio et mise en place de nouvelles pages." ,"Développement et mise à jour de nouvelles pages affichant du contenu récupéré via <strong>Twig</strong>", "Intégration front-end HTML et CSS, utilisation de <strong>compass</strong>", "Mise en place d'un <strong>nouveau thème</strong> pour une thématique éphémère sur une base existante", "<strong>Mise en préproduction</strong> et <strong>production</strong>"],
+          "missions": ["Ajout d’un nouveau thème sur le site de FemininBio et mise en place de nouvelles pages." ,"Développement et mise à jour de nouvelles pages affichant du contenu récupéré via <strong>Twig</strong>", "Intégration front-end HTML et CSS, utilisation de <strong>compass</strong>", "Mise en place d'un <strong>nouveau thème</strong> pour une thématique éphémère sur une base existante", "<strong>Mise en pré-production</strong> et <strong>production</strong>"],
           "role": "Développeur front-end",
           "medias": [
             {
@@ -738,7 +738,7 @@
         "subTitle": "Site éditoriale",
         "color": "#FCD9DA",
         "content": {
-          "description": "CB News est un site d'actualités, d'événements, et et formations. Il fait partie des sites de référence de la communication du marketing et des média.",
+          "description": "CB News est un site d'actualités, d'événements, et de formations. Il fait partie des sites de référence de la communication du marketing et des média.",
           "missions": ["Mise en place de <strong>composants</strong> et intégration du <strong>design system</strong>", "Intégration de certains composants dans les pages", "Récupération des données fournies par l’<strong>API</strong> de Drupal"],
           "role": "Développeur front-end",
           "medias": [
@@ -786,8 +786,8 @@
         "subTitle": "Site éditoriale",
         "color": "#EAF7CE",
         "content": {
-          "description": "Le site de l'Info Durable est le premier média en France à proposer une information rigoureuse sur le développement durable associée systématiquement à des solutions concrètes pour agir.",
-          "missions": ["Correction de bugs via des tickets client", "Développement <strong>back-end</strong> pour des évolutions", "Développement <strong>front-end</strong> sur des pages existantes pour l’intégration de nouvelles features", "<strong>Mise en préproduction</strong> et <strong>production</strong> des évolutions"],
+          "description": "Le site de l'Info Durable est le premier média en France a proposé une information rigoureuse sur le développement durable associée systématiquement à des solutions concrètes pour agir.",
+          "missions": ["Correction de bugs via des tickets client", "Développement <strong>back-end</strong> pour des évolutions", "Développement <strong>front-end</strong> sur des pages existantes pour l’intégration de nouvelles features", "<strong>Mise en pré-production</strong> et <strong>production</strong> des évolutions"],
           "role": "Développeur full-stack",
           "medias": [
             {
@@ -840,8 +840,8 @@
         "subTitle": "Site web",
         "color": "#F8DDD5",
         "content": {
-          "description": "Le site web de Wareega est la plateforme où l'on peut acheter directement tous les produits de la boutique physique. Le site à été mis en place sous PrestaShop par un ancien alternant que j'ai rejoins pour contribuer à son développement.",
-          "missions": ["Ajout d'une <strong>illustration interactive</strong> d'un vélo dans le but d'avoir des informations sur les pièces du modèle sélectionné lors du survol de celui-ci", "Ajout de correctifs divers côté front-end", "Intégration des vidéos réalisés précédemment pour les metres en avant sur le site"],
+          "description": "Le site web de Wareega est la plateforme où l'on peut acheter directement tous les produits de la boutique physique. Le site a été mis en place sous PrestaShop par un ancien alternant que j'ai rejoint pour contribuer à son développement.",
+          "missions": ["Ajout d'une <strong>illustration interactive</strong> d'un vélo dans le but d'avoir des informations sur les pièces du modèle sélectionné lors du survol de celui-ci", "Ajout de correctifs divers du côté front-end", "Intégration des vidéos réalisées précédemment pour les mètres en avant sur le site"],
           "role": "Développeur front-end",
           "medias": [
             {

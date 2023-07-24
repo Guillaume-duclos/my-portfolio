@@ -7,7 +7,7 @@
         "subTitle": "Projet de teste avec Three.js pour la modélisation de la terre",
         "color": "#CCCCCC",
         "content": {
-          "description": "Après avoir vue une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayé de reproduire plus ou moins la même chose.",
+          "description": "Après avoir vu une vidéo présentant un projet mené par Google qui consistait à représenter la Terre, le Soleil et la Lune de manière très réaliste sur le web à l'aide de la librairie <strong>Three.js</strong>, j'ai voulu essayer de reproduire plus ou moins la même chose.",
           "medias": [
             {
               "path": "earth-studio-1",
@@ -53,7 +53,7 @@
         "subTitle": "Projet web créatif sur les films du studio Ghibli",
         "color": "#EBD9D7",
         "content": {
-          "description": "En parcourant Pinterest comme à ma grande habitude, je suis tombé sur une proposition de maquette d'un potentiel site web qui pourrait être développé sur le thème des films d'animation réalisés par le studio Ghibli. La maquette m'ayant beaucoup plus, j'ai décidé de donner vie à cette idée.",
+          "description": "En parcourant Pinterest comme à ma grande habitude, je suis tombé sur une proposition de maquette d'un potentiel site web qui pourrait être développé sur le thème des films d'animation réalisées par le studio Ghibli. La maquette m'ayant beaucoup plus, j'ai décidé de donner vie à cette idée.",
           "medias": [
             {
               "path": "studio-ghibli-1",
@@ -99,7 +99,7 @@
         "subTitle": "Réalisation du portfolio de Jeanne Duplessis dans le cadre de mon master",
         "color": "#CCCCCC",
         "content": {
-          "description": "Dans le cadre de mon master lors de la première année, nous étions amené à réaliser le portfolio des master de deuxième année de la promo web design. J'ai ainsi réalisé celui de Jeanne Duplessis.",
+          "description": "Dans le cadre de mon master lors de la première année, nous étions amenés à réaliser le portfolio des master de deuxième année de la promo web design. J'ai ainsi réalisé celui de Jeanne Duplessis.",
           "medias": [
             {
               "path": "portfolio-jd-1",
@@ -181,7 +181,7 @@
         "subTitle": "Projet de teste d'effet d'eau avec les filtres SVG",
         "color": "#D6E2E3",
         "content": {
-          "description": "J'ai voulu essayé de mettre en place un effet d'eau avec les effets possibles avec les <strong>filtres SVG</strong>.",
+          "description": "J'ai voulu essayer de mettre en place un effet d'eau avec les effets possibles avec les <strong>filtres SVG</strong>.",
           "medias": [
             {
               "path": "water-effect-1",
@@ -217,7 +217,7 @@
         "subTitle": "Application iOS développé avec le framework SwiftUI",
         "color": "#F7DDDA",
         "content": {
-          "description": "J'ai voulu développer une application permettant de localisez des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localisez un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuel onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement.",
+          "description": "J'ai voulu développer une application permettant de localiser des emplacements sans nécessiter de connexion internet. Si aucune connexion internet n'est détecté sur l'appareil, alors le <strong>GPS</strong> suffit à lui même pour l'indication d'un emplacement voulu. On peut ainsi localiser un lieu en renseignant des <strong>coordonnées GPS</strong>, ou en sauvegardant sa <strong>position actuelle</strong> pour retrouver son chemin. L'application propose également de renseigner un lieu en y <strong>entrant une adresse</strong> (seule cette option nécessite une connexion internet).<br/><br/> J'ai voulu développer l'application en natif sur iOS afin d'avoir des performances maximales. J'ai utilisé le framework <strong>SwiftUI</strong> que j'ai trouvé vraiment intéressant pour du développement natif. Cela m'a permis de découvrir plus en profondeur le language <strong>Swift</strong>.<br/><br/>Faute de frais annuels onéreux afin de pouvoir laisser l'application sur l'App Store, je n'ai pas renouvelé le contrat. L'application n'est donc plus disponible au téléchargement.",
           "medias": [
             {
               "path": "way-keep-1",

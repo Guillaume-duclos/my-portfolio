@@ -94,6 +94,9 @@
         text-transform: uppercase
         color: rgb(0, 0, 0, .3)
 
+        span
+          color: rgb(0, 0, 0, 1)
+
       .active-company-index-container
         position: relative
         height: 72px

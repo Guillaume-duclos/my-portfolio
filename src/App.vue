@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Header v-if="route.name !== 'Home'" />
+    <Header />
 
     <router-view v-slot="{ Component }">
       <transition v-on:enter="enter" v-on:leave="leave" mode="out-in">

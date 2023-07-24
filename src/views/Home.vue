@@ -1,244 +1,212 @@
 <template>
-  <section class="home">
-    <main class="home-content">
-      <div class="home-title" ref="homeTitle">
-        <h2>Guillaume Duclos</h2>
-        <h3>Développeur <span>full-stack</span><br />et <span>mobile</span> TypeScript</h3>
+  <PageContent>
+    <aside v-if="showTitle" class="title" ref="container">
+      <div>
+        <div>
+          <h3>Hello <span>👋</span>, je m'appelle</h3>
+
+          <h2>
+            <span v-for="(title, index) in titles" :key="`title-${index}`" class="titles-container">
+              <span class="titles-sub-container">
+                <span v-for="(word, index) in title" :key="`word-${index}`" class="words-container">
+                  {{ word }}
+                </span>
+              </span>
+            </span>
+          </h2>
+        </div>
+
+        <div class="rs-links">
+          <ul>
+            <li>
+              <a href="https://github.com/guillaume-duclos" target="_blank">Github</a>
+            </li>
+            <li>
+              <a href="https://twitter.com/GuillaumeDcl" target="_blank">Twitter</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/duclos-guillaume" target="_blank">Linkedin</a>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <ul class="home-menu">
-        <!--        <li v-for="(title, index) in titles">-->
-        <!--          <RouterLink to="ProfessionalProjects">-->
-        <!--            <span v-for="(letter, index) in title">-->
-        <!--              {{ letter }}-->
-        <!--            </span>-->
-        <!--          </RouterLink>-->
-        <!--        </li>-->
-
-        <li>
-          <RouterLink to="professional-projects">
-            <span>Projets <span>professionnels</span></span>
-            <!--            <span>Projets Pro</span>-->
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="personal-projects">
-            <span>Projets <span>personnels</span></span>
-            <!--            <span>Projets Perso</span>-->
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="stack">
-            <span>Stack <span>technique</span></span>
-            <!--            <span>Stack</span>-->
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="contact">
-            <span>Contactez <span>moi</span></span>
-            <!--            <span>Contact</span>-->
-          </RouterLink>
-        </li>
-      </ul>
-
-      <ul class="home-rs">
-        <li>
-          <a href="https://github.com/guillaume-duclos" target="_blank">
-            <img src="../assets/icons/github.svg" alt="Lien github" />
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/GuillaumeDcl" target="_blank">
-            <img src="../assets/icons/twitter.svg" alt="Lien twitter" />
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/guillaume-duclos" target="_blank">
-            <img src="../assets/icons/linkedin.svg" alt="Lien linkedin" />
-          </a>
-        </li>
-      </ul>
-    </main>
-
-    <aside class="picture">
-      <div />
     </aside>
-  </section>
+
+    <main class="content" ref="contentContainer">
+      <div class="content-lists-container" ref="content">
+        <ul v-for="(link, index) in Links" :key="`link-${index}`">
+          <li class="item">
+            <a v-if="link.externalLink" :href="link.route" target="_blank">
+              <div>
+                <h4>{{ link.title }}</h4>
+                <h5 v-html="link.subTitle" />
+              </div>
+
+              <div class="header-buttons">
+                <button>
+                  <img src="../assets/icons/arrow-right.svg" alt="Ouvrir" />
+                </button>
+              </div>
+            </a>
+            <RouterLink v-else :to="link.route">
+              <div>
+                <h4>{{ link.title }}</h4>
+                <h5 v-html="link.subTitle" />
+              </div>
+
+              <div class="header-buttons">
+                <button>
+                  <img src="../assets/icons/arrow-right.svg" alt="Ouvrir" />
+                </button>
+              </div>
+            </RouterLink>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </PageContent>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { useMediaQuery } from '@vueuse/core';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ProfessionalProjects from '../data/professional-projects.json';
+import Links from '../data/links.json';
+import PageContent from '../components/PageContent.vue';
 
-const homeTitle = ref();
-const titles = ref<any[]>([]);
+const contentContainer = ref();
+const content = ref();
+const activeList = ref(0);
+const activesItem = ref<number[]>([]);
+const itemViewExtended = ref(false);
+const titles = ref([
+  ['Guillaume', '', ''],
+  ['Duclos', '', ''],
+  ['', '', ''],
+]);
+
+const showTitle = useMediaQuery('(min-width: 760px)');
 
 onMounted(() => {
   gsap.registerPlugin(CustomEase);
-  CustomEase.create('heightEase', '0.4, 0.11, 0.45, 0.97');
-
-  const titlesList = ['Projets pro', 'Projets perso', 'Stack', 'Contact'];
-
-  // Animation des titres
-  titles.value = titlesList.map((title) => {
-    return title.split('');
-  });
-
-  // Animation de la photo
-  gsap.to('html', {
-    '--photo-scale': 1,
-    duration: 0.7,
-    delay: 0.25,
-    ease: 'heightEase',
-  });
+  gsap.registerPlugin(ScrollTrigger);
 });
+
+watch(showTitle, (value: any) => {
+  if (value && itemViewExtended.value) {
+    itemViewExtended.value = false;
+    gsap.set(contentContainer.value, { width: '50%', paddingLeft: '50%' });
+  } else if (itemViewExtended.value) {
+    gsap.set(contentContainer.value, { width: '100%', paddingLeft: 0 });
+  }
+});
+
+watch(activeList, (newValue) => {
+  updateActiveListTitle(newValue);
+  updateActiveListIndex(newValue);
+});
+
+const updateActiveListTitle = (newValue: number) => {
+  for (let i = 0; i < titles.value.length; i++) {
+    gsap.to(`.titles-sub-container`, {
+      marginTop: `-${(62 + 3 * i) * newValue}px`,
+      duration: 0.5,
+      ease: 'countEase',
+    });
+  }
+};
+
+const updateActiveListIndex = (newValue: number) => {
+  const timeLine = gsap.timeline();
+
+  timeLine.to('.active-company-index:first-of-type', {
+    top: `-${72 * newValue}px`,
+    duration: 0.5,
+  });
+
+  timeLine.to(
+    '.active-company-index:not(:first-of-type)',
+    {
+      top: `-${72 * newValue}px`,
+      duration: 0.5,
+      ease: 'countEase',
+    },
+    '-=0.42'
+  );
+};
 </script>
 
 <style scoped lang="sass">
-.home
-  display: flex
-  grid-gap: 20px
-  height: 100vh
-  padding: 0 24px 0 24px
+.rs-links
+  z-index: 2
 
-  .home-content
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    padding: 30px 0
-    width: 50%
-    border: 0px solid black
+  ul
+    margin: 0
+    padding: 0
 
-    .home-title
-      border: 0px solid black
+    li
+      list-style-type: none
 
-      h2
-        position: relative
-        margin: 0
-        font-size: 40px
-        line-height: 40px
-        font-weight: 800
-        overflow: hidden
-        color: rgba(0, 0, 0, .85)
-        border: 0px solid black
+      a
+        color: #000000
+        text-decoration: none
+        font-weight: 600
+        text-transform: uppercase
 
-      h3
-        position: relative
-        margin: 6px 0 0 0
-        font-size: 20px
-        line-height: 25px
-        font-weight: 500
-        overflow: hidden
-        color: rgba(0, 0, 0, .3)
+.content
 
-        span
-          color: rgba(0, 0, 0, .75)
-          font-weight: 700
+  .content-lists-container
 
-          span
-            display: block
-
-    .home-menu
-      display: flex
-      flex-direction: column
-      grid-gap: 20px
-      margin: 18px 0 0 0
+    ul
+      margin: 0
       padding: 0
 
-      li
-        list-style-type: none
+    .item
+      position: relative
+      list-style-type: none
+      border-bottom: 1px solid rgba(0, 0, 0, .08)
 
-        a
-          position: relative
-          display: inline-table
-          font-size: 65px
-          line-height: 65px
-          font-weight: 900
-          text-decoration: none
-          text-transform: uppercase
-          color: #000000
-          height: 66px
-          overflow: hidden
-          border: 0px solid red
+      a
+        display: flex
+        grid-gap: 20px
+        justify-content: space-between
+        padding: 30px 0
+        color: #000000
+        text-decoration: none
+        cursor: pointer
+
+        h4, h5
+          margin: 0
+
+        h4
+          font-size: 18px
+
+        h5
+          margin-top: 4px
+          font-weight: 600
+          color: rgba(0, 0, 0, .5)
 
           span
-            // position: absolute
-            // transition: top .2s ease-in-out
-            display: block
-            color: rgba(0, 0, 0, .85)
-            border: 0px solid black
+            color: rgba(0, 0, 0, 1)
 
-            span
-              font-size: 20px
-              line-height: 20px
-              font-weight: 600
-              opacity: .3
+        .header-buttons
+          display: flex
+          align-items: center
+          grid-gap: 14px
+          opacity: 1
+          border: 0px solid black
 
-            //&:first-of-type
-            //  top: 0
-            //  opacity: .3
-            //  letter-spacing: -1px
+          button
+            padding: 0
+            height: 16px
+            border: none
+            background: transparent
+            cursor: pointer
 
-              &:hover
-                opacity: .85
-
-            &:last-of-type
-              top: 100%
-
-          //&:hover span:first-of-type
-          //  top: -100%
-          //  transition: top .2s ease-in-out
-
-          //&:hover span:last-of-type
-          //  top: 0
-          //  transition: top .2s ease-in-out
-
-    .home-rs
-      position: relative
-      display: flex
-      grid-gap: 12px
-      margin: 18px 0 0 0
-      padding: 50px 0 0 0
-
-      &::before
-        position: absolute
-        content: ''
-        height: 1px
-        width: 120px
-        top: 0
-        left: 0
-        background-color: rgba(0, 0, 0, .07)
-
-      li
-        list-style-type: none
-
-        a
-          font-weight: 800
-          text-decoration: none
-          text-transform: uppercase
-          opacity: .85
-
-  .picture
-    width: 50%
-    border: 0px solid red
-
-    div
-      position: relative
-      height: 100%
-      width: 50vw
-      overflow: hidden
-      background-image: url("../assets/img/photo.jpg")
-      background-repeat: no-repeat
-      background-position: bottom
-      background-size: cover
-
-      &::after
-        content: ''
-        position: absolute
-        inset: 0
-        background: inherit
-        background-size: cover
-        transform-origin: center
-        transform: scale(var(--photo-scale))
+            img
+              display: block
+              height: 100%
 </style>

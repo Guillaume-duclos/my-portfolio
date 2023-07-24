@@ -3,7 +3,7 @@
     <aside v-if="showTitle" class="title" ref="container">
       <div>
         <div>
-          <h3>Type</h3>
+          <h3>Type de projet</h3>
 
           <h2>
             <span v-for="(title, index) in titles" :key="`title-${index}`" class="titles-container">
@@ -68,23 +68,23 @@
                 </div>
               </div>
 
-              <!--              <div-->
-              <!--                v-else-if="-->
-              <!--                  project.content.medias.length &&-->
-              <!--                  project.content.medias[0].type === ImageType.VIDEO-->
-              <!--                "-->
-              <!--                class="content-container">-->
-              <!--                <h6>Vidéos</h6>-->
-              <!--                <div class="content-media">-->
-              <!--                  <iframe-->
-              <!--                    v-for="(media, index) in project.content.medias"-->
-              <!--                    :key="`image-${index}`"-->
-              <!--                    :src="media.path"-->
-              <!--                    title="Déballage d&#39;un vélo"-->
-              <!--                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
-              <!--                    allowfullscreen />-->
-              <!--                </div>-->
-              <!--              </div>-->
+              <div
+                v-else-if="
+                  project.content.medias.length &&
+                  project.content.medias[0].type === ImageType.VIDEO
+                "
+                class="content-container">
+                <h6>Vidéos</h6>
+                <div class="content-media">
+                  <iframe
+                    v-for="(media, index) in project.content.medias"
+                    :key="`image-${index}`"
+                    :src="media.path"
+                    title="Déballage d&#39;un vélo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen />
+                </div>
+              </div>
 
               <div v-else-if="project.content?.role" class="content-container">
                 <h6>Role occupé</h6>

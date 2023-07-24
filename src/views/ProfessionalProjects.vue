@@ -29,10 +29,6 @@
               </span>
             </span>
           </h2>
-          <!--          <h3>-->
-          <!--            <span>Période</span>-->
-          <!--            {{ period }}-->
-          <!--          </h3>-->
         </div>
 
         <p class="active-company-index-container" v-if="companyCount">
@@ -87,23 +83,23 @@
                 </div>
               </div>
 
-              <!--              <div-->
-              <!--                v-else-if="-->
-              <!--                  project.content.medias.length &&-->
-              <!--                  project.content.medias[0].type === ImageType.VIDEO-->
-              <!--                "-->
-              <!--                class="content-container">-->
-              <!--                <h6>Vidéos</h6>-->
-              <!--                <div class="content-media">-->
-              <!--                  <iframe-->
-              <!--                    v-for="(media, index) in project.content.medias"-->
-              <!--                    :key="`image-${index}`"-->
-              <!--                    :src="media.path"-->
-              <!--                    title="Déballage d&#39;un vélo"-->
-              <!--                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
-              <!--                    allowfullscreen />-->
-              <!--                </div>-->
-              <!--              </div>-->
+              <div
+                v-else-if="
+                  project.content.medias.length &&
+                  project.content.medias[0].type === ImageType.VIDEO
+                "
+                class="content-container">
+                <h6>Vidéos</h6>
+                <div class="content-media">
+                  <iframe
+                    v-for="(media, index) in project.content.medias"
+                    :key="`image-${index}`"
+                    :src="media.path"
+                    title="Déballage d&#39;un vélo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen />
+                </div>
+              </div>
 
               <div v-else-if="project.content?.role" class="content-container">
                 <h6>Role occupé</h6>
