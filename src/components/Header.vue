@@ -23,7 +23,7 @@
               <router-link to="Contact" active-class="active">Me contacter</router-link>
             </li>
             <li>
-              <a class="external-link" href="../assets/documents/cv.pdf" target="_blank">Mon CV</a>
+              <a class="external-link" href="./assets/documents/cv.pdf" target="_blank">Mon CV</a>
             </li>
           </ul>
         </nav>

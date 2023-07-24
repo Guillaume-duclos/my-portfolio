@@ -26,7 +26,7 @@
   {
     "title": "Mon CV",
     "subTitle": "Jetez un coup d'oeil à mon CV <span>🧾</span>",
-    "route": "../assets/documents/cv.pdf",
+    "route": "./assets/documents/cv.pdf",
     "externalLink": true
   }
 ]
