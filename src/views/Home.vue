@@ -1,5 +1,5 @@
 <template>
-  <PageContent>
+  <section class="home">
     <aside v-if="showTitle" class="title" ref="container">
       <div>
         <div>
@@ -32,7 +32,7 @@
       </div>
     </aside>
 
-    <main class="content" ref="contentContainer">
+    <main class="content">
       <div class="content-lists-container" ref="content">
         <ul v-for="(link, index) in Links" :key="`link-${index}`">
           <li class="item">
@@ -64,7 +64,7 @@
         </ul>
       </div>
     </main>
-  </PageContent>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -77,11 +77,6 @@ import ProfessionalProjects from '../data/professional-projects.json';
 import Links from '../data/links.json';
 import PageContent from '../components/PageContent.vue';
 
-const contentContainer = ref();
-const content = ref();
-const activeList = ref(0);
-const activesItem = ref<number[]>([]);
-const itemViewExtended = ref(false);
 const titles = ref([
   ['Guillaume', '', ''],
   ['Duclos', '', ''],
@@ -89,124 +84,146 @@ const titles = ref([
 ]);
 
 const showTitle = useMediaQuery('(min-width: 760px)');
-
-onMounted(() => {
-  gsap.registerPlugin(CustomEase);
-  gsap.registerPlugin(ScrollTrigger);
-});
-
-watch(showTitle, (value: any) => {
-  if (value && itemViewExtended.value) {
-    itemViewExtended.value = false;
-    gsap.set(contentContainer.value, { width: '50%', paddingLeft: '50%' });
-  } else if (itemViewExtended.value) {
-    gsap.set(contentContainer.value, { width: '100%', paddingLeft: 0 });
-  }
-});
-
-watch(activeList, (newValue) => {
-  updateActiveListTitle(newValue);
-  updateActiveListIndex(newValue);
-});
-
-const updateActiveListTitle = (newValue: number) => {
-  for (let i = 0; i < titles.value.length; i++) {
-    gsap.to(`.titles-sub-container`, {
-      marginTop: `-${(62 + 3 * i) * newValue}px`,
-      duration: 0.5,
-      ease: 'countEase',
-    });
-  }
-};
-
-const updateActiveListIndex = (newValue: number) => {
-  const timeLine = gsap.timeline();
-
-  timeLine.to('.active-company-index:first-of-type', {
-    top: `-${72 * newValue}px`,
-    duration: 0.5,
-  });
-
-  timeLine.to(
-    '.active-company-index:not(:first-of-type)',
-    {
-      top: `-${72 * newValue}px`,
-      duration: 0.5,
-      ease: 'countEase',
-    },
-    '-=0.42'
-  );
-};
 </script>
 
 <style scoped lang="sass">
-.rs-links
-  z-index: 2
+.home
+  display: flex
+  justify-content: space-between
+  padding: calc(80px + 24px) 24px 0 24px
+  border: 0px solid red
 
-  ul
-    margin: 0
-    padding: 0
+  @media (min-width: 1100px)
+    padding: calc(80px + 24px) 54px 24px 54px
 
-    li
-      list-style-type: none
+  .title
+    width: 50%
+    margin-left: 0
+    padding-bottom: 30px
+    border: 0px solid black
 
-      a
-        color: #000000
-        text-decoration: none
-        font-weight: 600
+    > div
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      height: 100%
+
+      h2, p
+        margin: 0
+        font-size: 80px
+        font-weight: 800
         text-transform: uppercase
+        border: 0px solid red
 
-.content
+      h2
+        display: block
+        line-height: 60px
+        overflow: hidden
+        white-space: pre-wrap
+        word-wrap: break-word
 
-  .content-lists-container
+      .titles-container
+        position: relative
+        display: block
+        height: 60px
+        overflow: hidden
+        border: 0px solid black
 
-    ul
-      margin: 0
-      padding: 0
+        &:not(:first-of-type)
+          margin-top: 8px
 
-    .item
-      position: relative
-      list-style-type: none
-      border-bottom: 1px solid rgba(0, 0, 0, .08)
+        .titles-sub-container
+          display: block
+          height: 100%
+          border: 0px solid red
 
-      a
-        display: flex
-        grid-gap: 20px
-        justify-content: space-between
-        padding: 30px 0
-        color: #000000
-        text-decoration: none
-        cursor: pointer
+          .words-container
+            display: block
+            height: 100%
+            border: 0px solid blue
 
-        h4, h5
+            &:not(:first-of-type)
+              margin-top: 8px
+
+      h3
+        margin: 0 0 8px 0
+        font-size: 16px
+        font-weight: 600
+        line-height: 22px
+        text-transform: uppercase
+        color: rgb(0, 0, 0, .3)
+
+        span
+          color: rgb(0, 0, 0, 1)
+
+      .rs-links
+        z-index: 2
+
+        ul
           margin: 0
+          padding: 0
 
-        h4
-          font-size: 18px
+          li
+            list-style-type: none
 
-        h5
-          margin-top: 4px
-          font-weight: 600
-          color: rgba(0, 0, 0, .5)
+            a
+              color: #000000
+              text-decoration: none
+              font-weight: 600
+              text-transform: uppercase
 
-          span
-            color: rgba(0, 0, 0, 1)
+  .content
+    border: 0px solid black
 
-        .header-buttons
+    .content-lists-container
+
+      ul
+        margin: 0
+        padding: 0
+
+      .item
+        position: relative
+        list-style-type: none
+        border-bottom: 1px solid rgba(0, 0, 0, .08)
+
+        a
           display: flex
-          align-items: center
-          grid-gap: 14px
-          opacity: 1
-          border: 0px solid black
+          grid-gap: 20px
+          justify-content: space-between
+          padding: 30px 0
+          color: #000000
+          text-decoration: none
+          cursor: pointer
 
-          button
-            padding: 0
-            height: 16px
-            border: none
-            background: transparent
-            cursor: pointer
+          h4, h5
+            margin: 0
 
-            img
-              display: block
-              height: 100%
+          h4
+            font-size: 18px
+
+          h5
+            margin-top: 4px
+            font-weight: 600
+            color: rgba(0, 0, 0, .5)
+
+            &:deep span
+              color: rgba(0, 0, 0, 1)
+
+          .header-buttons
+            display: flex
+            align-items: center
+            grid-gap: 14px
+            opacity: 1
+            border: 0px solid black
+
+            button
+              padding: 0
+              height: 16px
+              border: none
+              background: transparent
+              cursor: pointer
+
+              img
+                display: block
+                height: 100%
 </style>
