@@ -3,6 +3,8 @@
     <aside v-if="showTitle" class="title" ref="container">
       <div>
         <div>
+          <h3>Entreprise</h3>
+
           <h2>
             <!--            <span v-for="(title, index) in words" :key="`title-${index}`" class="titles-container">-->
             <!--              <span-->
@@ -27,10 +29,10 @@
               </span>
             </span>
           </h2>
-          <h3>
-            <span>Période</span>
-            {{ period }}
-          </h3>
+          <!--          <h3>-->
+          <!--            <span>Période</span>-->
+          <!--            {{ period }}-->
+          <!--          </h3>-->
         </div>
 
         <p class="active-company-index-container" v-if="companyCount">

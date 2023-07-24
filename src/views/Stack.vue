@@ -3,6 +3,8 @@
     <aside v-if="showTitle" class="title" ref="container">
       <div>
         <div>
+          <h3>Domaine</h3>
+
           <h2>
             <span v-for="(title, index) in titles" :key="`title-${index}`" class="titles-container">
               <span class="titles-sub-container">

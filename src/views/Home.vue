@@ -16,25 +16,25 @@
         <!--        </li>-->
 
         <li>
-          <RouterLink to="ProfessionalProjects">
+          <RouterLink to="professional-projects">
             <span>Projets <span>professionnels</span></span>
             <!--            <span>Projets Pro</span>-->
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="PersonalProjects">
+          <RouterLink to="personal-projects">
             <span>Projets <span>personnels</span></span>
             <!--            <span>Projets Perso</span>-->
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="Stack">
+          <RouterLink to="stack">
             <span>Stack <span>technique</span></span>
             <!--            <span>Stack</span>-->
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="Contact">
+          <RouterLink to="contact">
             <span>Contactez <span>moi</span></span>
             <!--            <span>Contact</span>-->
           </RouterLink>

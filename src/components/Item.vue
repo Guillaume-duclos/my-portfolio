@@ -34,6 +34,7 @@ import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 
 const isVisible = ref(false);
+const isFirstOpen = ref(false);
 const emit = defineEmits([
   'refreshScrollTrigger',
   'updateActivesItem',
@@ -66,6 +67,7 @@ onMounted(() => {
   CustomEase.create('opacityEase', '0.25, 0.1, 0.25, 1');
 
   if (props.isOpen) {
+    isFirstOpen.value = true;
     isVisible.value = true;
   }
 });
@@ -75,29 +77,36 @@ const enter = (element: any, done: any) => {
   updateBackgroundColor();
   emit('updateActivesItem', { active: true, index: props.data?.color });
 
-  // On créer la timeline
-  let timeline = gsap.timeline({ onComplete: done });
+  if (isFirstOpen.value) {
+    element.style.height = element.scrollHeight;
+    element.style.opacity = 1;
+    isFirstOpen.value = false;
+    emit('refreshScrollTrigger', { index: props.index });
+  } else {
+    // On créer la timeline
+    let timeline = gsap.timeline({ onComplete: done });
 
-  // On set l'opacité du contenu à 0
-  timeline.set(element, {
-    opacity: 0,
-    height: 0,
-  });
+    // On set l'opacité du contenu à 0
+    timeline.set(element, {
+      opacity: 0,
+      height: 0,
+    });
 
-  // Ouverture de l'item
-  timeline.to(element, {
-    duration: 0.4,
-    height: element.scrollHeight,
-    ease: 'heightEase',
-    onComplete: () => emit('refreshScrollTrigger', { index: props.index }),
-  });
+    // Ouverture de l'item
+    timeline.to(element, {
+      duration: 0.4,
+      height: element.scrollHeight,
+      ease: 'heightEase',
+      onComplete: () => emit('refreshScrollTrigger', { index: props.index }),
+    });
 
-  // Opacité du contenu
-  timeline.to(element, {
-    duration: 0.2,
-    opacity: 1,
-    ease: 'opacityEase',
-  });
+    // Opacité du contenu
+    timeline.to(element, {
+      duration: 0.2,
+      opacity: 1,
+      ease: 'opacityEase',
+    });
+  }
 };
 
 // Animation de fermeture de l'item

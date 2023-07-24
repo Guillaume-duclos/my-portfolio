@@ -87,17 +87,12 @@
               margin-top: 8px
 
       h3
-        margin: 8px 0 0 0
-        font-size: 24px
-        font-weight: 700
+        margin: 0 0 8px 0
+        font-size: 16px
+        font-weight: 600
         line-height: 22px
+        text-transform: uppercase
         color: rgb(0, 0, 0, .3)
-
-        span
-          display: block
-          font-size: 12px
-          font-weight: 600
-          text-transform: uppercase
 
       .active-company-index-container
         position: relative

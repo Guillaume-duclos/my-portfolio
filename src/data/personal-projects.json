@@ -82,7 +82,16 @@
               "technos": "Vue, Canvas, GSAP, TypeScript, SASS"
             }
           ],
-          "links": []
+          "links": [
+            {
+              "name": "Preview",
+              "link": "https://guillaume-duclos.github.io/studio-ghibli/"
+            },
+            {
+              "name": "Lien du projet",
+              "link": "https://github.com/Guillaume-duclos/studio-ghibli"
+            }
+          ]
         }
       },
       {
@@ -117,11 +126,11 @@
           "links": [
             {
               "name": "Preview",
-              "link": "https://guillaume-duclos.github.io/studio-ghibli/"
+              "link": "https://guillaume-duclos.github.io/portfolio-jd/"
             },
             {
               "name": "Lien du projet",
-              "link": "https://github.com/Guillaume-duclos/studio-ghibli"
+              "link": "https://github.com/Guillaume-duclos/portfolio-jd"
             }
           ]
         }

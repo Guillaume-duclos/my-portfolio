@@ -9,10 +9,12 @@
         <nav class="header-menu-desktop">
           <ul>
             <li>
-              <router-link to="ProfessionalProjects" active-class="active">Projets pro</router-link>
+              <router-link to="professional-projects" active-class="active">
+                Projets pro
+              </router-link>
             </li>
             <li>
-              <router-link to="PersonalProjects" active-class="active">Projets perso</router-link>
+              <router-link to="personal-projects" active-class="active">Projets perso</router-link>
             </li>
             <li>
               <router-link to="Stack" active-class="active">Stack</router-link>
@@ -34,16 +36,18 @@
         <nav v-if="menuOpened" class="header-menu-mobile">
           <ul>
             <li>
-              <router-link to="ProfessionalProjects" active-class="active">Projets pro</router-link>
+              <router-link to="professional-projects" active-class="active">
+                Projets pro
+              </router-link>
             </li>
             <li>
-              <router-link to="PersonalProjects" active-class="active">Projets perso</router-link>
+              <router-link to="personal-projects" active-class="active">Projets perso</router-link>
             </li>
             <li>
-              <router-link to="Stack" active-class="active">Stack</router-link>
+              <router-link to="stack" active-class="active">Stack</router-link>
             </li>
             <li>
-              <router-link to="Contact" active-class="active">Me contacter</router-link>
+              <router-link to="contact" active-class="active">Me contacter</router-link>
             </li>
             <li>
               <a class="external-link" href="../assets/documents/cv.pdf" target="_blank">Mon CV</a>

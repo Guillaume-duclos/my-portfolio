@@ -3,6 +3,8 @@
     <aside v-if="showTitle" class="title" ref="container">
       <div>
         <div>
+          <h3>Type</h3>
+
           <h2>
             <span v-for="(title, index) in titles" :key="`title-${index}`" class="titles-container">
               <span class="titles-sub-container">
@@ -60,7 +62,7 @@
                   <img
                     v-for="(media, index) in project.content.medias"
                     :key="`image-${index}`"
-                    :src="`../assets/img/${media.path}.png`"
+                    :src="`./assets/img/${media.path}.png`"
                     :alt="media.description"
                     :class="{ 'website-image': media.type === ImageType.WEBSITE }" />
                 </div>
