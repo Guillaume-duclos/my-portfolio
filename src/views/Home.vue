@@ -68,14 +68,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { ref } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
-import { gsap } from 'gsap';
-import { CustomEase } from 'gsap/CustomEase';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ProfessionalProjects from '../data/professional-projects.json';
 import Links from '../data/links.json';
-import PageContent from '../components/PageContent.vue';
 
 const titles = ref([
   ['Guillaume', '', ''],
@@ -100,7 +95,6 @@ const showTitle = useMediaQuery('(min-width: 760px)');
     width: 50%;
     margin-left: 0;
     padding-bottom: 30px;
-    border: 0px solid black;
 
     > div {
       display: flex;
@@ -114,7 +108,6 @@ const showTitle = useMediaQuery('(min-width: 760px)');
         font-size: 80px;
         font-weight: 800;
         text-transform: uppercase;
-        border: 0px solid red;
       }
 
       h2 {
@@ -129,7 +122,6 @@ const showTitle = useMediaQuery('(min-width: 760px)');
           display: block;
           height: 64px;
           overflow: hidden;
-          border: 0px solid black;
 
           &:not(:first-of-type) {
             margin-top: 8px;
@@ -138,12 +130,10 @@ const showTitle = useMediaQuery('(min-width: 760px)');
           .titles-sub-container {
             display: block;
             height: 100%;
-            border: 0px solid red;
 
             .words-container {
               display: block;
               height: 100%;
-              border: 0px solid blue;
 
               &:not(:first-of-type) {
                 margin-top: 8px;
@@ -189,8 +179,6 @@ const showTitle = useMediaQuery('(min-width: 760px)');
   }
 
   .content {
-    border: 0px solid black;
-
     .content-lists-container {
       ul {
         margin: 0;
@@ -234,7 +222,6 @@ const showTitle = useMediaQuery('(min-width: 760px)');
               align-items: center;
               grid-gap: 14px;
               opacity: 1;
-              border: 0px solid black;
 
               button {
                 padding: 0;

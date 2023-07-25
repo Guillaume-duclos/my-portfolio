@@ -20,7 +20,6 @@
     width: 50%;
     height: 100%;
     margin-left: 0;
-    border: 0px solid black;
 
     > div {
       display: flex;
@@ -34,7 +33,6 @@
         font-size: 80px;
         font-weight: 800;
         text-transform: uppercase;
-        border: 0px solid red;
       }
 
       h2 {
@@ -50,7 +48,6 @@
         display: block;
         height: 64px;
         overflow: hidden;
-        border: 0px solid black;
 
         &:not(:first-of-type) {
           margin-top: 4px;
@@ -59,12 +56,10 @@
         .titles-sub-container {
           display: block;
           height: 100%;
-          border: 0px solid red;
 
           .words-container {
             display: block;
             height: 100%;
-            border: 0px solid blue;
 
             &:not(:first-of-type) {
               margin-top: 8px;
@@ -91,13 +86,11 @@
         height: 72px;
         line-height: 77px;
         overflow: hidden;
-        border: 0px solid black;
 
         .active-company-index {
           position: absolute;
           height: 100%;
           width: 54px;
-          border: 0px solid blue;
 
           &:not(:first-of-type) {
             left: 54px;
@@ -107,7 +100,6 @@
             display: block;
             height: 100%;
             font-variant-numeric: tabular-nums;
-            border: 0px solid red;
           }
         }
 
@@ -134,7 +126,6 @@
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    border: 0px solid black;
 
     &::-webkit-scrollbar {
       width: 0;
@@ -151,8 +142,6 @@
     }
 
     .content-lists-container {
-      border: 0px solid red;
-
       .content-title {
         margin: 0;
         font-size: 32px;

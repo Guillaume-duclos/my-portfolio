@@ -181,7 +181,6 @@ const updateBackgroundColor = () => {
       align-items: center;
       grid-gap: 14px;
       opacity: 0.1;
-      border: 0px solid black;
 
       &.header-buttons-enabled {
         opacity: 1;
@@ -296,11 +295,7 @@ const updateBackgroundColor = () => {
       }
 
       ul {
-        border: 0px solid black;
-
         li {
-          border: 0px solid black;
-
           &.missions {
             position: relative;
             padding: 0 0 0 14px;

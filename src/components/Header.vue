@@ -89,13 +89,11 @@ header {
   right: 0;
   backdrop-filter: blur(16px);
   z-index: 1;
-  border: 0px solid red;
 
   .header-container {
     display: flex;
     margin: 0 auto;
     max-width: 1200px;
-    border: 0px solid green;
 
     .header-sub-container {
       display: flex;
@@ -104,7 +102,6 @@ header {
       padding: 0 24px;
       width: 100%;
       height: 80px;
-      border: 0px solid blue;
 
       @media (min-width: 1100px) {
         padding: 0 54px;
@@ -122,7 +119,6 @@ header {
 
       .header-menu-desktop {
         display: none;
-        border: 0px solid black;
 
         @media (min-width: 760px) {
           display: block;
@@ -133,7 +129,6 @@ header {
           padding: 0;
           display: flex;
           grid-gap: 24px;
-          border: 0px solid black;
 
           @media (min-width: 1100px) {
             grid-gap: 32px;
@@ -141,7 +136,6 @@ header {
 
           li {
             list-style-type: none;
-            border: 0px solid black;
 
             a {
               position: relative;
