@@ -214,6 +214,7 @@ const showTitle = useMediaQuery('(min-width: 760px)');
 
               &:deep span {
                 color: rgba(0, 0, 0, 1);
+                font-size: 16px;
               }
             }
 
