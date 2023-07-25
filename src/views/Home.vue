@@ -86,144 +86,173 @@ const titles = ref([
 const showTitle = useMediaQuery('(min-width: 760px)');
 </script>
 
-<style scoped lang="sass">
-.home
-  display: flex
-  justify-content: space-between
-  padding: calc(80px + 24px) 24px 0 24px
-  border: 0px solid red
+<style scoped lang="postcss">
+.home {
+  display: flex;
+  justify-content: space-between;
+  padding: calc(80px + 24px) 24px 0 24px;
 
-  @media (min-width: 1100px)
-    padding: calc(80px + 24px) 54px 24px 54px
+  @media (min-width: 1100px) {
+    padding: calc(80px + 24px) 54px 24px 54px;
+  }
 
-  .title
-    width: 50%
-    margin-left: 0
-    padding-bottom: 30px
-    border: 0px solid black
+  .title {
+    width: 50%;
+    margin-left: 0;
+    padding-bottom: 30px;
+    border: 0px solid black;
 
-    > div
-      display: flex
-      flex-direction: column
-      justify-content: space-between
-      height: 100%
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
 
-      h2, p
-        margin: 0
-        font-size: 80px
-        font-weight: 800
-        text-transform: uppercase
-        border: 0px solid red
+      h2,
+      p {
+        margin: 0;
+        font-size: 80px;
+        font-weight: 800;
+        text-transform: uppercase;
+        border: 0px solid red;
+      }
 
-      h2
-        display: block
-        line-height: 60px
-        overflow: hidden
-        white-space: pre-wrap
-        word-wrap: break-word
+      h2 {
+        display: block;
+        line-height: 60px;
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
 
-      .titles-container
-        position: relative
-        display: block
-        height: 60px
-        overflow: hidden
-        border: 0px solid black
+        .titles-container {
+          position: relative;
+          display: block;
+          height: 60px;
+          overflow: hidden;
+          border: 0px solid black;
 
-        &:not(:first-of-type)
-          margin-top: 8px
+          &:not(:first-of-type) {
+            margin-top: 8px;
+          }
 
-        .titles-sub-container
-          display: block
-          height: 100%
-          border: 0px solid red
+          .titles-sub-container {
+            display: block;
+            height: 100%;
+            border: 0px solid red;
 
-          .words-container
-            display: block
-            height: 100%
-            border: 0px solid blue
+            .words-container {
+              display: block;
+              height: 100%;
+              border: 0px solid blue;
 
-            &:not(:first-of-type)
-              margin-top: 8px
+              &:not(:first-of-type) {
+                margin-top: 8px;
+              }
+            }
+          }
+        }
+      }
 
-      h3
-        margin: 0 0 8px 0
-        font-size: 16px
-        font-weight: 600
-        line-height: 22px
-        text-transform: uppercase
-        color: rgb(0, 0, 0, .3)
+      h3 {
+        margin: 0 0 8px 0;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: rgb(0, 0, 0, 0.3);
 
-        span
-          color: rgb(0, 0, 0, 1)
+        span {
+          color: rgb(0, 0, 0, 1);
+        }
+      }
 
-      .rs-links
-        z-index: 2
+      .rs-links {
+        z-index: 2;
 
-        ul
-          margin: 0
-          padding: 0
+        ul {
+          margin: 0;
+          padding: 0;
 
-          li
-            list-style-type: none
+          li {
+            list-style-type: none;
 
-            a
-              color: #000000
-              text-decoration: none
-              font-weight: 600
-              text-transform: uppercase
+            a {
+              color: #000000;
+              text-decoration: none;
+              font-weight: 600;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+  }
 
-  .content
-    border: 0px solid black
+  .content {
+    border: 0px solid black;
 
-    .content-lists-container
+    .content-lists-container {
+      ul {
+        margin: 0;
+        padding: 0;
 
-      ul
-        margin: 0
-        padding: 0
+        .item {
+          position: relative;
+          list-style-type: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-      .item
-        position: relative
-        list-style-type: none
-        border-bottom: 1px solid rgba(0, 0, 0, .08)
+          a {
+            display: flex;
+            grid-gap: 20px;
+            justify-content: space-between;
+            padding: 30px 0;
+            color: #000000;
+            text-decoration: none;
+            cursor: pointer;
 
-        a
-          display: flex
-          grid-gap: 20px
-          justify-content: space-between
-          padding: 30px 0
-          color: #000000
-          text-decoration: none
-          cursor: pointer
+            h4,
+            h5 {
+              margin: 0;
+            }
 
-          h4, h5
-            margin: 0
+            h4 {
+              font-size: 18px;
+            }
 
-          h4
-            font-size: 18px
+            h5 {
+              margin-top: 4px;
+              font-weight: 600;
+              color: rgba(0, 0, 0, 0.5);
 
-          h5
-            margin-top: 4px
-            font-weight: 600
-            color: rgba(0, 0, 0, .5)
+              &:deep span {
+                color: rgba(0, 0, 0, 1);
+              }
+            }
 
-            &:deep span
-              color: rgba(0, 0, 0, 1)
+            .header-buttons {
+              display: flex;
+              align-items: center;
+              grid-gap: 14px;
+              opacity: 1;
+              border: 0px solid black;
 
-          .header-buttons
-            display: flex
-            align-items: center
-            grid-gap: 14px
-            opacity: 1
-            border: 0px solid black
+              button {
+                padding: 0;
+                height: 16px;
+                border: none;
+                background: transparent;
+                cursor: pointer;
 
-            button
-              padding: 0
-              height: 16px
-              border: none
-              background: transparent
-              cursor: pointer
-
-              img
-                display: block
-                height: 100%
+                img {
+                  display: block;
+                  height: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

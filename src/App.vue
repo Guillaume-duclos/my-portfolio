@@ -76,10 +76,10 @@ const leave = (element: any, done: any) => {
 };
 </script>
 
-<style lang="sass">
-.app
-  display: flex
-  position: relative
-  flex-direction: column
-  border: 0px solid black
+<style lang="postcss">
+.app {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
 </style>

@@ -145,162 +145,205 @@ const updateBackgroundColor = () => {
 // };
 </script>
 
-<style lang="sass">
-.item
-  position: relative
-  border-bottom: 1px solid rgba(0, 0, 0, .08)
+<style lang="postcss">
+.item {
+  position: relative;
+  list-style-type: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-  header
-    display: flex
-    grid-gap: 20px
-    justify-content: space-between
-    padding: 30px 0
+  header {
+    display: flex;
+    grid-gap: 20px;
+    justify-content: space-between;
+    padding: 30px 0;
 
-    &.header-clickable
-      cursor: pointer
+    &.header-clickable {
+      cursor: pointer;
+    }
 
-    h4, h5
-      margin: 0
+    h4,
+    h5 {
+      margin: 0;
+    }
 
-    h4
-      font-size: 18px
+    h4 {
+      font-size: 18px;
+    }
 
-    h5
-      margin-top: 4px
-      font-weight: 600
-      opacity: .5
+    h5 {
+      margin-top: 4px;
+      font-weight: 600;
+      opacity: 0.5;
+    }
 
-    .header-buttons
-      display: flex
-      align-items: center
-      grid-gap: 14px
-      opacity: .1
-      border: 0px solid black
+    .header-buttons {
+      display: flex;
+      align-items: center;
+      grid-gap: 14px;
+      opacity: 0.1;
+      border: 0px solid black;
 
-      &.header-buttons-enabled
-        opacity: 1
+      &.header-buttons-enabled {
+        opacity: 1;
+      }
 
-      button
-        padding: 0
-        height: 16px
-        border: none
-        background: transparent
-        cursor: pointer
+      button {
+        padding: 0;
+        height: 16px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
 
-        &.extend-button
-          visibility: hidden
+        &.extend-button {
+          visibility: hidden;
+        }
 
-        img
-          display: block
-          height: 100%
+        img {
+          display: block;
+          height: 100%;
+        }
+      }
+    }
 
-    &:hover .header-buttons .extend-button
-      visibility: visible
+    &:hover .header-buttons .extend-button {
+      visibility: visible;
+    }
+  }
 
-  .item-content
-    overflow: hidden
+  .item-content {
+    overflow: hidden;
 
-    p, h6, li
-      opacity: .6
+    p,
+    h6,
+    li {
+      opacity: 0.6;
+    }
 
-    .content-text
-      margin: 10px 0 0 0
-      font-size: 14px
+    .content-container {
+      margin-top: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 
-    .content-container
-      margin-top: 28px
-      padding-bottom: 28px
-      border-bottom: 1px solid rgba(0, 0, 0, .04)
+      &:first-of-type {
+        margin-top: 0;
+      }
 
-      &:first-of-type
-        margin-top: 0
+      &:last-of-type {
+        margin-bottom: 40px;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
 
-      &:last-of-type
-        margin-bottom: 40px
-        border-bottom: none
-        padding-bottom: 0
+      h6 {
+        margin: 0 0 10px 0;
+        font-size: 14px;
 
-      h6
-        margin: 0 0 10px 0
-        font-size: 14px
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
 
-        &:first-of-type
-         margin-top: 0
+      .content-text {
+        margin: 10px 0 0 0;
+        font-size: 14px;
+      }
 
-      .content-media
-        display: flex
-        grid-gap: 8px
-        padding-bottom: 12px
-        overflow-x: auto
+      .content-media {
+        display: flex;
+        grid-gap: 8px;
+        padding-bottom: 12px;
+        overflow-x: auto;
 
-        &:hover::-webkit-scrollbar-thumb
-          background: rgba(0, 0, 0, 1)
+        &:hover::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 1);
+        }
 
-        &::-webkit-scrollbar
-          height: 2px
-          background: transparent
+        &::-webkit-scrollbar {
+          height: 2px;
+          background: transparent;
+        }
 
-        &::-webkit-scrollbar-track
-          background: rgba(0, 0, 0, .2)
+        &::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.2);
+        }
 
-        &::-webkit-scrollbar-thumb
-          background: rgba(0, 0, 0, .6)
+        &::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.6);
+        }
 
-        img
-          width: 120px
+        img {
+          width: 120px;
 
-          &.website-image
-            width: 320px
+          &.website-image {
+            width: 320px;
+          }
+        }
 
-        iframe
-          width: 320px
-          height: 168px
-          border: none
-          border-radius: 10px
+        iframe {
+          width: 320px;
+          height: 168px;
+          border: none;
+          border-radius: 10px;
+        }
+      }
 
-      p, li
-        padding: 5px 0
-        font-size: 14px
+      p,
+      li {
+        padding: 5px 0;
+        font-size: 14px;
+      }
 
-      ul
-        border: 0px solid black
+      ul {
+        border: 0px solid black;
 
-        li
-          border: 0px solid black
+        li {
+          border: 0px solid black;
 
-          &.missions
-            position: relative
-            padding: 0 0 0 14px
+          &.missions {
+            position: relative;
+            padding: 0 0 0 14px;
 
-            &::before
-              content: ''
-              position: absolute
-              top: 7px
-              left: 0
-              width: 7px
-              height: 7px
-              border-radius: 50%
-              background-color: #000000
+            &::before {
+              content: '';
+              position: absolute;
+              top: 7px;
+              left: 0;
+              width: 7px;
+              height: 7px;
+              border-radius: 50%;
+              background-color: #000000;
+            }
+          }
 
-          .content-list-title
-            font-weight: 600
+          .content-list-title {
+            font-weight: 600;
+          }
 
-          .content-list-link
-            position: relative
-            color: #000000
-            text-decoration: none
+          .content-list-link {
+            position: relative;
+            color: #000000;
+            text-decoration: none;
 
-            &:after
-              content: url('../assets/icons/arrow-link.svg')
-              height: 6px
-              position: absolute
-              right: -14px
-              top: -5px
-              visibility: hidden
+            &:after {
+              content: url('../assets/icons/arrow-link.svg');
+              height: 6px;
+              position: absolute;
+              right: -14px;
+              top: -5px;
+              visibility: hidden;
+            }
 
-            &:hover
-              text-decoration: underline
+            &:hover {
+              text-decoration: underline;
 
-              &:after
-                visibility: visible
+              &:after {
+                visibility: visible;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

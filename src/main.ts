@@ -1,7 +1,7 @@
 import { createApp, h } from 'vue';
 import router from './router.ts';
 import App from './App.vue';
-import './style.sass';
+import './style.css';
 
 const app = createApp({
   render: () => h(App),

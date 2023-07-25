@@ -461,152 +461,186 @@ const sendEmail = async () => {
 // };
 </script>
 
-<style scoped lang="sass">
-.content-list
-  margin: 26px 0 0 0 !important
+<style scoped lang="postcss">
+.content-list {
+  margin: 26px 0 0 0 !important;
 
-  &:first-of-type
-    margin-top: 0 !important
+  &:first-of-type {
+    margin-top: 0 !important;
+  }
 
-  &:last-of-type
-    padding-bottom: 26px !important
+  &:last-of-type {
+    padding-bottom: 26px !important;
+  }
 
-  &:not(:first-of-type)
-    border-top: 1px solid rgba(0, 0, 0, .08)
+  &:not(:first-of-type) {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
 
-  &:not(:last-of-type)
+  &:not(:last-of-type) {
+    li:last-of-type {
+      /*margin-bottom: 20px;*/
+    }
+  }
 
-    li:last-of-type
-      // margin-bottom: 20px
+  &:last-of-type {
+    li:first-of-type {
+      margin-top: 26px;
+    }
 
-  &:last-of-type
+    li:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 
-    li:first-of-type
-      margin-top: 26px
+  li {
+    display: flex;
+    grid-gap: 8px;
+    margin: 10px 0;
+    font-size: 14px;
 
-    li:last-of-type
-      margin-bottom: 0
+    .content-list-title {
+      font-weight: 600;
+    }
 
-  li
-    display: flex
-    grid-gap: 8px
-    margin: 10px 0
-    font-size: 14px
+    img {
+      width: 18px;
+    }
 
-    .content-list-title
-      font-weight: 600
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+  }
+}
 
-    img
-      width: 18px
+.content-form {
+  margin-top: 26px;
 
-    a
-      color: #000000
-      text-decoration: none
+  .content-input-container {
+    display: flex;
+    flex-direction: column;
 
-.content-form
-  margin-top: 26px
+    &:not(:first-of-type) label {
+      margin-top: 20px;
+    }
 
-  .content-input-container
-    display: flex
-    flex-direction: column
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-    &:not(:first-of-type) label
-      margin-top: 20px
+    input,
+    textarea {
+      padding: 0 10px 0 0;
+      background: transparent;
+      color: #000000;
+      border: 0;
+      outline: none;
+      font-size: 18px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-    label
-      display: flex
-      flex-direction: column
-      font-size: 14px
-      font-weight: 500
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.2);
+      }
+    }
 
-    input, textarea
-      padding: 0 10px 0 0
-      background: transparent
-      color: #000000
-      border: 0
-      outline: none
-      font-size: 18px
-      border-bottom: 1px solid rgba(0, 0, 0, .08)
+    input[required] + label:after {
+      content: ' *';
+      display: contents;
+    }
 
-      &::placeholder
-        color:  rgba(0, 0, 0, .2)
+    input {
+      height: 40px;
 
-    input[required] + label:after
-      content: ' *'
-      display: contents
+      &:-webkit-autofill {
+        -webkit-text-fill-color: #000000;
+        box-shadow: 0 0 0 50px white inset;
+        background-color: transparent;
+      }
+    }
 
-    input
-      height: 40px
+    textarea {
+      padding: 8px 0;
+      height: 150px;
+      resize: none;
+      font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    }
+  }
 
-      &:-webkit-autofill
-        -webkit-text-fill-color: #000000
-        box-shadow: 0 0 0 50px white inset
-        background-color: transparent
+  input[type='submit'] {
+    margin-top: 40px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    color: #ffffff;
+    text-transform: uppercase;
+    background-color: #000000;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+}
 
-    textarea
-      padding: 8px 0
-      height: 150px
-      resize: none
-      font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif
+.record-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 26px;
+  border: 1px solid black;
 
-  input[type=submit]
-    margin-top: 40px
-    width: 100%
-    height: 40px
-    border: none
-    font-size: 16px
-    font-weight: 600
-    line-height: 1
-    cursor: pointer
-    color: #FFFFFF
-    text-transform: uppercase
-    background-color: #000000
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif
+  .record-button {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
 
-.record-container
-  display: flex
-  flex-direction: column
-  align-items: center
-  margin-top: 26px
-  border: 1px solid black
+    span {
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: auto;
+      background-color: #000000;
+      border-radius: 50%;
+      animation: circleAnimation 0.3s ease-in-out;
+    }
 
-  .record-button
-    width: 50px
-    height: 50px
-    border: 3px solid #000000
-    border-radius: 50%
-    background-color: transparent
-    cursor: pointer
+    &.record-active {
+      span {
+        border-radius: 15%;
+        animation: squareAnimation 0.3s ease-in-out;
+      }
+    }
 
-    span
-      display: block
-      width: 20px
-      height: 20px
-      margin: auto
-      background-color: #000000
-      border-radius: 50%
-      animation: circleAnimation .3s ease-in-out
+    .audio-reader {
+      margin-top: 50px;
+    }
+  }
+}
 
-    &.record-active
+@keyframes squareAnimation {
+  0% {
+    border-radius: 50%;
+  }
 
-      span
-        border-radius: 15%
-        animation: squareAnimation .3s ease-in-out
+  100% {
+    border-radius: 15%;
+  }
+}
 
-  .audio-reader
-    margin-top: 50px
+@keyframes circleAnimation {
+  0% {
+    border-radius: 15%;
+  }
 
-@keyframes squareAnimation
-  0%
-    border-radius: 50%
-
-  100%
-    border-radius: 15%
-
-@keyframes circleAnimation
-  0%
-    border-radius: 15%
-
-  100%
-    border-radius: 50%
+  100% {
+    border-radius: 50%;
+  }
+}
 </style>

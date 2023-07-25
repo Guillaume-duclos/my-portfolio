@@ -81,134 +81,155 @@ const showMenu = () => {
 };
 </script>
 
-<style scoped lang="sass">
-header
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  backdrop-filter: blur(16px)
-  z-index: 1
-  border: 0px solid red
+<style scoped lang="postcss">
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(16px);
+  z-index: 1;
+  border: 0px solid red;
 
-  .header-container
-    display: flex
-    margin: 0 auto
-    max-width: 1200px
-    border: 0px solid green
+  .header-container {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    border: 0px solid green;
 
-    .header-sub-container
-      display: flex
-      align-items: center
-      justify-content: space-between
-      padding: 0 24px
-      width: 100%
-      height: 80px
-      border: 0px solid blue
+    .header-sub-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      width: 100%;
+      height: 80px;
+      border: 0px solid blue;
 
-      @media (min-width: 1100px)
-        padding: 0 54px
+      @media (min-width: 1100px) {
+        padding: 0 54px;
+      }
 
-      h1
-        font-size: 29px
-        margin: 0
+      h1 {
+        font-size: 29px;
+        margin: 0;
 
-        a
-          color: #000000
-          text-decoration: none
+        a {
+          color: #000000;
+          text-decoration: none;
+        }
+      }
 
-      .header-menu-desktop
-        display: none
-        border: 0px solid black
+      .header-menu-desktop {
+        display: none;
+        border: 0px solid black;
 
-        @media (min-width: 760px)
-          display: block
+        @media (min-width: 760px) {
+          display: block;
+        }
 
-        ul
-          margin: 0
-          padding: 0
-          display: flex
-          grid-gap: 24px
-          border: 0px solid black
+        ul {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          grid-gap: 24px;
+          border: 0px solid black;
 
-          @media (min-width: 1100px)
-            grid-gap: 32px
+          @media (min-width: 1100px) {
+            grid-gap: 32px;
+          }
 
-          li
-            list-style-type: none
-            border: 0px solid black
+          li {
+            list-style-type: none;
+            border: 0px solid black;
 
-            a
-              position: relative
-              color: #000000
-              font-size: 14px
-              font-weight: 500
-              text-decoration: none
+            a {
+              position: relative;
+              color: #000000;
+              font-size: 14px;
+              font-weight: 500;
+              text-decoration: none;
 
-              &.active::after
-                content: ''
-                position: absolute
-                display: block
-                width: 100%
-                height: 2px
-                margin-top: 5px
-                background-color: #000000
+              &.active::after {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 2px;
+                bottom: -8px;
+                background-color: #000000;
+              }
 
-              &.external-link
+              &.external-link {
+                &:after {
+                  content: url('../assets/icons/arrow-link.svg');
+                  height: 6px;
+                  position: absolute;
+                  right: -14px;
+                  top: -5px;
+                  visibility: hidden;
+                }
 
-                &:after
-                  content: url('../assets/icons/arrow-link.svg')
-                  height: 6px
-                  position: absolute
-                  right: -14px
-                  top: -5px
-                  visibility: hidden
+                &:hover:after {
+                  visibility: visible;
+                }
+              }
+            }
+          }
+        }
+      }
 
-                &:hover:after
-                  visibility: visible
+      .header-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+        z-index: 1;
 
-      .header-menu-button
-        display: flex
-        align-items: center
-        justify-content: center
-        padding: 0
-        width: 32px
-        height: 32px
-        background: transparent
-        cursor: pointer
-        border: none
-        z-index: 1
+        @media (min-width: 760px) {
+          display: none;
+        }
 
-        @media (min-width: 760px)
-          display: none
+        .header-menu-mobile {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          inset: 0;
+          height: 100vh;
+          background-color: #ffffff;
 
-      .header-menu-mobile
-        display: flex
-        flex-direction: column
-        align-items: center
-        justify-content: center
-        position: absolute
-        inset: 0
-        height: 100vh
-        background-color: #FFFFFF
+          ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 100%;
+            margin: 0;
+            padding: 0;
 
-        ul
-          display: flex
-          flex-direction: column
-          align-items: center
-          justify-content: space-evenly
-          height: 100%
-          margin: 0
-          padding: 0
+            li {
+              list-style-type: none;
 
-          li
-            list-style-type: none
-
-            a
-              color: #000000
-              text-decoration: none
-              font-size: 40px
-              font-weight: 800
-              line-height: 40px
-              text-transform: uppercase
+              a {
+                color: #000000;
+                text-decoration: none;
+                font-size: 40px;
+                font-weight: 800;
+                line-height: 40px;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

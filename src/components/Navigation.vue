@@ -37,26 +37,25 @@ const props = defineProps({
 });
 </script>
 
-<style scoped lang="sass">
-nav
-  display: flex
-  justify-content: space-between
-  margin-top: 30px
-  padding-bottom: 100px
-  border: 0px solid black
+<style scoped lang="postcss">
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding-bottom: 100px;
 
-  div
-    border: 0px solid black
+  div a {
+    display: flex;
+    grid-gap: 10px;
+    align-items: center;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
 
-    a
-      display: flex
-      grid-gap: 10px
-      align-items: center
-      color: #000000
-      font-size: 14px
-      font-weight: 600
-      text-decoration: none
-
-      img
-        height: 14px
+    img {
+      height: 14px;
+    }
+  }
+}
 </style>
