@@ -180,10 +180,10 @@ const updateBackgroundColor = () => {
       display: flex;
       align-items: center;
       grid-gap: 14px;
-      opacity: 0.1;
+      visibility: hidden;
 
       &.header-buttons-enabled {
-        opacity: 1;
+        visibility: visible;
       }
 
       button {

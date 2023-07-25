@@ -6,14 +6,22 @@
           <h3>Hello <span>👋</span>, je m'appelle</h3>
 
           <h2>
-            <span v-for="(title, index) in titles" :key="`title-${index}`" class="titles-container">
+            <span class="titles-container">
               <span class="titles-sub-container">
-                <span v-for="(word, index) in title" :key="`word-${index}`" class="words-container">
-                  {{ word }}
-                </span>
+                <span class="words-container">Guillaume</span>
+              </span>
+            </span>
+            <span class="titles-container">
+              <span class="titles-sub-container">
+                <span class="words-container">Duclos</span>
               </span>
             </span>
           </h2>
+
+          <p class="title-description">
+            Je suis développeur <strong>full-stack</strong><br />et mobile
+            <strong>JavaScript <span>👨‍💻</span></strong>
+          </p>
         </div>
 
         <div class="rs-links">
@@ -72,12 +80,6 @@ import { ref } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
 import Links from '../data/links.json';
 
-const titles = ref([
-  ['Guillaume', '', ''],
-  ['Duclos', '', ''],
-  ['', '', ''],
-]);
-
 const showTitle = useMediaQuery('(min-width: 760px)');
 </script>
 
@@ -102,8 +104,7 @@ const showTitle = useMediaQuery('(min-width: 760px)');
       justify-content: space-between;
       height: 100%;
 
-      h2,
-      p {
+      h2 {
         margin: 0;
         font-size: 80px;
         font-weight: 800;
@@ -156,6 +157,21 @@ const showTitle = useMediaQuery('(min-width: 760px)');
         }
       }
 
+      .title-description {
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(0, 0, 0, 0.3);
+
+        strong {
+          color: rgb(0, 0, 0, 0.8);
+          font-weight: 800;
+        }
+
+        span {
+          font-size: 18px;
+        }
+      }
+
       .rs-links {
         z-index: 2;
 
@@ -191,7 +207,7 @@ const showTitle = useMediaQuery('(min-width: 760px)');
 
           a {
             display: flex;
-            grid-gap: 20px;
+            grid-gap: 32px;
             justify-content: space-between;
             padding: 30px 0;
             color: #000000;
