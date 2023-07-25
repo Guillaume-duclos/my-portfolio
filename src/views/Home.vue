@@ -119,7 +119,7 @@ const showTitle = useMediaQuery('(min-width: 760px)');
 
       h2 {
         display: block;
-        line-height: 60px;
+        line-height: 64px;
         overflow: hidden;
         white-space: pre-wrap;
         word-wrap: break-word;
@@ -127,7 +127,7 @@ const showTitle = useMediaQuery('(min-width: 760px)');
         .titles-container {
           position: relative;
           display: block;
-          height: 60px;
+          height: 64px;
           overflow: hidden;
           border: 0px solid black;
 

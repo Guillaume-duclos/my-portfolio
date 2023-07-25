@@ -253,6 +253,8 @@ const updateBackgroundColor = () => {
         grid-gap: 8px;
         padding-bottom: 12px;
         overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #000000 #000000;
 
         &:hover::-webkit-scrollbar-thumb {
           background: rgba(0, 0, 0, 1);

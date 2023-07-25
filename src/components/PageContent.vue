@@ -39,8 +39,8 @@
 
       h2 {
         display: block;
-        line-height: 60px;
         overflow: hidden;
+        line-height: 64px;
         white-space: pre-wrap;
         word-wrap: break-word;
       }
@@ -48,12 +48,12 @@
       .titles-container {
         position: relative;
         display: block;
-        height: 60px;
+        height: 64px;
         overflow: hidden;
         border: 0px solid black;
 
         &:not(:first-of-type) {
-          margin-top: 8px;
+          margin-top: 4px;
         }
 
         .titles-sub-container {

@@ -267,7 +267,7 @@ const updateActiveListTitle = (newValue: number) => {
 
   for (let i = 0; i < titles.value.length; i++) {
     gsap.to(`.titles-sub-container`, {
-      marginTop: `-${(62 + 3 * i) * newValue}px`,
+      marginTop: `-${(66 + 3 * i) * newValue}px`,
       duration: 0.5,
       ease: 'countEase',
     });
