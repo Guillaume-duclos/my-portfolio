@@ -76,7 +76,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
 import Links from '../data/links.json';
 
@@ -106,23 +105,29 @@ const showTitle = useMediaQuery('(min-width: 760px)');
 
       h2 {
         margin: 0;
-        font-size: 80px;
-        font-weight: 800;
-        text-transform: uppercase;
-      }
-
-      h2 {
         display: block;
-        line-height: 64px;
+        font-size: 58px;
+        font-weight: 800;
+        line-height: 48px;
+        text-transform: uppercase;
         overflow: hidden;
         white-space: pre-wrap;
         word-wrap: break-word;
 
+        @media (min-width: 1030px) {
+          font-size: 80px;
+          line-height: 64px;
+        }
+
         .titles-container {
           position: relative;
           display: block;
-          height: 64px;
+          height: 48px;
           overflow: hidden;
+
+          @media (min-width: 1030px) {
+            height: 64px;
+          }
 
           &:not(:first-of-type) {
             margin-top: 8px;
@@ -195,6 +200,13 @@ const showTitle = useMediaQuery('(min-width: 760px)');
   }
 
   .content {
+    flex: 1;
+
+    @media (min-width: 760px) {
+      flex: 1;
+      max-width: 450px;
+    }
+
     .content-lists-container {
       ul {
         margin: 0;
