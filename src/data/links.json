@@ -1,31 +1,31 @@
 [
   {
     "title": "Mes projets professionnels",
-    "subTitle": "Tout ce que j'ai réalisé depuis mon 1er contrat à aujourd'hui <span>💪</span>",
+    "subTitle": "Tout ce que j'ai réalisé depuis mon 1er contrat à aujourd'hui",
     "route": "professional-projects",
     "externalLink": false
   },
   {
     "title": "Mes projets personnels",
-    "subTitle": "Je vous montre ici mes projets perso <span>👨‍💻</span>",
+    "subTitle": "Je vous montre ici mes projets perso",
     "route": "personal-projects",
     "externalLink": false
   },
   {
     "title": "Stack",
-    "subTitle": "Ici, vous saurez tout de ce que je sais faire <span>😎</span>",
+    "subTitle": "Ici, vous saurez tout de ce que je sais faire !",
     "route": "stack",
     "externalLink": false
   },
   {
     "title": "Contactez moi",
-    "subTitle": "N'hésitez pas à me contacter <span>📭</span>",
+    "subTitle": "N'hésitez pas à me contacter",
     "route": "contact",
     "externalLink": false
   },
   {
     "title": "Mon CV",
-    "subTitle": "Jetez un coup d'oeil à mon CV <span>🧾</span>",
+    "subTitle": "Jetez un coup d'oeil à mon CV",
     "route": "./assets/documents/cv.pdf",
     "externalLink": true
   }

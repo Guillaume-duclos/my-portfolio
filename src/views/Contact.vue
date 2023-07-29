@@ -114,13 +114,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
+import { useRoute } from 'vue-router';
+import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
 import emailJs from '@emailjs/browser';
 import Item from '../components/Item.vue';
 import Navigation from '../components/Navigation.vue';
 import PageContent from '../components/PageContent.vue';
 import Stack from '../data/stack.json';
+
+const props = defineProps({
+  pageLoaded: Array<String>,
+});
+
+const emit = defineEmits(['updatePageLoaded']);
+const route = useRoute();
 
 const contactForm = ref();
 const emailStatus = ref('Envoyer');
@@ -137,6 +147,26 @@ const showTitle = useMediaQuery('(min-width: 760px)');
 // const recordTime = ref();
 // const maximumRecordingTimeInHours = 1;
 // let elapsedTimeTimer: number;
+
+onMounted(() => {
+  gsap.registerPlugin(CustomEase);
+  CustomEase.create('appearEase', '.56, .08, .24, 1');
+
+  if (!props.pageLoaded.includes(route.name)) {
+    gsap.set(`.titles-sub-container`, {
+      marginTop: 66 + 3,
+    });
+
+    gsap.to(`.titles-sub-container`, {
+      marginTop: 0,
+      duration: 0.8,
+      ease: 'appearEase',
+    });
+
+    // On indique que la page a été chargée
+    emit('updatePageLoaded', { name: route.name });
+  }
+});
 
 // Envoie du message écrit
 const sendEmail = async () => {

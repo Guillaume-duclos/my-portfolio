@@ -3,29 +3,31 @@
     <aside v-if="showTitle" class="title" ref="container">
       <div>
         <div>
-          <h3>Hello <span>👋</span>, je m'appelle</h3>
+          <h3 ref="h3Title">
+            <span>Hello <span>👋</span>, je m'appelle</span>
+          </h3>
 
-          <h2>
-            <span class="titles-container">
-              <span class="titles-sub-container">
-                <span class="words-container">Guillaume</span>
-              </span>
+          <h2 ref="h2Title">
+            <span class="title-container">
+              <span class="words-container">Guillaume</span>
             </span>
-            <span class="titles-container">
-              <span class="titles-sub-container">
-                <span class="words-container">Duclos</span>
-              </span>
+            <span class="title-container">
+              <span class="words-container">Duclos</span>
             </span>
           </h2>
 
-          <p class="title-description">
-            Je suis développeur <strong>full-stack</strong><br />et mobile
-            <strong>JavaScript <span>👨‍💻</span></strong>
+          <p class="title-description" ref="titleDescription">
+            <span>
+              <span>Je suis développeur <strong>full-stack</strong></span>
+            </span>
+            <span>
+              <span> et mobile <strong>JavaScript</strong></span>
+            </span>
           </p>
         </div>
 
         <div class="rs-links">
-          <ul>
+          <ul ref="rsLinks">
             <li>
               <a href="https://github.com/guillaume-duclos" target="_blank">Github</a>
             </li>
@@ -76,10 +78,109 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
+import { useRoute } from 'vue-router';
+import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
 import Links from '../data/links.json';
 
+const props = defineProps({
+  pageLoaded: Array<String>,
+});
+
+const emit = defineEmits(['updatePageLoaded']);
+
 const showTitle = useMediaQuery('(min-width: 760px)');
+const route = useRoute();
+
+const h2Title = ref();
+const h3Title = ref();
+const titleDescription = ref();
+const rsLinks = ref();
+
+onMounted(() => {
+  gsap.registerPlugin(CustomEase);
+
+  if (!props.pageLoaded.includes(route.name)) {
+    // Initialisation du ease
+    CustomEase.create('appearEase', '.56, .08, .24, 1');
+
+    // Initialisation de la timeline
+    const timeline = gsap.timeline({});
+
+    timeline.set(h3Title.value.children[0], {
+      marginTop: 22,
+    });
+
+    for (let i = 0; i < 2; i++) {
+      timeline.set(h2Title.value.children[i].children[0], {
+        marginTop: 64,
+      });
+    }
+
+    for (let i = 0; i < 2; i++) {
+      timeline.set(titleDescription.value.children[i].children[0], {
+        marginTop: 24,
+      });
+    }
+
+    for (let i = 0; i < 3; i++) {
+      timeline.set(rsLinks.value.children[i].children[0], {
+        marginTop: 26,
+      });
+    }
+
+    // Animation du 1er titre
+    timeline.to(h3Title.value.children[0], {
+      marginTop: 0,
+      duration: 0.8,
+      ease: 'appearEase',
+    });
+
+    // Animation du 2ème titre
+    for (let i = 0; i < 2; i++) {
+      timeline.to(
+        h2Title.value.children[i].children[0],
+        {
+          marginTop: 0,
+          duration: 0.8,
+          ease: 'appearEase',
+        },
+        '>-0.6'
+      );
+    }
+
+    // Animation du 3ème titre
+    for (let i = 0; i < 2; i++) {
+      timeline.to(
+        titleDescription.value.children[i].children[0],
+        {
+          marginTop: 0,
+          duration: 0.8,
+          ease: 'appearEase',
+        },
+        '>-0.6'
+      );
+    }
+
+    // Animation de liens rs
+    for (let i = 0; i < 3; i++) {
+      timeline.to(
+        rsLinks.value.children[i].children[0],
+        {
+          marginTop: 0,
+          duration: 0.8,
+          ease: 'appearEase',
+        },
+        '>-0.6'
+      );
+    }
+
+    // On indique que la page a été chargée
+    emit('updatePageLoaded', { name: route.name });
+  }
+});
 </script>
 
 <style scoped lang="postcss">
@@ -119,7 +220,7 @@ const showTitle = useMediaQuery('(min-width: 760px)');
           line-height: 64px;
         }
 
-        .titles-container {
+        .title-container {
           position: relative;
           display: block;
           height: 48px;
@@ -133,17 +234,12 @@ const showTitle = useMediaQuery('(min-width: 760px)');
             margin-top: 8px;
           }
 
-          .titles-sub-container {
+          .words-container {
             display: block;
             height: 100%;
 
-            .words-container {
-              display: block;
-              height: 100%;
-
-              &:not(:first-of-type) {
-                margin-top: 8px;
-              }
+            &:not(:first-of-type) {
+              margin-top: 8px;
             }
           }
         }
@@ -151,14 +247,21 @@ const showTitle = useMediaQuery('(min-width: 760px)');
 
       h3 {
         margin: 0 0 8px 0;
+        height: 22px;
         font-size: 16px;
         font-weight: 600;
         line-height: 22px;
         text-transform: uppercase;
         color: rgb(0, 0, 0, 0.3);
+        overflow: hidden;
 
-        span {
-          color: rgb(0, 0, 0, 1);
+        > span {
+          display: block;
+          height: 100%;
+
+          span {
+            color: rgb(0, 0, 0, 1);
+          }
         }
       }
 
@@ -167,13 +270,21 @@ const showTitle = useMediaQuery('(min-width: 760px)');
         font-weight: 600;
         color: rgb(0, 0, 0, 0.3);
 
-        strong {
-          color: rgb(0, 0, 0, 0.8);
-          font-weight: 800;
-        }
+        > span {
+          display: block;
+          height: 24px;
+          overflow: hidden;
+          border: 0px solid;
 
-        span {
-          font-size: 18px;
+          span {
+            display: block;
+            height: 100%;
+
+            strong {
+              color: rgb(0, 0, 0, 0.8);
+              font-weight: 800;
+            }
+          }
         }
       }
 
@@ -185,13 +296,20 @@ const showTitle = useMediaQuery('(min-width: 760px)');
           padding: 0;
 
           li {
+            height: 26px;
             list-style-type: none;
+            overflow: hidden;
+            border: 0px solid;
 
             a {
+              display: inline-block;
+              height: 100%;
+              line-height: 28px;
               color: #000000;
               text-decoration: none;
               font-weight: 600;
               text-transform: uppercase;
+              border: 0px solid red;
             }
           }
         }

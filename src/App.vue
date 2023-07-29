@@ -4,7 +4,7 @@
 
     <router-view v-slot="{ Component }">
       <transition v-on:enter="enter" v-on:leave="leave" mode="out-in">
-        <component :is="Component" />
+        <component :is="Component" :pageLoaded="pageLoaded" @updatePageLoaded="updatePageLoaded" />
       </transition>
     </router-view>
   </div>
@@ -12,15 +12,15 @@
 
 <script setup lang="ts">
 import { gsap } from 'gsap';
+import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { onMounted, ref, watch } from 'vue';
 import { useTitle } from '@vueuse/core';
-import { CustomEase } from 'gsap/CustomEase';
 import Header from './components/Header.vue';
 
 const route = useRoute();
 const title = useTitle();
 const enableTransition = ref(false);
+const pageLoaded = ref([]);
 
 watch(
   () => route.name,
@@ -28,11 +28,6 @@ watch(
     title.value = `Portfolio de Guillaume Duclos - ${route.meta.name}`;
   }
 );
-
-onMounted(() => {
-  gsap.registerPlugin(CustomEase);
-  CustomEase.create('opacityEase', '0.25, 0.1, 0.25, 1');
-});
 
 // Animation d'ouverture de l'item
 const enter = (element: any, done: any) => {
@@ -73,6 +68,11 @@ const leave = (element: any, done: any) => {
       onComplete: done,
     }
   );
+};
+
+// On met à jour les pages déjà visitées une première fois
+const updatePageLoaded = (page) => {
+  pageLoaded.value.push(page.name);
 };
 </script>
 

@@ -6,21 +6,6 @@
           <h3>Entreprise</h3>
 
           <h2>
-            <!--            <span v-for="(title, index) in words" :key="`title-${index}`" class="titles-container">-->
-            <!--              <span-->
-            <!--                class="words-container"-->
-            <!--                :class="`words-container-${index}`"-->
-            <!--                v-for="(word, index) in title"-->
-            <!--                :key="`word-${index}`">-->
-            <!--                <span-->
-            <!--                  class="letters-container"-->
-            <!--                  v-for="(letter, index) in word"-->
-            <!--                  :key="`letter-${index}`">-->
-            <!--                  {{ letter }}-->
-            <!--                </span>-->
-            <!--              </span>-->
-            <!--            </span>-->
-
             <span v-for="(title, index) in titles" :key="`title-${index}`" class="titles-container">
               <span class="titles-sub-container">
                 <span v-for="(word, index) in title" :key="`word-${index}`" class="words-container">
@@ -158,6 +143,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
+import { useRoute } from 'vue-router';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -166,6 +152,13 @@ import ProfessionalProjects from '../data/professional-projects.json';
 import Navigation from '../components/Navigation.vue';
 import Item from '../components/Item.vue';
 import PageContent from '../components/PageContent.vue';
+
+const props = defineProps({
+  pageLoaded: Array<String>,
+});
+
+const emit = defineEmits(['updatePageLoaded']);
+const route = useRoute();
 
 const pageTitle = ref();
 const contentContainer = ref();
@@ -178,30 +171,6 @@ const titles = ref([
   ['craft', '', ''],
   ['apps', '', ''],
 ]);
-// const words = [
-//   [
-//     ['w', 'i', 'w'],
-//     ['e', 'd', 'a'],
-//     [' ', 'i', 'r'],
-//     [' ', 'x', 'e'],
-//     [' ', ' ', 'e'],
-//     [' ', ' ', 'g'],
-//     [' ', ' ', 'a'],
-//   ],
-//   [
-//     ['c', ' ', ' '],
-//     ['r', ' ', ' '],
-//     ['a', ' ', ' '],
-//     ['f', ' ', ' '],
-//     ['t', ' ', ' '],
-//   ],
-//   [
-//     ['a', ' ', ' '],
-//     ['p', ' ', ' '],
-//     ['p', ' ', ' '],
-//     ['s', ' ', ' '],
-//   ],
-// ];
 
 const showTitle = useMediaQuery('(min-width: 760px)');
 let root = document.documentElement;
@@ -211,6 +180,22 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
   CustomEase.create('expendEase', '0.56, 0.14, 0.27, 0.97');
   CustomEase.create('countEase', '0.4, 0.11, 0.45, 0.97');
+  CustomEase.create('appearEase', '.56, .08, .24, 1');
+
+  if (!props.pageLoaded.includes(route.name)) {
+    gsap.set(`.titles-sub-container`, {
+      marginTop: 66 + 3,
+    });
+
+    gsap.to(`.titles-sub-container`, {
+      marginTop: 0,
+      duration: 0.8,
+      ease: 'appearEase',
+    });
+
+    // On indique que la page a été chargée
+    emit('updatePageLoaded', { name: route.name });
+  }
 
   for (let i = 0; i < content.value.children.length; i++) {
     ScrollTrigger.create({
@@ -223,36 +208,6 @@ onMounted(() => {
       onUpdate: () => updateActiveList(i),
     });
   }
-
-  // 0 : ['w', 'e']
-  // 1 : ['c', 'r', 'a', 'f', 't']
-  // 2 : ['a', 'p', 'p', 's']
-  // ------
-  // 0 : ['i', 'd', 'i', 'x']
-  // ------
-  // 0 : ['w', 'a', 'r', 'e', 'e', 'g', 'a']
-
-  // [
-  //   [['w', 'i', 'w'], ['e', 'd', 'a'], [' ', 'i', 'r'], [' ', 'x', 'e'], [' ', ' ', 'e'], [' ', ' ', 'g'], [' ', ' ', 'a']],
-  //   [['c', ' ', ' '], ['r', ' ', ' '], ['a', ' ', ' '], ['f', ' ', ' '], ['t', ' ', ' ']],
-  //   [['a', ' ', ' '], ['p', ' ', ' '], ['p', ' ', ' '], ['s', ' ', ' ']]
-  // ]
-
-  // ProfessionalProjects.forEach((projet) => {
-  //   titles.value.push(
-  //     projet.title.split('\n').map((word) => {
-  //       return word.split('');
-  //     })
-  //   );
-  // });
-
-  // ['we', 'idix', 'wareega'],
-  // ['craft', '', ''],
-  // ['apps', '', ''],
-
-  // titles.value = ProfessionalProjects.map((title) => title.title.split('\n'));
-
-  // console.log(titles.value);
 });
 
 onUnmounted(() => {
@@ -275,34 +230,7 @@ watch(activeList, (newValue) => {
   updateActiveListIndex(newValue);
 });
 
-// Retourne le numéro de la liste courente
-// const activeListIndex = computed(() => {
-//   return ('0' + (activeList.value + 1)).slice(-2);
-// });
-
-// const largestTitle = computed(() => {
-//   return titles.value.reduce((maxI, el, i, arr) => (el.length > arr[maxI].length ? i : maxI), 0);
-// });
-
 const updateActiveListTitle = (newValue: number) => {
-  // for (let i = 0; i < 7; i++) {
-  //   gsap.to(`.words-container:nth-of-type(${i + 1})`, {
-  //     marginTop: `-${72 * newValue}px`,
-  //     duration: 0.5,
-  //     delay: `${0.1 * i}`,
-  //     ease: 'countEase',
-  //   });
-  // }
-
-  // for (let i = 0; i < titles.value.length; i++) {
-  //   gsap.to(`.titles-container:nth-of-type(${i + 1})`, {
-  //     marginTop: `-${72 * newValue}px`,
-  //     duration: 0.5,
-  //     delay: `${0.1 * i}`,
-  //     ease: 'countEase',
-  //   });
-  // }
-
   for (let i = 0; i < titles.value.length; i++) {
     gsap.to(`.titles-sub-container`, {
       marginTop: `-${(66 + 3 * i) * newValue}px`,
@@ -335,11 +263,6 @@ const updateActiveListIndex = (newValue: number) => {
 const companyCount = computed(() => {
   return ('0' + ProfessionalProjects?.length).slice(-2);
 });
-
-// Retourne le titre de la liste courente
-// const titlePage = computed(() => {
-//   return ProfessionalProjects?.[activeList.value].title;
-// });
 
 // Retourne la période de la liste courente
 const period = computed(() => {

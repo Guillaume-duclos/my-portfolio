@@ -51,24 +51,6 @@
                 <h6>Le projet</h6>
                 <p class="content-text" v-html="project.content?.description" />
               </div>
-
-              <!--              <div-->
-              <!--                v-else-if="-->
-              <!--                  project.content.medias.length &&-->
-              <!--                  project.content.medias[0].type === ImageType.VIDEO-->
-              <!--                "-->
-              <!--                class="content-container">-->
-              <!--                <h6>Vidéos</h6>-->
-              <!--                <div class="content-media">-->
-              <!--                  <iframe-->
-              <!--                    v-for="(media, index) in project.content.medias"-->
-              <!--                    :key="`image-${index}`"-->
-              <!--                    :src="media.path"-->
-              <!--                    title="Déballage d&#39;un vélo"-->
-              <!--                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
-              <!--                    allowfullscreen />-->
-              <!--                </div>-->
-              <!--              </div>-->
             </Item>
           </ul>
         </div>
@@ -84,6 +66,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { useMediaQuery } from '@vueuse/core';
+import { useRoute } from 'vue-router';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -104,6 +87,13 @@ const titles = ref([
   ['', '', ''],
 ]);
 
+const props = defineProps({
+  pageLoaded: Array<String>,
+});
+
+const emit = defineEmits(['updatePageLoaded']);
+const route = useRoute();
+
 const showTitle = useMediaQuery('(min-width: 760px)');
 let root = document.documentElement;
 
@@ -112,6 +102,21 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
   CustomEase.create('expendEase', '0.56, 0.14, 0.27, 0.97');
   CustomEase.create('countEase', '0.4, 0.11, 0.45, 0.97');
+
+  if (!props.pageLoaded.includes(route.name)) {
+    gsap.set(`.titles-sub-container`, {
+      marginTop: 66 + 3,
+    });
+
+    gsap.to(`.titles-sub-container`, {
+      marginTop: 0,
+      duration: 0.8,
+      ease: 'appearEase',
+    });
+
+    // On indique que la page a été chargée
+    emit('updatePageLoaded', { name: route.name });
+  }
 
   for (let i = 0; i < content.value.children.length; i++) {
     ScrollTrigger.create({
@@ -124,36 +129,6 @@ onMounted(() => {
       onUpdate: () => updateActiveList(i),
     });
   }
-
-  // 0 : ['w', 'e']
-  // 1 : ['c', 'r', 'a', 'f', 't']
-  // 2 : ['a', 'p', 'p', 's']
-  // ------
-  // 0 : ['i', 'd', 'i', 'x']
-  // ------
-  // 0 : ['w', 'a', 'r', 'e', 'e', 'g', 'a']
-
-  // [
-  //   [['w', 'i', 'w'], ['e', 'd', 'a'], [' ', 'i', 'r'], [' ', 'x', 'e'], [' ', ' ', 'e'], [' ', ' ', 'g'], [' ', ' ', 'a']],
-  //   [['c', ' ', ' '], ['r', ' ', ' '], ['a', ' ', ' '], ['f', ' ', ' '], ['t', ' ', ' ']],
-  //   [['a', ' ', ' '], ['p', ' ', ' '], ['p', ' ', ' '], ['s', ' ', ' ']]
-  // ]
-
-  // Stack.forEach((projet) => {
-  //   titles.value.push(
-  //     projet.title.split('\n').map((word) => {
-  //       return word.split('');
-  //     })
-  //   );
-  // });
-
-  // ['we', 'idix', 'wareega'],
-  // ['craft', '', ''],
-  // ['apps', '', ''],
-
-  // titles.value = Stack.map((title) => title.title.split('\n'));
-
-  // console.log(titles.value);
 });
 
 onUnmounted(() => {
@@ -176,34 +151,7 @@ watch(activeList, (newValue) => {
   updateActiveListIndex(newValue);
 });
 
-// Retourne le numéro de la liste courente
-// const activeListIndex = computed(() => {
-//   return ('0' + (activeList.value + 1)).slice(-2);
-// });
-
-// const largestTitle = computed(() => {
-//   return titles.value.reduce((maxI, el, i, arr) => (el.length > arr[maxI].length ? i : maxI), 0);
-// });
-
 const updateActiveListTitle = (newValue: number) => {
-  // for (let i = 0; i < 7; i++) {
-  //   gsap.to(`.words-container:nth-of-type(${i + 1})`, {
-  //     marginTop: `-${72 * newValue}px`,
-  //     duration: 0.5,
-  //     delay: `${0.1 * i}`,
-  //     ease: 'countEase',
-  //   });
-  // }
-
-  // for (let i = 0; i < titles.value.length; i++) {
-  //   gsap.to(`.titles-container:nth-of-type(${i + 1})`, {
-  //     marginTop: `-${72 * newValue}px`,
-  //     duration: 0.5,
-  //     delay: `${0.1 * i}`,
-  //     ease: 'countEase',
-  //   });
-  // }
-
   for (let i = 0; i < titles.value.length; i++) {
     gsap.to(`.titles-sub-container`, {
       marginTop: `-${(66 + 3 * i) * newValue}px`,
@@ -236,11 +184,6 @@ const updateActiveListIndex = (newValue: number) => {
 const companyCount = computed(() => {
   return ('0' + Stack?.length).slice(-2);
 });
-
-// Retourne le titre de la liste courente
-// const titlePage = computed(() => {
-//   return Stack?.[activeList.value].title;
-// });
 
 // Set l'index de la liste active
 const updateActiveList = (index: number) => {
