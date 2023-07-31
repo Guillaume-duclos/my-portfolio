@@ -2,67 +2,35 @@
   {
     "title": "Front",
     "list": [
-      {
-        "title": "React"
-      },
-      {
-        "title": "Vue"
-      },
-      {
-        "title": "Webpack / Vite / VitePress"
-      },
-      {
-        "title": "JavaScript / TypeScript"
-      },
-      {
-        "title": "SCSS / SASS / PostCSS"
-      },
-      {
-        "title": "GSAP"
-      },
-      {
-        "title": "Three.js"
-      },
-      {
-        "title": "Canvas HTML"
-      },
-      {
-        "title": "Axios"
-      }
+      { "title": "React" },
+      { "title": "Vue" },
+      { "title": "Webpack / Vite / VitePress" },
+      { "title": "JavaScript / TypeScript" },
+      { "title": "SCSS / SASS / PostCSS" },
+      { "title": "GSAP" },
+      { "title": "Three.js" },
+      { "title": "Canvas HTML" },
+      { "title": "Axios" },
+      { "title": "Github Actions" }
     ]
   },
   {
     "title": "Back",
     "list": [
-      {
-        "title": "Node.js"
-      },
-      {
-        "title": "Nest.js"
-      },
-      {
-        "title": "PostgreSQL"
-      },
-      {
-        "title": "Knex.js"
-      },
-      {
-        "title": "Nunjucks"
-      },
-      {
-        "title": "JWT"
-      }
+      { "title": "Node.js" },
+      { "title": "Nest.js" },
+      { "title": "PostgreSQL" },
+      { "title": "Knex.js" },
+      { "title": "Nunjucks" },
+      { "title": "JWT" },
+      { "title": "Github Actions" }
     ]
   },
   {
     "title": "Mobile",
     "list": [
-      {
-        "title": "React-Native"
-      },
-      {
-        "title": "Swift, SwiftUI"
-      }
+      { "title": "React-Native" },
+      { "title": "Swift, SwiftUI" }
     ]
   }
 ]
