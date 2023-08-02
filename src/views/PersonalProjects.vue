@@ -266,11 +266,6 @@ const companyCount = computed(() => {
   return ('0' + PersonalProjects?.length).slice(-2);
 });
 
-// Retourne la période de la liste courente
-const period = computed(() => {
-  return PersonalProjects?.[activeList.value].period;
-});
-
 // Set l'index de la liste active
 const updateActiveList = (index: number) => {
   activeList.value = index;

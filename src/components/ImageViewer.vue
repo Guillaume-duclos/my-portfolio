@@ -39,31 +39,46 @@ const exit = () => {
   z-index: 1;
   overflow: hidden;
   backdrop-filter: blur(16px);
-  border: 0px solid red;
 
   .exit-button {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 20px;
+    right: 10px;
     border: none;
     cursor: pointer;
     background: transparent;
+
+    @media (min-width: 640px) {
+      top: 30px;
+      right: 30px;
+    }
   }
 
   .medias-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-gap: 24px;
-    padding: 24px 50px;
-    height: 75%;
     overflow: auto;
+    padding: 60px 24px;
     -ms-overflow-style: none;
     scrollbar-width: thin;
     scrollbar-color: #000000 #000000;
-    border: 0px solid green;
+
+    @media (min-width: 640px) {
+      display: flex;
+      flex-direction: row;
+      height: 75%;
+      padding: 24px 50px;
+    }
 
     &::-webkit-scrollbar {
-      height: 2px;
+      width: 2px;
       background: transparent;
+
+      @media (min-width: 640px) {
+        height: 2px;
+      }
     }
 
     &::-webkit-scrollbar-track {
@@ -81,8 +96,12 @@ const exit = () => {
     }
 
     img {
-      height: 100%;
-      border: 0px solid blue;
+      height: 85%;
+
+      @media (min-width: 640px) {
+        display: flex;
+        height: 100%;
+      }
     }
   }
 }

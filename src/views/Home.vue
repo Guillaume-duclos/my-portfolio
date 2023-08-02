@@ -58,7 +58,8 @@
                 </button>
               </div>
             </a>
-            <RouterLink v-else :to="link.route">
+
+            <router-link v-else :to="link.route">
               <div>
                 <h4>{{ link.title }}</h4>
                 <h5 v-html="link.subTitle" />
@@ -69,7 +70,7 @@
                   <img src="../assets/icons/arrow-right.svg" alt="Ouvrir" />
                 </button>
               </div>
-            </RouterLink>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -102,7 +103,7 @@ const rsLinks = ref();
 onMounted(() => {
   gsap.registerPlugin(CustomEase);
 
-  if (!props.pageLoaded.includes(route.name)) {
+  if (showTitle.value && !props.pageLoaded.includes(route.name)) {
     // Initialisation du ease
     CustomEase.create('appearEase', '.56, .08, .24, 1');
 
