@@ -13,7 +13,9 @@
     </router-view>
   </div>
 
-  <ImageViewer v-if="mediasViewerData" @exit="hideMediasViewer" :medias="mediasViewerData" />
+  <transition v-on:enter="enter" v-on:leave="leave" mode="out-in">
+    <ImageViewer v-if="mediasViewerData" @exit="hideMediasViewer" :medias="mediasViewerData" />
+  </transition>
 </template>
 
 <script setup lang="ts">
