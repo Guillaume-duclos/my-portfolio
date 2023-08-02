@@ -61,6 +61,7 @@
                 <div class="content-media">
                   <img
                     v-for="(media, index) in project.content.medias"
+                    @click="displayMediasViewer(project.content.medias)"
                     :key="`image-${index}`"
                     :src="`./assets/img/${media.path}.png`"
                     :alt="media.description"
@@ -157,7 +158,7 @@ const props = defineProps({
   pageLoaded: Array<String>,
 });
 
-const emit = defineEmits(['updatePageLoaded']);
+const emit = defineEmits(['updatePageLoaded', 'displayMediasViewer']);
 const route = useRoute();
 
 const pageTitle = ref();
@@ -264,11 +265,6 @@ const companyCount = computed(() => {
   return ('0' + ProfessionalProjects?.length).slice(-2);
 });
 
-// Retourne la période de la liste courente
-const period = computed(() => {
-  return ProfessionalProjects?.[activeList.value].period;
-});
-
 // Set l'index de la liste active
 const updateActiveList = (index: number) => {
   activeList.value = index;
@@ -318,5 +314,10 @@ const extendItemView = () => {
   });
 
   itemViewExtended.value = !itemViewExtended.value;
+};
+
+// On affiche les médias en plein écran
+const displayMediasViewer = (medias) => {
+  emit('displayMediasViewer', medias);
 };
 </script>

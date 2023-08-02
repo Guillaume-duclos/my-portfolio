@@ -61,6 +61,7 @@
                 <div class="content-media">
                   <img
                     v-for="(media, index) in project.content.medias"
+                    @click="displayMediasViewer(project.content.medias)"
                     :key="`image-${index}`"
                     :src="`./assets/img/${media.path}.png`"
                     :alt="media.description"
@@ -170,7 +171,7 @@ const props = defineProps({
   pageLoaded: Array<String>,
 });
 
-const emit = defineEmits(['updatePageLoaded']);
+const emit = defineEmits(['updatePageLoaded', 'displayMediasViewer']);
 const route = useRoute();
 
 const showTitle = useMediaQuery('(min-width: 760px)');
@@ -319,5 +320,10 @@ const extendItemView = () => {
   });
 
   itemViewExtended.value = !itemViewExtended.value;
+};
+
+// On affiche les médias en plein écran
+const displayMediasViewer = (medias) => {
+  emit('displayMediasViewer', medias);
 };
 </script>

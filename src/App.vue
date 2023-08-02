@@ -4,10 +4,16 @@
 
     <router-view v-slot="{ Component }">
       <transition v-on:enter="enter" v-on:leave="leave" mode="out-in">
-        <component :is="Component" :pageLoaded="pageLoaded" @updatePageLoaded="updatePageLoaded" />
+        <component
+          :is="Component"
+          :pageLoaded="pageLoaded"
+          @updatePageLoaded="updatePageLoaded"
+          @displayMediasViewer="displayMediasViewer" />
       </transition>
     </router-view>
   </div>
+
+  <ImageViewer v-if="mediasViewerData" @exit="hideMediasViewer" :medias="mediasViewerData" />
 </template>
 
 <script setup lang="ts">
@@ -16,10 +22,12 @@ import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useTitle } from '@vueuse/core';
 import Header from './components/Header.vue';
+import ImageViewer from './components/ImageViewer.vue';
 
 const route = useRoute();
 const title = useTitle();
 const enableTransition = ref(false);
+const mediasViewerData = ref();
 const pageLoaded = ref([]);
 
 watch(
@@ -73,6 +81,16 @@ const leave = (element: any, done: any) => {
 // On met à jour les pages déjà visitées une première fois
 const updatePageLoaded = (page) => {
   pageLoaded.value.push(page.name);
+};
+
+// On affiche les médias
+const displayMediasViewer = (medias) => {
+  mediasViewerData.value = medias;
+};
+
+// On cache les médias
+const hideMediasViewer = () => {
+  mediasViewerData.value = null;
 };
 </script>
 

@@ -274,6 +274,7 @@ const updateBackgroundColor = () => {
 
         img {
           width: 120px;
+          cursor: pointer;
 
           &.website-image {
             width: 320px;
