@@ -206,7 +206,38 @@
             }
           ]
         }
-      }
+      },
+      {
+        "title": "Globe with Three.js",
+        "subTitle": "Projet de teste avec Three.js",
+        "color": "#D3DEEF",
+        "content": {
+          "description": "Un projet qui représente les continents avec des points à la manière du globe reproduit par Github, présent sur leur landing page.",
+          "medias": [
+            {
+              "path": "flight-tracker-1",
+              "description": "Flight Tracker",
+              "type": "website"
+            }
+          ],
+          "stack": [
+            {
+              "name": "Front",
+              "technos": "PostCSS, Three.js"
+            }
+          ],
+          "links": [
+            {
+              "name": "Preview",
+              "link": "https://guillaume-duclos.github.io/flight-tracker/"
+            },
+            {
+              "name": "Lien du projet",
+              "link": "https://github.com/Guillaume-duclos/flight-tracker"
+            }
+          ]
+        }
+      },
     ]
   },
   {
