@@ -28,9 +28,6 @@
   },
   {
     "title": "Mobile",
-    "list": [
-      { "title": "React-Native" },
-      { "title": "Swift, SwiftUI" }
-    ]
+    "list": [{ "title": "React Native / Expo" }, { "title": "Swift, SwiftUI" }]
   }
 ]

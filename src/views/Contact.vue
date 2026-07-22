@@ -28,7 +28,7 @@
               :isOpen="true">
               <ul class="content-list">
                 <li><span class="content-list-title">Tel : </span>(438)-529-2542</li>
-                <li><span class="content-list-title">Mail : </span>guillaume-duclos@hotmail.fr</li>
+                <li><span class="content-list-title">Mail : </span>guillaumeduclos.dg@gmail.com</li>
                 <li><span class="content-list-title">Ville : </span>Montréal, QC</li>
               </ul>
 
